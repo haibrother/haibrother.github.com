@@ -1,0 +1,48 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>&#35774;&#32622;&#19968;&#20010;cURL&#20256;&#36755;&#36873;&#39033;</title><link rel="stylesheet" type="text/css" href="/blog/php/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="PHP&#25216;&#26415;&#25163;&#20876;"><link rel="up" href="ch01.html" title="Chapter 1. CURL&#27010;&#36848;"><link rel="prev" href="ch01s05.html" title="curl_close"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">&#35774;&#32622;&#19968;&#20010;cURL&#20256;&#36755;&#36873;&#39033;</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch01s05.html">Prev</a> </td><th width="60%" align="center">Chapter 1. CURL&#27010;&#36848;</th><td width="20%" align="right"> </td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id655113"></a>&#35774;&#32622;&#19968;&#20010;cURL&#20256;&#36755;&#36873;&#39033;</h2></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id655118"></a>&#36828;&#31243;POST&#12289;GET&#35831;&#27714;</h3></div></div></div>
+            <pre class="screen">
+/**
+*POST&#35831;&#27714;
+**/
+function PostHttpStatusCode($url, $data){
+	  $ch = curl_init();
+	  curl_setopt($ch, CURLOPT_URL, $url);  
+	  curl_setopt($ch,CURLOPT_NOHEADER,1);//&#33719;&#21462;http&#22836;&#20449;&#24687; 
+	  curl_setopt($ch, CURLOPT_POST, 1); 
+	  curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+	  curl_setopt($ch, CURLOPT_HEADER, false);
+	  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      ///////////////////&#19979;&#38754;&#20004;&#34892;&#20026;&#35831;&#27714;https&#26102;&#38656;&#35201;&#29992;&#21040;
+	  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+	  curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+      ///////////////////////////////
+	  curl_setopt($ch, CURLOPT_TIMEOUT, 1);
+	  $list['content']=curl_exec($ch); 
+	  $list['status']= curl_getinfo($ch,CURLINFO_HTTP_CODE);
+	  curl_close($ch);
+	  return $list; 
+}
+/**
+*GET&#35831;&#27714;
+**/
+function GetHttpStatusCode($url){
+   $ch = curl_init($url) ;
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true) ; // &#33719;&#21462;&#25968;&#25454;&#36820;&#22238;
+    curl_setopt($ch, CURLOPT_BINARYTRANSFER, true) ; // &#22312;&#21551;&#29992; CURLOPT_RETURNTRANSFER &#26102;&#20505;&#23558;&#33719;&#21462;&#25968;&#25454;&#36820;&#22238;
+    $result = curl_exec($ch) ;
+    curl_close($ch);
+    return $result;
+}
+            </pre>
+        </div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id655128"></a>OPT&#21442;&#25968;&#35814;&#35299;</h3></div></div></div>
+            <p><a class="ulink" href="http://cn2.php.net/manual/zh/function.curl-setopt.php" target="_top">&#23448;&#26041;&#35814;&#35299;</a></p>
+            <p><b>CURLOPT_URL. </b></p>
+            <p><b>CURLOPT_URL. </b></p>
+            <p><b>CURLOPT_URL. </b></p>
+            <p><b>CURLOPT_URL. </b></p>
+            <p><b>CURLOPT_URL. </b></p>
+            <p><b>CURLOPT_URL. </b></p>
+        </div>
+    </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch01s05.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch01.html">Up</a></td><td width="40%" align="right"> </td></tr><tr><td width="40%" align="left" valign="top">curl_close </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> </td></tr></table></div></body></html>
