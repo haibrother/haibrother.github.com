@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V5.0//EN"
+	"file:///E:/yidong/docbook/docbook-xml-4.5/docbookx.dtd" [
+
+	<!ENTITY head SYSTEM "head.xml">
+]>
+<book xml:base="http://netkiller.mefound.com/book/publish/"
+	xmlns="http://docbook.org/ns/docbook" xml:lang="zh-cn">
+	<info>
+		<title>Netkiller Document 手札</title>
+		<author>
+			<firstname>netkiller</firstname>
+			<surname>Neo Chan</surname>
+			<affiliation>
+				<address>
+					<email>openunix(at)163(dot)com</email>
+				</address>
+			</affiliation>
+		</author>
+		<copyright>
+			<year>2008</year>
+			<holder>Copyright netkiller</holder>
+		</copyright>
+		<releaseinfo>
+			<para>修订版本 2008-5-24</para>
+		</releaseinfo>
+
+		<abstract>
+			<title></title>
+			<para></para>
+		</abstract>
+	</info>
+
+	<preface>
+		<title></title>
+		<para></para>
+	</preface>
+
+	&head;
+
+</book>

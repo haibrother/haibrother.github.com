@@ -1,0 +1,9 @@
+<chapter><title>触发器</title>
+    <sect1><title>创建触发器</title>
+        <sect2><title>创建只有一个执行语句的触发器</title></sect2>
+        <sect2><title>创建有多个执行语句的触发器</title></sect2>
+    </sect1>
+    <sect1><title>查看触发器</title> </sect1>
+    <sect1><title>触发器的使用</title> </sect1>
+    <sect1><title>删除触发器</title> </sect1>
+</chapter>

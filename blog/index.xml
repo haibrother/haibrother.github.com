@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V5.0//EN"
+	"E:/yidong/docbook/docbook-xml-4.5/docbookx.dtd" [
+    <!ENTITY header SYSTEM "common/header.xml">
+    
+]>
+<book>
+ &header;
+<title>mysql技术手册</title>
+  <chapter><title>数据库概述</title>
+    <para>章引言... </para>
+    <sect1><title>節標題</title>
+      <para>節內容.11.. </para>
+      <para>節內容.11.. </para>
+      <sect2><title>laobitest</title>
+        <para>節內容.11.. </para>
+        <para>節內容.11.. </para>
+      </sect2>
+    </sect1>
+  </chapter>
+  <chapter><title>mysql源来</title>
+    <para>mysql源来mysql源来mysql源来 </para>
+    <sect1><title>節標題</title>
+      <para>節內容.11.. </para>
+      <para>節內容.11.. </para>
+      <sect2><title>laobitest</title>
+        <para>節內容.11.. </para>
+        <para>節內容.11.. </para>
+      </sect2>
+    </sect1>
+  </chapter>
+</book>

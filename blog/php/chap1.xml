@@ -1,0 +1,67 @@
+<chapter><title>CURL概述</title>
+    <para>CURL概念 </para>
+    <para>它支持很多协议：FTP, FTPS, HTTP, HTTPS, GOPHER, TELNET, DICT, FILE 以及 LDAP。 </para>
+    <sect1><title>curl_init</title>
+        <para>curl_init为初始化一个CURL</para>
+    </sect1>
+    <sect1><title>curl_exec</title>
+        <para>执行一个cURL会话,这个函数应该在初始化一个cURL会话并且全部的选项都被设置后被调用</para>
+    </sect1>
+    <sect1><title>curl_error</title>
+        <para>返回一个保护当前会话最近一次错误的字符串</para>
+    </sect1>
+    <sect1><title>curl_getinfo</title>
+        <para>获取一个cURL连接资源句柄的信息</para>
+    </sect1>
+    <sect1><title>curl_close</title>
+        <para>关闭一个cURL会话</para>
+    </sect1>
+    <sect1><title>设置一个cURL传输选项</title>
+        <sect2><title>远程POST、GET请求</title>
+            <screen>
+/**
+*POST请求
+**/
+function PostHttpStatusCode($url, $data){
+	  $ch = curl_init();
+	  curl_setopt($ch, CURLOPT_URL, $url);  
+	  curl_setopt($ch,CURLOPT_NOHEADER,1);//获取http头信息 
+	  curl_setopt($ch, CURLOPT_POST, 1); 
+	  curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+	  curl_setopt($ch, CURLOPT_HEADER, false);
+	  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      ///////////////////下面两行为请求https时需要用到
+	  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+	  curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+      ///////////////////////////////
+	  curl_setopt($ch, CURLOPT_TIMEOUT, 1);
+	  $list['content']=curl_exec($ch); 
+	  $list['status']= curl_getinfo($ch,CURLINFO_HTTP_CODE);
+	  curl_close($ch);
+	  return $list; 
+}
+/**
+*GET请求
+**/
+function GetHttpStatusCode($url){
+   $ch = curl_init($url) ;
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true) ; // 获取数据返回
+    curl_setopt($ch, CURLOPT_BINARYTRANSFER, true) ; // 在启用 CURLOPT_RETURNTRANSFER 时候将获取数据返回
+    $result = curl_exec($ch) ;
+    curl_close($ch);
+    return $result;
+}
+            </screen>
+        </sect2>
+        <sect2><title>OPT参数详解</title>
+            <para><ulink url='http://cn2.php.net/manual/zh/function.curl-setopt.php'>官方详解</ulink></para>
+            <formalpara><title>CURLOPT_URL</title></formalpara>
+            <formalpara><title>CURLOPT_URL</title></formalpara>
+            <formalpara><title>CURLOPT_URL</title></formalpara>
+            <formalpara><title>CURLOPT_URL</title></formalpara>
+            <formalpara><title>CURLOPT_URL</title></formalpara>
+            <formalpara><title>CURLOPT_URL</title></formalpara>
+        </sect2>
+    </sect1>
+  </chapter>

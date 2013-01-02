@@ -1,0 +1,27 @@
+ <bookinfo>
+    <title>linux技术手册</title>
+
+    <author>
+      <affiliation>
+        <address>
+            <email>bilehai@foxmail.com</email>
+            <otheraddr>www.haibrother.com</otheraddr>
+            <street>162 Guelph Street</street>
+              <city>广东省深圳市龙华新区惠鑫公寓</city>
+              <state>ON</state>
+              <country>中国</country>
+              <postcode>518109</postcode>
+              <phone>15019423109</phone>
+        </address>
+      </affiliation>
+    </author>
+
+    <copyright>
+      <year>2012</year>
+      <holder>haibrother</holder>
+    </copyright>
+
+    <abstract>
+      <para>如果你想联系我，请发邮件给我！</para>
+    </abstract>
+  </bookinfo>

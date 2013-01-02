@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V5.0//EN"
+	"E:/yidong/docbook/docbook-xml-4.5/docbookx.dtd" [
+    <!ENTITY header SYSTEM "common/header.xml">
+    <!ENTITY chap1 SYSTEM "chap1.xml">
+    <!ENTITY chap2 SYSTEM "chap2.xml">
+    <!ENTITY chap6 SYSTEM "chap6.xml">
+    <!ENTITY chap7 SYSTEM "chap7.xml">
+    <!ENTITY chap9 SYSTEM "chap9.xml"> <!--触发器-->
+]>
+<book>
+ &header;
+<title>mysql技术手册</title>
+  &chap1;
+  &chap2;
+  &chap6;
+  &chap7;
+  &chap9;
+  
+</book>

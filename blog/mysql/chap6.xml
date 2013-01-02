@@ -1,0 +1,158 @@
+<chapter><title>创建、修改和删除表</title>
+    <sect1><title>创建表</title>
+        <para>创建表是指在已在的数据库中建立新表。这是建立数据库最重要的一步，是进行其他表操作的基础。</para>
+        <sect2><title>创建表的语法形式</title>
+            <formalpara><title>MYSQL中，创建表是通过 SQL语句 CREATE TABLE实现的</title>
+            <screen>
+CREATE TABLE 表名(属性名 数据类型 [完整性约束条件],
+属性名字数据类型 [完整性约束条件],
+....
+属性名 数据类型
+);
+            </screen>
+             <table>
+               <title>MYSQL中基本的完整性约束条件</title>
+               <tgroup cols="2">
+                 <thead>
+                   <row>
+                      <entry>约束条件</entry>
+                      <entry>说明</entry>
+                   </row>
+                 </thead>
+                <tbody>
+                   <row>
+                      <entry>PRIMARY KEY</entry>
+                      <entry>标识该属性为该表的主键，可以唯一的标识对应的元素</entry>
+                   </row>
+                   <row>
+                    <entry>FOREIGN KEY</entry>
+                    <entry>标识该属性为该表的外键，是与之联系的某主键</entry>
+                   </row>
+                   <row>
+                    <entry>NOT NULL</entry>
+                    <entry>标识该属性不能为空</entry>
+                   </row>
+                   <row>
+                        <entry>AUTO_INCREMENT</entry>
+                        <entry>标识该属性的值自动增加，审MYSQL的SQL语句的特色</entry>
+                   </row>
+                   <row>
+                    <entry>DEFAULT</entry>
+                    <entry>为该属性设置默认值</entry>
+                   </row>
+                </tbody>
+               </tgroup>
+            </table>
+            </formalpara>
+             
+        </sect2>
+        <sect2><title>设置表的主键</title>
+            <para>主键是表的一个特殊字段。该字段能唯一标识该表中的每条信息。主键的记录的关系是，如同身份证与人的关系。</para>
+            <formalpara><title>单字段主键</title>
+                <screen>
+属性名 数据类型 PRIMARY KEY
+mysql> CREATE TABLE table6 (id INT PRIMARY KEY,
+-> name VARCHAR(20),
+-> SEX BOOLEAN);
+                </screen>
+            </formalpara>
+            <formalpara><title>多字段主键</title>
+            <screen>
+PRIMARY KEY(属性名,属性名,...)
+mysql> CREATE TABLE table7(id INT,
+-> uid INT,
+-> name VARCHAR(10),
+-> PRIMARY KEY(id,uid));
+Query OK, 0 rows affected (0.05 sec)
+            </screen>
+            </formalpara>
+        </sect2>
+        <sect2><title>设置表的外键</title></sect2>
+        <sect2><title>设置表的非空约束</title>
+            <para>非空性是指字段的值不能为空值。非空约束将保证所有记录中该字段都有值。如果用户插入空值，则数据库会提示出错</para>
+            <screen>
+属性名 数据类型 NOT NULL
+            
+mysql> CREATE TABLE table8(id INT,
+-> name VARCHAR(30) NOT NULL);
+            </screen>
+        </sect2>
+        <sect2><title>设置表的属性自动增加</title>
+            <screen>属性名 数据类型 AUTO_INCREMENT</screen>
+        </sect2>
+        <sect2><title>设置表的属性的默认值</title>
+            <screen>属性名 数据类型 DEFAULT 默认值</screen>
+        </sect2>
+    </sect1>
+    <sect1><title>查看表结构</title>
+        <sect2><title>查看基本结构语句 DESCRIBE</title>
+            <screen>
+DESC/DESCRIBE 表名;
+**************************************
+mysql> DESC table6;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | NO   | PRI | NULL    |       |
+| name  | varchar(20) | YES  |     | NULL    |       |
+| SEX   | tinyint(1)  | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+            </screen>
+        </sect2>
+        <sect2><title>查看表详细结构语句 SHOW CREATE TABLE</title></sect2>
+    </sect1>
+    <sect1><title>修改表</title>
+        <para>修改表是指修改数据库中已经表的定义。修改表比重新定义表简单，不需要重新加载数据，也不会影响正在进行的服务。MYSQL可以通过ALTER TABLE来修改表。</para>
+        <sect2><title>修改表名</title>
+<screen>
+ALTER TABLE 旧表名 RENAME [to] 新表名
+**************************************
+mysql> ALTER TABLE table6 RENAME table5;
+Query OK, 0 rows affected (0.02 sec)
+</screen>
+        </sect2>
+        <sect2><title>修改字段的数据类型</title>
+<screen>
+ALTER TABLE 表名 MODIFY 属性名 数据类型
+*******************************************
+mysql> ALTER TABLE table8 MODIFY name CHAR(10);
+</screen>
+        </sect2>
+        <sect2><title>修改字段名</title>
+<screen>
+ALTER TABLE 表名 CHANGE 旧属性名 新属性名 新数据类型;
+*****************************************************
+mysql> ALTER TABLE table8 CHANGE  name username VARCHAR(32);
+</screen>
+        </sect2>
+        <sect2><title>增加字段</title>
+<screen>
+ALTER TABLE 表名 ADD 属性名1 数据类型 [完整性约束条件] [FIRST | AFTER 属性名2]
+***********************************************************************************
+mysql> ALTER TABLE table8 ADD pass VARCHAR(10);
+</screen>
+        </sect2>
+        <sect2><title>删除字段</title>
+<screen>
+ALTER TABLE 表名 DROP 属性名;
+</screen>
+        </sect2>
+        <sect2><title>修改字段的排列位置</title>
+
+        </sect2>
+        <sect2><title>更改表的存储引擎</title>
+<screen>
+ALTER TABLE 表名 ENGINE=存储引擎
+***************************************
+mysql> ALTER TABLE table8 ENGINE=Innodb;
+</screen>
+        </sect2>
+        <sect2><title>删除表的外键约束</title></sect2>
+    </sect1>
+    <sect1><title>删除表</title>
+        <sect2><title>删除没有被关联的普通表</title></sect2>
+        <sect2><title>删除被其他表关联的父表</title></sect2>
+    </sect1>
+    
+</chapter>

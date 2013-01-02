@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V5.0//EN"
+	"E:/yidong/docbook/docbook-xml-4.5/docbookx.dtd" [
+    <!ENTITY header SYSTEM "common/header.xml">
+    <!ENTITY chap1 SYSTEM "chap1.xml"> <!--linux 概述-->
+    <!ENTITY chap2 SYSTEM "chap2.xml">
+    <!ENTITY chap3 SYSTEM "chap3.xml"> <!--ubuntu -->
+]>
+<book>
+ &header;
+<title>linux技术手册</title>
+  &chap1;
+  &chap2;
+  &chap3;
+</book>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V5.0//EN"
+	"E:/yidong/docbook/docbook-xml-4.5/docbookx.dtd" [
+    <!ENTITY header SYSTEM "common/header.xml">
+    
+]>
+<book>
+ &header;
+  <chapter>
+    <chapter><title>章</title>
+  <para>章引言... </para>
+  <sect1><title>sect1 標題</title>
+    <para>sect1 文字段落...</para>
+    <sect2><title>sect2 標題</title>
+      <para>sect2 文字段落...</para>
+      <sect3><title>sect3 標題</title>
+        <para>sect3 文字段落...</para>
+        <sect4><title>sect4 標題</title>
+          <para>sect4 文字段落...</para>
+          <sect5><title>sect5 標題</title>
+            <para>sect5 文字段落...</para>
+          </sect5>
+        </sect4>
+      </sect3>
+    </sect2>
+  </sect1>
+</chapter>
+  </chapter>
+ 
+</book>

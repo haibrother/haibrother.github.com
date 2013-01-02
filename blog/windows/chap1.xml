@@ -1,0 +1,63 @@
+<chapter><title>bat 批处理</title>
+    <para>批处理(Batch)，也称为批处理脚本。顾名思义，批处理就是对某对象进行批量的处理。批处理文件的扩展名为bat 。目前比较常见 的批处理包含两类：DOS批处理和PS批处理。PS批处理是基于强大的图片编辑软件Photoshop的，用来批量处理图片的脚本；而DOS批处理则是基于DOS命令的，用来自动地批量地执行DOS命令以实现特定操作的脚本。</para>
+    <sect1><title>通过批处理来切换HOST文件</title>
+        <para>身处WEB开发的我们，会经常遇到切换HOST文件，其实也可以自己建个虚拟机来专门用来测试，但本人电脑配置不是很高，运行虚拟机会很卡，于是开始学习了BAT批处理的语法。下面是一个修改HOST的简单程序</para>
+        <formalpara><title>批处理程序</title>
+    <screen>
+::批处理的路径
+cd C:\Windows\System32\drivers\etc
+IF EXIST hosts1 (
+	copy hosts  hosts2
+	copy hosts1 hosts
+	DEL hosts1
+) ELSE (
+	copy hosts  hosts1
+	copy hosts2 hosts
+	DEL hosts2
+)
+::CMD
+        </screen>
+        </formalpara>
+        <formalpara><title>HOSTS文件</title>
+        <screen>
+#1w程序
+127.0.0.1		lh.admin9.ag96.com
+127.0.0.1		lh.www.hx9999.com
+127.0.0.1		lh.myid.hx9999.com
+127.0.0.1		lh.images.hx9999.com
+127.0.0.1		lh.info.hx9999.com
+        </screen>
+        </formalpara>
+        <formalpara><title>HOSTS1文件</title>
+        <screen>
+#1w程序
+192.168.2.10    www.hx9999.com
+192.168.2.10    images.hx9999.com
+192.168.2.10    info.hx9999.com
+192.168.2.11    infoadmin.hx9999.com
+192.168.2.12    admin.hx9999.com
+192.168.2.13    myid.hx9999.com
+192.168.2.14	card-up.hx9999.com
+192.168.2.14	card-look.hx9999.com
+        </screen>
+        </formalpara>
+    </sect1>
+  
+  <sect1><title>批处理基本语法</title>
+      <sect2><title>批处理常用命令 </title>
+            <sect3><title>echo rem cd dir命令</title></sect3>
+            <sect3><title>attrib del copy xcopy</title></sect3>
+            <sect3><title>md rdd ren move 命令</title></sect3>
+            <sect3><title>find findstr命令</title></sect3>
+      </sect2>
+      <sect2><title>常用命令和符号集</title>
+            <sect3><title>常用的网络命令</title></sect3>
+            <sect3><title>常用的特殊符号</title></sect3>
+      </sect2>
+      <sect2><title>批处理高级语法 </title>
+          <sect3><title>if条件诗句</title></sect3>
+          <sect3><title>for循环语句诗句</title></sect3>
+      </sect2>
+      
+  </sect1>
+  </chapter>
