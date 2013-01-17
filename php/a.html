@@ -1,0 +1,153 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>PHP技术手册</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<meta name="description" content="如果你想联系我，请发邮件给我！">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="book">
+<div class="titlepage">
+<div>
+<div><h1 class="title">
+<a name="id681944"></a>PHP技术手册</h1></div>
+<div><div class="author">
+<h3 class="author"></h3>
+<div class="affiliation"><div class="address"><p><br>
+            <code class="email">&lt;<a class="email" href="mailto:bilehai@foxmail.com">bilehai@foxmail.com</a>&gt;</code><br>
+            <span class="otheraddr">www.haibrother.com</span><br>
+            <span class="street">162 Guelph Street</span><br>
+              <span class="city">广东省深圳市龙华新区惠鑫公寓</span><br>
+              <span class="state">ON</span><br>
+              <span class="country">中国</span><br>
+              <span class="postcode">518109</span><br>
+              <span class="phone">15019423109</span><br>
+        </p></div></div>
+</div></div>
+<div><p class="copyright">Copyright © 2012 haibrother</p></div>
+<div><div class="abstract">
+<p class="title"><b>Abstract</b></p>
+<p>如果你想联系我，请发邮件给我！</p>
+</div></div>
+</div>
+<hr>
+</div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl>
+<dt><span class="chapter"><a href="#id682016">1. CURL概述</a></span></dt>
+<dd><dl>
+<dt><span class="sect1"><a href="#id682028">curl_init</a></span></dt>
+<dt><span class="sect1"><a href="#id682037">curl_exec</a></span></dt>
+<dt><span class="sect1"><a href="#id682047">curl_error</a></span></dt>
+<dt><span class="sect1"><a href="#id682058">curl_getinfo</a></span></dt>
+<dt><span class="sect1"><a href="#id682067">curl_close</a></span></dt>
+<dt><span class="sect1"><a href="#id682077">设置一个cURL传输选项</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="#id682082">远程POST、GET请求</a></span></dt>
+<dt><span class="sect2"><a href="#id682093">OPT参数详解</a></span></dt>
+</dl></dd>
+</dl></dd>
+</dl>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div><h1 class="title">
+<a name="id682016"></a>Chapter 1. CURL概述</h1></div></div></div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl>
+<dt><span class="sect1"><a href="#id682028">curl_init</a></span></dt>
+<dt><span class="sect1"><a href="#id682037">curl_exec</a></span></dt>
+<dt><span class="sect1"><a href="#id682047">curl_error</a></span></dt>
+<dt><span class="sect1"><a href="#id682058">curl_getinfo</a></span></dt>
+<dt><span class="sect1"><a href="#id682067">curl_close</a></span></dt>
+<dt><span class="sect1"><a href="#id682077">设置一个cURL传输选项</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="#id682082">远程POST、GET请求</a></span></dt>
+<dt><span class="sect2"><a href="#id682093">OPT参数详解</a></span></dt>
+</dl></dd>
+</dl>
+</div>
+<p>CURL概念 </p>
+<p>它支持很多协议：FTP, FTPS, HTTP, HTTPS, GOPHER, TELNET, DICT, FILE 以及 LDAP。 </p>
+<div class="sect1">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="id682028"></a>curl_init</h2></div></div></div>
+<p>curl_init为初始化一个CURL</p>
+</div>
+<div class="sect1">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="id682037"></a>curl_exec</h2></div></div></div>
+<p>执行一个cURL会话,这个函数应该在初始化一个cURL会话并且全部的选项都被设置后被调用</p>
+</div>
+<div class="sect1">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="id682047"></a>curl_error</h2></div></div></div>
+<p>返回一个保护当前会话最近一次错误的字符串</p>
+</div>
+<div class="sect1">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="id682058"></a>curl_getinfo</h2></div></div></div>
+<p>获取一个cURL连接资源句柄的信息</p>
+</div>
+<div class="sect1">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="id682067"></a>curl_close</h2></div></div></div>
+<p>关闭一个cURL会话</p>
+</div>
+<div class="sect1">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="id682077"></a>设置一个cURL传输选项</h2></div></div></div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id682082"></a>远程POST、GET请求</h3></div></div></div>
+<pre class="screen">
+/**
+*POST请求
+**/
+function PostHttpStatusCode($url, $data){
+	  $ch = curl_init();
+	  curl_setopt($ch, CURLOPT_URL, $url);  
+	  curl_setopt($ch,CURLOPT_NOHEADER,1);//获取http头信息 
+	  curl_setopt($ch, CURLOPT_POST, 1); 
+	  curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+	  curl_setopt($ch, CURLOPT_HEADER, false);
+	  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      ///////////////////下面两行为请求https时需要用到
+	  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+	  curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+      ///////////////////////////////
+	  curl_setopt($ch, CURLOPT_TIMEOUT, 1);
+	  $list['content']=curl_exec($ch); 
+	  $list['status']= curl_getinfo($ch,CURLINFO_HTTP_CODE);
+	  curl_close($ch);
+	  return $list; 
+}
+/**
+*GET请求
+**/
+function GetHttpStatusCode($url){
+   $ch = curl_init($url) ;
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true) ; // 获取数据返回
+    curl_setopt($ch, CURLOPT_BINARYTRANSFER, true) ; // 在启用 CURLOPT_RETURNTRANSFER 时候将获取数据返回
+    $result = curl_exec($ch) ;
+    curl_close($ch);
+    return $result;
+}
+            </pre>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id682093"></a>OPT参数详解</h3></div></div></div>
+<p><a class="ulink" href="http://cn2.php.net/manual/zh/function.curl-setopt.php" target="_top">官方详解</a></p>
+<p><b>CURLOPT_URL. </b></p>
+<p><b>CURLOPT_URL. </b></p>
+<p><b>CURLOPT_URL. </b></p>
+<p><b>CURLOPT_URL. </b></p>
+<p><b>CURLOPT_URL. </b></p>
+<p><b>CURLOPT_URL. </b></p>
+</div>
+</div>
+</div>
+</div></body>
+</html>

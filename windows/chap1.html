@@ -1,0 +1,97 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Chapter 1. bat 批处理</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="chapter">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="id555303"></a>Chapter 1. bat 批处理</h2></div></div></div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl>
+<dt><span class="sect1"><a href="#id555337">通过批处理来切换HOST文件</a></span></dt>
+<dt><span class="sect1"><a href="#id555350">批处理基本语法</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="#id555355">批处理常用命令 </a></span></dt>
+<dt><span class="sect2"><a href="#id555380">常用命令和符号集</a></span></dt>
+<dt><span class="sect2"><a href="#id555396">批处理高级语法 </a></span></dt>
+</dl></dd>
+</dl>
+</div>
+<p>批处理(Batch)，也称为批处理脚本。顾名思义，批处理就是对某对象进行批量的处理。批处理文件的扩展名为bat 。目前比较常见 的批处理包含两类：DOS批处理和PS批处理。PS批处理是基于强大的图片编辑软件Photoshop的，用来批量处理图片的脚本；而DOS批处理则是基于DOS命令的，用来自动地批量地执行DOS命令以实现特定操作的脚本。</p>
+<div class="sect1">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="id555337"></a>通过批处理来切换HOST文件</h2></div></div></div>
+<p>身处WEB开发的我们，会经常遇到切换HOST文件，其实也可以自己建个虚拟机来专门用来测试，但本人电脑配置不是很高，运行虚拟机会很卡，于是开始学习了BAT批处理的语法。下面是一个修改HOST的简单程序</p>
+<p><b>批处理程序. </b></p>
+<pre class="screen">
+::批处理的路径
+cd C:\Windows\System32\drivers\etc
+IF EXIST hosts1 (
+	copy hosts  hosts2
+	copy hosts1 hosts
+	DEL hosts1
+) ELSE (
+	copy hosts  hosts1
+	copy hosts2 hosts
+	DEL hosts2
+)
+::CMD
+        </pre>
+<p><b>HOSTS文件. </b></p>
+<pre class="screen">
+#1w程序
+127.0.0.1		lh.admin9.ag96.com
+127.0.0.1		lh.www.hx9999.com
+127.0.0.1		lh.myid.hx9999.com
+127.0.0.1		lh.images.hx9999.com
+127.0.0.1		lh.info.hx9999.com
+        </pre>
+<p><b>HOSTS1文件. </b></p>
+<pre class="screen">
+#1w程序
+192.168.2.10    www.hx9999.com
+192.168.2.10    images.hx9999.com
+192.168.2.10    info.hx9999.com
+192.168.2.11    infoadmin.hx9999.com
+192.168.2.12    admin.hx9999.com
+192.168.2.13    myid.hx9999.com
+192.168.2.14	card-up.hx9999.com
+192.168.2.14	card-look.hx9999.com
+        </pre>
+</div>
+<div class="sect1">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="id555350"></a>批处理基本语法</h2></div></div></div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id555355"></a>批处理常用命令 </h3></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title">
+<a name="id555360"></a>echo rem cd dir命令</h4></div></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title">
+<a name="id555364"></a>attrib del copy xcopy</h4></div></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title">
+<a name="id555369"></a>md rdd ren move 命令</h4></div></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title">
+<a name="id555374"></a>find findstr命令</h4></div></div></div></div>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id555380"></a>常用命令和符号集</h3></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title">
+<a name="id555385"></a>常用的网络命令</h4></div></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title">
+<a name="id555390"></a>常用的特殊符号</h4></div></div></div></div>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id555396"></a>批处理高级语法 </h3></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title">
+<a name="id555400"></a>if条件诗句</h4></div></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title">
+<a name="id555405"></a>for循环语句诗句</h4></div></div></div></div>
+</div>
+</div>
+</div></body>
+</html>

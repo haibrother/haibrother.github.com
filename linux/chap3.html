@@ -1,0 +1,69 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Chapter 1. ubuntu</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="chapter">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="id543509"></a>Chapter 1. ubuntu</h2></div></div></div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl>
+<dt><span class="sect1"><a href="#id543514">在virtualbox中安装ubuntu后，安装增强组件功能</a></span></dt>
+<dt><span class="sect1"><a href="#id543522">ubuntu命令汇总</a></span></dt>
+<dd><dl><dt><span class="sect2"><a href="#id543527">apt-get </a></span></dt></dl></dd>
+</dl>
+</div>
+<div class="sect1">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="id543514"></a>在virtualbox中安装ubuntu后，安装增强组件功能</h2></div></div></div>
+<pre class="screen">
+       #手动安装virtualbox增强工具
+       VirtualBox:~$ cd /media
+       #目录下有virtualbox的目录
+       VirtualBox:/media/VBOXADDITIONS_4.2.0_80737$ sudo ./VBoxLinuxAdditions.run
+       #运行此程序自动安装，即可使用增强功能了
+       </pre>
+</div>
+<div class="sect1">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="id543522"></a>ubuntu命令汇总</h2></div></div></div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id543527"></a>apt-get </h3></div></div></div>
+<p><b>apt-get install [程序名]. </b>
+                apt-get install packagename——安装一个新软件包
+            </p>
+<p><b>apt-get remove packagename. </b>
+                卸载一个已安装的软件包（保留配置文件）
+            </p>
+<p><b>apt-get --purge remove packagename. </b>
+                卸载一个已安装的软件包（删除配置文件）
+            </p>
+<p><b>apt-get update packagename. </b>
+                在修改/etc/apt/sources.list或者/etc/apt/preferences之後运行该命令。此外您需要定期运行这一命令以确保您的软件包列表是最新的。
+            </p>
+<p><b>dpkg --force-all --purge packagename . </b>
+                些软件很难卸载，而且还阻止了别的软件的应用，就可以用这个，不过有点冒险。 
+            </p>
+<p><b>apt-cache showpkg pkgs. </b>
+                显示软件包信息。
+            </p>
+<p><b>apt-cache dumpavail. </b>
+                打印可用软件包列表
+            </p>
+<p><b>apt-file search filename. </b>
+                查找包含特定文件的软件包（不一定是已安装的），这些文件的文件名中含有指定的字符串。apt-file是一个独立的软件包。您必须先使用apt-get install来安装它，然後运行apt-file update。如果apt-file search filename输出的内容太多，您可以尝试使用apt-file search filename | grep -w filename（只显示指定字符串作为完整的单词出现在其中的那些文件名）或者类似方法，例如：apt-file search filename | grep /bin/（只显示位于诸如/bin或/usr/bin这些文件夹中的文件，如果您要查找的是某个特定的执行文件的话，这样做是有帮助的）。 
+
+＊ apt-get autoclean——定期运行这个命令来清除那些已经卸载的软件包的.deb文件。通过这种方式，您可以释放大量的磁盘空间。如果您的需求十分迫切，可以使用apt-get clean以释放更多空间。这个命令会将已安装软件包裹的.deb文件一并删除。大多数情况下您不会再用到这些.debs文件，因此如果您为磁盘空间不足而感到焦头烂额，这个办法也许值得一试。 
+            </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+</div>
+</div>
+</div></body>
+</html>

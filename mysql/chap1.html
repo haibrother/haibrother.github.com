@@ -1,0 +1,74 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Chapter 1. 数据库概述</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="chapter">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="id554282"></a>Chapter 1. 数据库概述</h2></div></div></div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl>
+<dt><span class="sect1"><a href="#id554302">数据库技术构成</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="#id554338">数据库系统</a></span></dt>
+<dt><span class="sect2"><a href="#id554348">SQL语言</a></span></dt>
+</dl></dd>
+</dl>
+</div>
+<p>数据库理论基础 </p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>数据存储方式</td></tr>
+<tr><td>数据库泛型</td></tr>
+<tr><td>数据库在开发中的应用</td></tr>
+</table>
+<div class="sect1">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="id554302"></a>数据库技术构成</h2></div></div></div>
+<p>　由于MySQL是开放源代码的，因此任何人都可以在General Public License的许可下下载并根据个性化的需要对其进行修改。MySQL因为其速度、可靠性和适应性而备受关注。大多数人都认为在不需要事务化处理的情况下，MySQL是管理内容最好的选择。
+    　　MySQL这个名字，起源不是很明确。一个比较有影响的说法是，基本指南和大量的库和工具带有前缀“my”已经有10年以上，而且不管怎样，MySQL AB创始人之一的Monty Widenius的女儿也叫My。这两个到底是哪一个给出了MySQL这个名字至今依然是个迷，包括开发者在内也不知道。
+    　　MySQL的海豚标志的名字叫“sakila”，它是由MySQL AB的创始人从用户在“海豚命名”的竞赛中建议的大量的名字表中选出的。获胜的名字是由来自非洲斯威士兰的开源软件开发者Ambrose Twebaze提供。根据Ambrose所说，Sakila来自一种叫SiSwati的斯威士兰方言，也是在Ambrose的家乡乌干达附近的坦桑尼亚的Arusha的一个小镇的名字。
+    　　MySQL，虽然功能未必很强大，但因为它的开源、广泛传播，导致很多人都了解到这个数据库。它的历史也富有传奇性。
+    </p>
+<p>
+        MySQL的历史最早可以追溯到1979年，那时Oracle也才小打小闹，微软的SQL Server影子都没有。有一个人叫Monty Widenius, 为一个叫TcX的小公司打工，并用BASIC设计了一个报表工具，可以在4M主频和16KB内存的计算机上运行。过了不久，又将此工具，使用C语言重写，移植到Unix平台，当时，它只是一个很底层的面向报表的存储引擎。这个工具叫做Unireg。
+    </p>
+<p>
+        1990年，TcX的customer 中开始有人要求要为它的API提供SQL支持，当时，有人想到了直接使用商用数据库算了，但是Monty觉得商用数据库的速度难令人满意。于是，他直接借助于mSQL的代码，将它集成到自己的存储引擎中。但不巧的是，效果并不太好。于是, Monty雄心大起，决心自己重写一个SQL支持。
+    </p>
+<p>
+        1996年，MySQL 1.0发布,只面向一小拨人，相当于内部发布。到了96年10月，MySQL 3.11.1发布了，呵呵，没有2.x版本。最开始，只提供了Solaris下的二进制版本。一个月后，Linux版本出现了。
+    </p>
+<p>
+        紧接下来的两年里，MySQL依次移植到各个平台下。它发布时，采用的许可策略，有些与众不同：允许免费商用，但是不能将MySQL与自己的产品绑定在一起发布。如果想一起发布，就必须使用特殊许可，意味着要花银子。当然，商业支持也是需要花银子的。其它的，随用户怎么用都可以。这种特殊许可为MySQL带来了一些收入，从而为它的持续发展打下了良好的基础。（细想想，PostgreSQL曾经有几年限入低谷，可能与它的完全免费，不受任何限制有关系）。
+    </p>
+<p>
+        MySQL3.22应该是一个标志性的版本，提供了基本的SQL支持。
+　　MySQL关系型数据库于1998年1月发行第一个版本。它使用系统核心提供的多线程机制提供完全的多线程运行模式，提供了面向C、C++、Eiffel、Java、Perl、PHP、Python以及Tcl等编程语言的编程接口（APIs），支持多种字段类型并且提供了完整的操作符支持查询中的SELECT和WHERE操作。
+    </p>
+<p>
+        1999-2000年，有一家公司在瑞典成立了，叫MySQL AB (不知道AB是什么意思，待查)。 雇了几个人,与Sleepycat合作，开发出了 Berkeley DB引擎, 因为BDB支持事务处理，所以，MySQL从此开始支持事务处理了。
+　　2000年4月，MySQL对旧的存储引擎进行了整理，命名为MyISAM。同时，2001年，Heikiki Tuuri向MySQL提出建议，希望能集成他们的存储引擎InnoDB，这个引擎同样支持事务处理，还支持行级锁。
+    </p>
+<p>
+        MySQL与InnoDB的正式结合版本是4.0。
+　　到了MySQL5.0，2003年12月，开始有View, 存储过程之类的东东，当然，其间, bug也挺多。
+　　在2008年1月16号 MySQL被Sun公司收购。
+　　最近，MySQL的创始人Monty Widenius已经向Sun提交了辞呈。head都要走了。
+　　据说，被Sun收购的公司多薄命，不知道MySQL今后前途如何，希望一路走好。相信MySQL的生命力还是很长久的。
+　　时至今日 mysql 和 php 的结合绝对是完美.很多大型的网站也用到mysql数据库.mysql的发展前景是非常光明的!
+    </p>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id554338"></a>数据库系统</h3></div></div></div>
+<p>数据库系统 </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id554348"></a>SQL语言</h3></div></div></div>
+<p>SQL语言 </p>
+</div>
+</div>
+</div></body>
+</html>
