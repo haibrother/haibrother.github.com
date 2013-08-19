@@ -1,0 +1,34 @@
+html body {
+	margin-top: 1em;
+	margin-left: 4em;
+	margin-right: 4em;
+	line-height: 1.2;
+}
+.navheader table tbody tr th{
+	font-size: 16pt;	
+}
+
+.screen {
+    background-color: #EEEEEE;
+    border: 1px dashed black;
+    padding: 0.5em;
+}
+.programlisting {
+	background-color:#EEEEEE; 
+	border:1px dashed black; 
+	padding:.5em;
+}
+.navfooter, .navheader{
+/*	border:1px dotted grey;*/
+/*	background-color: grey; */
+}
+p {
+	text-indent:2em;
+}
+
+/*
+dick加入
+**/
+.address span,code{
+    float:left;
+}
