@@ -1,0 +1,25 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>2.2. &#23454;&#36341;2&#65306;PHP&#27491;&#21017;&#21305;&#37197;&#20013;&#25991;&#21644;&#25552;&#21462;&#20013;&#25991;</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="PHP&#25216;&#26415;&#25163;&#20876;"><link rel="up" href="ch02.html" title="Chapter 2. &#27491;&#21017;"><link rel="prev" href="ch02.html" title="Chapter 2. &#27491;&#21017;"><link rel="next" href="ch03.html" title="Chapter 3. php &#23454;&#36341;&#26696;&#20363;"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.2. &#23454;&#36341;2&#65306;PHP&#27491;&#21017;&#21305;&#37197;&#20013;&#25991;&#21644;&#25552;&#21462;&#20013;&#25991;</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02.html">Prev</a> </td><th width="60%" align="center">Chapter 2. &#27491;&#21017;</th><td width="20%" align="right"> <a accesskey="n" href="ch03.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id618402"></a>2.2. &#23454;&#36341;2&#65306;PHP&#27491;&#21017;&#21305;&#37197;&#20013;&#25991;&#21644;&#25552;&#21462;&#20013;&#25991;</h2></div></div></div>
+	<pre class="screen">
+
+$preg_match = "/[\x{4e00}-\x{9fa5}]*/u";  #############utf-8&#32534;&#30721;&#29615;&#22659;&#25552;&#21462;
+//$preg_match = "/([".chr(0xb0)."-".chr(0xf7)."][".chr(0xa1)."-".chr(0xfe)."])*/";  #############ANSI&#32534;&#30721;&#29615;&#22659;&#25552;&#20379;
+$str = '&#20013;&#22269;a&#26085;&#26412;b&#32654;&#22269;c';
+//&#26816;&#27979;&#26159;&#21542;&#21547;&#26377;&#20013;&#25991;
+#var_dump(preg_match($preg_match,$str));exit;
+//&#25552;&#21462;&#20013;&#25991;
+preg_match_all($preg_match,$str,$match); 
+//preg_match_all($preg_match,$str,$match); ###################ANSI&#32534;&#30721;&#29615;&#22659;&#25552;&#20379;
+foreach($match as $k=&gt;$v){
+	foreach($v as $key=&gt;$value){
+		if(empty($value)){
+			unset($match[$k][$key]);
+		}
+	}
+}
+if(!empty($match)){
+	$s = implode('-',$match[0]);
+	file_put_contents('test.txt',$s);
+}
+
+</pre>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch02.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch02.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch03.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 2. &#27491;&#21017; </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 3. php &#23454;&#36341;&#26696;&#20363;</td></tr></table></div></body></html>
