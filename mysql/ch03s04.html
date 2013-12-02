@@ -1,6 +1,6 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>&#20462;&#25913;&#34920;</title><link rel="stylesheet" type="text/css" href="/blog/mysql/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="MYSQL&#25216;&#26415;&#25163;&#20876;"><link rel="up" href="ch03.html" title="Chapter 3. &#21019;&#24314;&#12289;&#20462;&#25913;&#21644;&#21024;&#38500;&#34920;"><link rel="prev" href="ch03s03.html" title="&#26597;&#30475;&#34920;&#32467;&#26500;"><link rel="next" href="ch03s05.html" title="&#21024;&#38500;&#34920;"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">&#20462;&#25913;&#34920;</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch03s03.html">Prev</a> </td><th width="60%" align="center">Chapter 3. &#21019;&#24314;&#12289;&#20462;&#25913;&#21644;&#21024;&#38500;&#34920;</th><td width="20%" align="right"> <a accesskey="n" href="ch03s05.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id633407"></a>&#20462;&#25913;&#34920;</h2></div></div></div>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3.4. &#20462;&#25913;&#34920;</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="MYSQL&#25216;&#26415;&#25163;&#20876;"><link rel="up" href="ch03.html" title="Chapter 3. &#21019;&#24314;&#12289;&#20462;&#25913;&#21644;&#21024;&#38500;&#34920;"><link rel="prev" href="ch03s03.html" title="3.3. &#26597;&#30475;&#34920;&#32467;&#26500;"><link rel="next" href="ch03s05.html" title="3.5. &#21024;&#38500;&#34920;"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.4. &#20462;&#25913;&#34920;</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch03s03.html">Prev</a> </td><th width="60%" align="center">Chapter 3. &#21019;&#24314;&#12289;&#20462;&#25913;&#21644;&#21024;&#38500;&#34920;</th><td width="20%" align="right"> <a accesskey="n" href="ch03s05.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id630134"></a>3.4. &#20462;&#25913;&#34920;</h2></div></div></div>
         <p>&#20462;&#25913;&#34920;&#26159;&#25351;&#20462;&#25913;&#25968;&#25454;&#24211;&#20013;&#24050;&#32463;&#34920;&#30340;&#23450;&#20041;&#12290;&#20462;&#25913;&#34920;&#27604;&#37325;&#26032;&#23450;&#20041;&#34920;&#31616;&#21333;&#65292;&#19981;&#38656;&#35201;&#37325;&#26032;&#21152;&#36733;&#25968;&#25454;&#65292;&#20063;&#19981;&#20250;&#24433;&#21709;&#27491;&#22312;&#36827;&#34892;&#30340;&#26381;&#21153;&#12290;MYSQL&#21487;&#20197;&#36890;&#36807;ALTER TABLE&#26469;&#20462;&#25913;&#34920;&#12290;</p>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id633416"></a>&#20462;&#25913;&#34920;&#21517;</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id630142"></a>3.4.1. &#20462;&#25913;&#34920;&#21517;</h3></div></div></div>
 <pre class="screen">
 ALTER TABLE &#26087;&#34920;&#21517; RENAME [to] &#26032;&#34920;&#21517;
 **************************************
@@ -8,47 +8,47 @@ mysql&gt; ALTER TABLE table6 RENAME table5;
 Query OK, 0 rows affected (0.02 sec)
 </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id633426"></a>&#20462;&#25913;&#23383;&#27573;&#30340;&#25968;&#25454;&#31867;&#22411;</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id630153"></a>3.4.2. &#20462;&#25913;&#23383;&#27573;&#30340;&#25968;&#25454;&#31867;&#22411;</h3></div></div></div>
 <pre class="screen">
 ALTER TABLE &#34920;&#21517; MODIFY &#23646;&#24615;&#21517; &#25968;&#25454;&#31867;&#22411;
 *******************************************
 mysql&gt; ALTER TABLE table8 MODIFY name CHAR(10);
 </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id633437"></a>&#20462;&#25913;&#23383;&#27573;&#21517;</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id630164"></a>3.4.3. &#20462;&#25913;&#23383;&#27573;&#21517;</h3></div></div></div>
 <pre class="screen">
 ALTER TABLE &#34920;&#21517; CHANGE &#26087;&#23646;&#24615;&#21517; &#26032;&#23646;&#24615;&#21517; &#26032;&#25968;&#25454;&#31867;&#22411;;
 *****************************************************
 mysql&gt; ALTER TABLE table8 CHANGE  name username VARCHAR(32);
 </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id633448"></a>&#20462;&#25913;&#23383;&#27573;&#20540;</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id630174"></a>3.4.4. &#20462;&#25913;&#23383;&#27573;&#20540;</h3></div></div></div>
 <pre class="screen">
 alter table accounts change column `paystatus` 
   `paystatus` enum ('&#25104;&#21151;','&#24050;&#24320;&#25143;','&#22833;&#36133;','&#20837;&#37329;','&#21462;&#28040;') not null default '&#22833;&#36133;' comment '&#25903;&#20184;&#29366;&#24577;' after `CNY_HKD`
 </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id633459"></a>&#22686;&#21152;&#23383;&#27573;</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id630185"></a>3.4.5. &#22686;&#21152;&#23383;&#27573;</h3></div></div></div>
 <pre class="screen">
 ALTER TABLE &#34920;&#21517; ADD &#23646;&#24615;&#21517;1 &#25968;&#25454;&#31867;&#22411; [&#23436;&#25972;&#24615;&#32422;&#26463;&#26465;&#20214;] [FIRST | AFTER &#23646;&#24615;&#21517;2]
 ***********************************************************************************
 mysql&gt; ALTER TABLE table8 ADD pass VARCHAR(10);
 </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id633470"></a>&#21024;&#38500;&#23383;&#27573;</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id630196"></a>3.4.6. &#21024;&#38500;&#23383;&#27573;</h3></div></div></div>
 <pre class="screen">
 ALTER TABLE &#34920;&#21517; DROP &#23646;&#24615;&#21517;;
 </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id633480"></a>&#20462;&#25913;&#23383;&#27573;&#30340;&#25490;&#21015;&#20301;&#32622;</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id630207"></a>3.4.7. &#20462;&#25913;&#23383;&#27573;&#30340;&#25490;&#21015;&#20301;&#32622;</h3></div></div></div>
 
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id633486"></a>&#26356;&#25913;&#34920;&#30340;&#23384;&#20648;&#24341;&#25806;</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id630213"></a>3.4.8. &#26356;&#25913;&#34920;&#30340;&#23384;&#20648;&#24341;&#25806;</h3></div></div></div>
 <pre class="screen">
 ALTER TABLE &#34920;&#21517; ENGINE=&#23384;&#20648;&#24341;&#25806;
 ***************************************
 mysql&gt; ALTER TABLE table8 ENGINE=Innodb;
 </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id633497"></a>&#21024;&#38500;&#34920;&#30340;&#22806;&#38190;&#32422;&#26463;</h3></div></div></div></div>
-    </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch03s03.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch03.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch03s05.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">&#26597;&#30475;&#34920;&#32467;&#26500; </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> &#21024;&#38500;&#34920;</td></tr></table></div></body></html>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id630224"></a>3.4.9. &#21024;&#38500;&#34920;&#30340;&#22806;&#38190;&#32422;&#26463;</h3></div></div></div></div>
+    </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch03s03.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch03.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch03s05.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">3.3. &#26597;&#30475;&#34920;&#32467;&#26500; </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 3.5. &#21024;&#38500;&#34920;</td></tr></table></div></body></html>
