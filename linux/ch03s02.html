@@ -1,35 +1,35 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3.2.�ubuntu&#21629;&#20196;&#27719;&#24635;</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><meta name="keywords" content="Linux, php, haibrother.github.com, apache, mysql, &#25216;&#26415;&#25163;&#20876;, &#32531;&#23384;&#25216;&#26415;"><link rel="home" href="index.html" title="linux&#25216;&#26415;&#25163;&#20876;"><link rel="up" href="ch03.html" title="Chapter�3.�ubuntu"><link rel="prev" href="ch03.html" title="Chapter�3.�ubuntu"><link rel="next" href="ch04.html" title="Chapter�4.�Shell&#32534;&#31243;"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.2.�ubuntu&#21629;&#20196;&#27719;&#24635;</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch03.html">Prev</a>�</td><th width="60%" align="center">Chapter�3.�ubuntu</th><td width="20%" align="right">�<a accesskey="n" href="ch04.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id643158"></a>3.2.�ubuntu&#21629;&#20196;&#27719;&#24635;</h2></div></div></div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id643163"></a>3.2.1.�apt-get </h3></div></div></div>
-            <p><b>apt-get install [&#31243;&#24207;&#21517;].�</b>
-                apt-get install packagename&#8212;&#8212;&#23433;&#35013;&#19968;&#20010;&#26032;&#36719;&#20214;&#21253;
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>3.2. ubuntu命令汇总</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><meta name="keywords" content="Linux, php, haibrother.github.com, apache, mysql, 技术手册, 缓存技术"><link rel="home" href="index.html" title="linux技术手册"><link rel="up" href="ch03.html" title="Chapter 3. ubuntu"><link rel="prev" href="ch03.html" title="Chapter 3. ubuntu"><link rel="next" href="ch04.html" title="Chapter 4. Shell编程"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.2. ubuntu命令汇总</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch03.html">Prev</a> </td><th width="60%" align="center">Chapter 3. ubuntu</th><td width="20%" align="right"> <a accesskey="n" href="ch04.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id675524"></a>3.2. ubuntu命令汇总</h2></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id675529"></a>3.2.1. apt-get </h3></div></div></div>
+            <p><b>apt-get install [程序名]. </b>
+                apt-get install packagename——安装一个新软件包
             </p>
-            <p><b>apt-get remove packagename.�</b>
-                &#21368;&#36733;&#19968;&#20010;&#24050;&#23433;&#35013;&#30340;&#36719;&#20214;&#21253;&#65288;&#20445;&#30041;&#37197;&#32622;&#25991;&#20214;&#65289;
+            <p><b>apt-get remove packagename. </b>
+                卸载一个已安装的软件包（保留配置文件）
             </p>
-            <p><b>apt-get --purge remove packagename.�</b>
-                &#21368;&#36733;&#19968;&#20010;&#24050;&#23433;&#35013;&#30340;&#36719;&#20214;&#21253;&#65288;&#21024;&#38500;&#37197;&#32622;&#25991;&#20214;&#65289;
+            <p><b>apt-get --purge remove packagename. </b>
+                卸载一个已安装的软件包（删除配置文件）
             </p>
-            <p><b>apt-get update packagename.�</b>
-                &#22312;&#20462;&#25913;/etc/apt/sources.list&#25110;&#32773;/etc/apt/preferences&#20043;&#24460;&#36816;&#34892;&#35813;&#21629;&#20196;&#12290;&#27492;&#22806;&#24744;&#38656;&#35201;&#23450;&#26399;&#36816;&#34892;&#36825;&#19968;&#21629;&#20196;&#20197;&#30830;&#20445;&#24744;&#30340;&#36719;&#20214;&#21253;&#21015;&#34920;&#26159;&#26368;&#26032;&#30340;&#12290;
+            <p><b>apt-get update packagename. </b>
+                在修改/etc/apt/sources.list或者/etc/apt/preferences之後运行该命令。此外您需要定期运行这一命令以确保您的软件包列表是最新的。
             </p>
-            <p><b>dpkg --force-all --purge packagename .�</b>
-                &#20123;&#36719;&#20214;&#24456;&#38590;&#21368;&#36733;&#65292;&#32780;&#19988;&#36824;&#38459;&#27490;&#20102;&#21035;&#30340;&#36719;&#20214;&#30340;&#24212;&#29992;&#65292;&#23601;&#21487;&#20197;&#29992;&#36825;&#20010;&#65292;&#19981;&#36807;&#26377;&#28857;&#20882;&#38505;&#12290; 
+            <p><b>dpkg --force-all --purge packagename . </b>
+                些软件很难卸载，而且还阻止了别的软件的应用，就可以用这个，不过有点冒险。 
             </p>
-            <p><b>apt-cache showpkg pkgs.�</b>
-                &#26174;&#31034;&#36719;&#20214;&#21253;&#20449;&#24687;&#12290;
+            <p><b>apt-cache showpkg pkgs. </b>
+                显示软件包信息。
             </p>
-            <p><b>apt-cache dumpavail.�</b>
-                &#25171;&#21360;&#21487;&#29992;&#36719;&#20214;&#21253;&#21015;&#34920;
+            <p><b>apt-cache dumpavail. </b>
+                打印可用软件包列表
             </p>
-            <p><b>apt-file search filename.�</b>
-                &#26597;&#25214;&#21253;&#21547;&#29305;&#23450;&#25991;&#20214;&#30340;&#36719;&#20214;&#21253;&#65288;&#19981;&#19968;&#23450;&#26159;&#24050;&#23433;&#35013;&#30340;&#65289;&#65292;&#36825;&#20123;&#25991;&#20214;&#30340;&#25991;&#20214;&#21517;&#20013;&#21547;&#26377;&#25351;&#23450;&#30340;&#23383;&#31526;&#20018;&#12290;apt-file&#26159;&#19968;&#20010;&#29420;&#31435;&#30340;&#36719;&#20214;&#21253;&#12290;&#24744;&#24517;&#39035;&#20808;&#20351;&#29992;apt-get install&#26469;&#23433;&#35013;&#23427;&#65292;&#28982;&#24460;&#36816;&#34892;apt-file update&#12290;&#22914;&#26524;apt-file search filename&#36755;&#20986;&#30340;&#20869;&#23481;&#22826;&#22810;&#65292;&#24744;&#21487;&#20197;&#23581;&#35797;&#20351;&#29992;apt-file search filename | grep -w filename&#65288;&#21482;&#26174;&#31034;&#25351;&#23450;&#23383;&#31526;&#20018;&#20316;&#20026;&#23436;&#25972;&#30340;&#21333;&#35789;&#20986;&#29616;&#22312;&#20854;&#20013;&#30340;&#37027;&#20123;&#25991;&#20214;&#21517;&#65289;&#25110;&#32773;&#31867;&#20284;&#26041;&#27861;&#65292;&#20363;&#22914;&#65306;apt-file search filename | grep /bin/&#65288;&#21482;&#26174;&#31034;&#20301;&#20110;&#35832;&#22914;/bin&#25110;/usr/bin&#36825;&#20123;&#25991;&#20214;&#22841;&#20013;&#30340;&#25991;&#20214;&#65292;&#22914;&#26524;&#24744;&#35201;&#26597;&#25214;&#30340;&#26159;&#26576;&#20010;&#29305;&#23450;&#30340;&#25191;&#34892;&#25991;&#20214;&#30340;&#35805;&#65292;&#36825;&#26679;&#20570;&#26159;&#26377;&#24110;&#21161;&#30340;&#65289;&#12290; 
+            <p><b>apt-file search filename. </b>
+                查找包含特定文件的软件包（不一定是已安装的），这些文件的文件名中含有指定的字符串。apt-file是一个独立的软件包。您必须先使用apt-get install来安装它，然後运行apt-file update。如果apt-file search filename输出的内容太多，您可以尝试使用apt-file search filename | grep -w filename（只显示指定字符串作为完整的单词出现在其中的那些文件名）或者类似方法，例如：apt-file search filename | grep /bin/（只显示位于诸如/bin或/usr/bin这些文件夹中的文件，如果您要查找的是某个特定的执行文件的话，这样做是有帮助的）。 
 
-&#65290; apt-get autoclean&#8212;&#8212;&#23450;&#26399;&#36816;&#34892;&#36825;&#20010;&#21629;&#20196;&#26469;&#28165;&#38500;&#37027;&#20123;&#24050;&#32463;&#21368;&#36733;&#30340;&#36719;&#20214;&#21253;&#30340;.deb&#25991;&#20214;&#12290;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#65292;&#24744;&#21487;&#20197;&#37322;&#25918;&#22823;&#37327;&#30340;&#30913;&#30424;&#31354;&#38388;&#12290;&#22914;&#26524;&#24744;&#30340;&#38656;&#27714;&#21313;&#20998;&#36843;&#20999;&#65292;&#21487;&#20197;&#20351;&#29992;apt-get clean&#20197;&#37322;&#25918;&#26356;&#22810;&#31354;&#38388;&#12290;&#36825;&#20010;&#21629;&#20196;&#20250;&#23558;&#24050;&#23433;&#35013;&#36719;&#20214;&#21253;&#35065;&#30340;.deb&#25991;&#20214;&#19968;&#24182;&#21024;&#38500;&#12290;&#22823;&#22810;&#25968;&#24773;&#20917;&#19979;&#24744;&#19981;&#20250;&#20877;&#29992;&#21040;&#36825;&#20123;.debs&#25991;&#20214;&#65292;&#22240;&#27492;&#22914;&#26524;&#24744;&#20026;&#30913;&#30424;&#31354;&#38388;&#19981;&#36275;&#32780;&#24863;&#21040;&#28966;&#22836;&#28866;&#39069;&#65292;&#36825;&#20010;&#21150;&#27861;&#20063;&#35768;&#20540;&#24471;&#19968;&#35797;&#12290; 
+＊ apt-get autoclean——定期运行这个命令来清除那些已经卸载的软件包的.deb文件。通过这种方式，您可以释放大量的磁盘空间。如果您的需求十分迫切，可以使用apt-get clean以释放更多空间。这个命令会将已安装软件包裹的.deb文件一并删除。大多数情况下您不会再用到这些.debs文件，因此如果您为磁盘空间不足而感到焦头烂额，这个办法也许值得一试。 
             </p>
-            <p><b>�</b></p>
-            <p><b>�</b></p>
-            <p><b>�</b></p>
-            <p><b>�</b></p>
-            <p><b>�</b></p>
+            <p><b> </b></p>
+            <p><b> </b></p>
+            <p><b> </b></p>
+            <p><b> </b></p>
+            <p><b> </b></p>
         </div>
-    </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch03.html">Prev</a>�</td><td width="20%" align="center"><a accesskey="u" href="ch03.html">Up</a></td><td width="40%" align="right">�<a accesskey="n" href="ch04.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter�3.�ubuntu�</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">�Chapter�4.�Shell&#32534;&#31243;</td></tr></table></div></body></html>
+    </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch03.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch03.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch04.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 3. ubuntu </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 4. Shell编程</td></tr></table></div></body></html>

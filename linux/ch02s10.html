@@ -1,29 +1,24 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>2.10.�&#21629;&#20196;&#27719;&#24635;</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><meta name="keywords" content="Linux, php, haibrother.github.com, apache, mysql, &#25216;&#26415;&#25163;&#20876;, &#32531;&#23384;&#25216;&#26415;"><link rel="home" href="index.html" title="linux&#25216;&#26415;&#25163;&#20876;"><link rel="up" href="ch02.html" title="Chapter�2.�&#21629;&#20196;&#27719;&#24635;"><link rel="prev" href="ch02s09.html" title="2.9.�&#29992;&#25143;&#21644;&#29992;&#25143;&#32452;"><link rel="next" href="ch03.html" title="Chapter�3.�ubuntu"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.10.�&#21629;&#20196;&#27719;&#24635;</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02s09.html">Prev</a>�</td><th width="60%" align="center">Chapter�2.�&#21629;&#20196;&#27719;&#24635;</th><td width="20%" align="right">�<a accesskey="n" href="ch03.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id643091"></a>2.10.�&#21629;&#20196;&#27719;&#24635;</h2></div></div></div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id643096"></a>2.10.1.�&#22914;&#20309;&#33719;&#21462;ubuntu&#30340;root&#26435;&#38480;</h3></div></div></div>
-            <p>sudo su</p>
-        </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id643106"></a>2.10.2.�sort&#25490;&#24207;</h3></div></div></div>
-            <p>sort [&#25991;&#20214;]</p>
-        </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id643115"></a>2.10.3.�cut&#25991;&#26412;&#20999;&#21106;</h3></div></div></div>
-            <pre class="screen">
-            cut -d : -f 1,4 /etc/passwd
-            </pre>
-        </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id643126"></a>2.10.4.�&#26597;&#30475;linux&#21457;&#34892;&#29256;&#20449;&#24687;</h3></div></div></div>
-            <pre class="screen">
-            
-root@laobi-VirtualBox:/laobi/laobi# cat /etc/issue  #&#21457;&#34892;&#29256;
-Ubuntu 12.04.1 LTS \n \l
-###########
-root@laobi-VirtualBox:/laobi/laobi# lsb_release -a # (&#36866;&#29992;&#20110;&#25152;&#26377;&#30340;linux&#65292;&#21253;&#25324;Redhat&#12289;.SuSE&#12289;Debian&#31561;&#21457;&#34892;&#29256;&#65292;&#20294;&#26159;&#22312;debian&#19979;&#35201;&#23433;&#35013;lsb) 
-No LSB modules are available.
-Distributor ID:	Ubuntu
-Description:	Ubuntu 12.04.1 LTS
-Release:	12.04
-Codename:	precise
-################
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>2.10. 表达式</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><meta name="keywords" content="Linux, php, haibrother.github.com, apache, mysql, 技术手册, 缓存技术"><link rel="home" href="index.html" title="linux技术手册"><link rel="up" href="ch02.html" title="Chapter 2. 命令汇总"><link rel="prev" href="ch02s09.html" title="2.9. 用户和用户组"><link rel="next" href="ch02s11.html" title="2.11. 命令汇总"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.10. 表达式</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02s09.html">Prev</a> </td><th width="60%" align="center">Chapter 2. 命令汇总</th><td width="20%" align="right"> <a accesskey="n" href="ch02s11.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id675433"></a>2.10. 表达式</h2></div></div></div>
+    
+<pre class="screen">
+!!：再次执行上一条命令
 
-            </pre>
-        </div>
-    </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch02s09.html">Prev</a>�</td><td width="20%" align="center"><a accesskey="u" href="ch02.html">Up</a></td><td width="40%" align="right">�<a accesskey="n" href="ch03.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">2.9.�&#29992;&#25143;&#21644;&#29992;&#25143;&#32452;�</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">�Chapter�3.�ubuntu</td></tr></table></div></body></html>
+!$：上一条命令的最后一个单词
+
+{a..b}：按照从a到b顺序的一个数字列表
+
+{a,b,c}：三个词a,b,c. 可以这样使用 touch /tmp/{a,b,c}
+
+{$1-$9}：执行shell脚本时的命令行参数
+
+$0：正在执行的命令名称
+
+$#：当前启动的命令中传入的参数个数
+
+$?：上一条命令的执行返回值。
+
+$$：该shell的进程号。
+
+$*：从$1开始，启动该shell脚本的所有参数。
+</pre>
+    </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch02s09.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch02.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch02s11.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">2.9. 用户和用户组 </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 2.11. 命令汇总</td></tr></table></div></body></html>

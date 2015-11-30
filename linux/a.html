@@ -1,0 +1,345 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>linux技术手册</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><meta name="keywords" content="Linux, php, haibrother.github.com, apache, mysql, 技术手册, 缓存技术"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="book"><div class="titlepage"><div><div><h1 class="title"><a name="id612151"></a>linux技术手册</h1></div><div><div class="author"><h3 class="author"></h3><div class="affiliation"><div class="address"><p><br>
+            <code class="email">&lt;<a class="email" href="mailto:bilehai@foxmail.com">bilehai@foxmail.com</a>&gt;</code><br>
+            <span class="otheraddr">www.haibrother.com</span><br>
+            <span class="street">162 Guelph Street</span><br>
+              <span class="city">广东省深圳市龙华新区惠鑫公寓55</span><br>
+              <span class="state">ON</span><br>
+              <span class="country">中国</span><br>
+              <span class="postcode">518109</span><br>
+              <span class="phone">15019423109</span><br>
+        </p></div></div></div></div><div><p class="copyright">Copyright © 2012, 2013 Dick. All rights reserved.</p></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="chapter"><a href="#id612281">1. LINUX概述</a></span></dt><dd><dl><dt><span class="sect1"><a href="#id612290">1.1. Linux简介</a></span></dt></dl></dd><dt><span class="chapter"><a href="#id612351">2. 命令汇总</a></span></dt><dd><dl><dt><span class="sect1"><a href="#id612356">2.1. 基本工具</a></span></dt><dd><dl><dt><span class="sect2"><a href="#id612361">2.1.1. ls:显示文件名</a></span></dt><dt><span class="sect2"><a href="#id612371">2.1.2. cat:显示文本文件内容</a></span></dt><dt><span class="sect2"><a href="#id612395">2.1.3. rm:删除文件</a></span></dt><dt><span class="sect2"><a href="#id612406">2.1.4. linux系统时间和硬件时间</a></span></dt><dt><span class="sect2"><a href="#id612449">2.1.5. linux计算器</a></span></dt><dt><span class="sect2"><a href="#id612460">2.1.6.  调用linux手册</a></span></dt><dt><span class="sect2"><a href="#id612471">2.1.7. Xshell上传和下载linux服务器的文件</a></span></dt><dt><span class="sect2"><a href="#id612482">2.1.8. 防火墙</a></span></dt><dt><span class="sect2"><a href="#id612494">2.1.9. jobs 查看当前有多少在后台运行的命令</a></span></dt><dt><span class="sect2"><a href="#id612505">2.1.10. fg 将后台中的命令调至前台继续运行</a></span></dt><dt><span class="sect2"><a href="#id612515">2.1.11. bg 将一个在后台暂停的命令，变成继续执行</a></span></dt><dt><span class="sect2"><a href="#id612527">2.1.12. 开机自动启动</a></span></dt><dt><span class="sect2"><a href="#id612539">2.1.13. ps</a></span></dt><dt><span class="sect2"><a href="#id612551">2.1.14. find 、 grep完美结合搜索</a></span></dt></dl></dd><dt><span class="sect1"><a href="#id612563">2.2. 文件操作</a></span></dt><dd><dl><dt><span class="sect2"><a href="#id612568">2.2.1. cp:复制文件</a></span></dt><dt><span class="sect2"><a href="#id612579">2.2.2. mv:移动文件</a></span></dt><dt><span class="sect2"><a href="#id612590">2.2.3. lpr:打印文件</a></span></dt><dt><span class="sect2"><a href="#id612595">2.2.4. grep:查找字符串</a></span></dt><dt><span class="sect2"><a href="#id612601">2.2.5. head:显示文件头部</a></span></dt><dt><span class="sect2"><a href="#id612611">2.2.6. tail:显示文件尾部</a></span></dt><dt><span class="sect2"><a href="#id612622">2.2.7. sort:按顺序显示文件内容</a></span></dt><dt><span class="sect2"><a href="#id612632">2.2.8. uniq:忽略文件中重复的行</a></span></dt><dt><span class="sect2"><a href="#id612643">2.2.9. diff:比较两个文件</a></span></dt><dt><span class="sect2"><a href="#id612657">2.2.10. file:识别文件内容</a></span></dt><dt><span class="sect2"><a href="#id612667">2.2.11. 硬链接</a></span></dt><dt><span class="sect2"><a href="#id612677">2.2.12. 软链接</a></span></dt></dl></dd><dt><span class="sect1"><a href="#id612692">2.3. 修改和设置文件权限</a></span></dt><dd><dl><dt><span class="sect2"><a href="#id612697">2.3.1. 组</a></span></dt><dt><span class="sect2"><a href="#id612706">2.3.2. chmod</a></span></dt><dt><span class="sect2"><a href="#id612717">2.3.3. chown</a></span></dt><dt><span class="sect2"><a href="#id612728">2.3.4. getfacl</a></span></dt><dt><span class="sect2"><a href="#id612739">2.3.5. setfacl</a></span></dt></dl></dd><dt><span class="sect1"><a href="#id612753">2.4. linux service</a></span></dt><dd><dl><dt><span class="sect2"><a href="#id612758">2.4.1. chkconfig --list 查看所有服务</a></span></dt><dt><span class="sect2"><a href="#id612769">2.4.2. 修改 相关服务</a></span></dt></dl></dd><dt><span class="sect1"><a href="#id612779">2.5. 管理（| ）</a></span></dt><dt><span class="sect1"><a href="#id612790">2.6. 4个有用的实用程序</a></span></dt><dd><dl><dt><span class="sect2"><a href="#id612795">2.6.1. </a></span></dt></dl></dd><dt><span class="sect1"><a href="#id612800">2.7. 压缩和归档文件</a></span></dt><dd><dl><dt><span class="sect2"><a href="#id612805">2.7.1. tar 打包和解包文件</a></span></dt></dl></dd><dt><span class="sect1"><a href="#id612817">2.8. 压缩无归档功能</a></span></dt><dd><dl><dt><span class="sect2"><a href="#id612821">2.8.1. gzip</a></span></dt><dt><span class="sect2"><a href="#id612827">2.8.2. bzip2 压缩文件</a></span></dt><dt><span class="sect2"><a href="#id612838">2.8.3. bunzip2和bzcat 解压缩文件</a></span></dt></dl></dd><dt><span class="sect1"><a href="#id612850">2.9. 用户和用户组</a></span></dt><dd><dl><dt><span class="sect2"><a href="#id612855">2.9.1. 用户和用户组文件</a></span></dt></dl></dd><dt><span class="sect1"><a href="#id612873">2.10. 命令汇总</a></span></dt><dd><dl><dt><span class="sect2"><a href="#id612878">2.10.1. 如何获取ubuntu的root权限</a></span></dt><dt><span class="sect2"><a href="#id612887">2.10.2. sort排序</a></span></dt><dt><span class="sect2"><a href="#id612897">2.10.3. cut文本切割</a></span></dt><dt><span class="sect2"><a href="#id612908">2.10.4. 查看linux发行版信息</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#id612923">3. ubuntu</a></span></dt><dd><dl><dt><span class="sect1"><a href="#id612928">3.1. 在virtualbox中安装ubuntu后，安装增强组件功能</a></span></dt><dt><span class="sect1"><a href="#id612940">3.2. ubuntu命令汇总</a></span></dt><dd><dl><dt><span class="sect2"><a href="#id612945">3.2.1. apt-get </a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#id613021">4. Shell编程</a></span></dt><dd><dl><dt><span class="sect1"><a href="#id613025">4.1. 变量命名</a></span></dt><dt><span class="sect1"><a href="#id613035">4.2. 修改环境变量PATH</a></span></dt><dt><span class="sect1"><a href="#id613045">4.3. 输出重定向</a></span></dt><dt><span class="sect1"><a href="#id613059">4.4. find 查找并执行相关命令</a></span></dt><dt><span class="sect1"><a href="#id613070">4.5. 关闭selinux</a></span></dt><dt><span class="sect1"><a href="#id613081">4.6. scp 的应用</a></span></dt></dl></dd><dt><span class="chapter"><a href="#id613093">5. apache 配置</a></span></dt><dd><dl><dt><span class="sect1"><a href="#id613097">5.1. AddDefaultCharset</a></span></dt></dl></dd></dl></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="id612281"></a>Chapter 1. LINUX概述</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="#id612290">1.1. Linux简介</a></span></dt></dl></div><p>数据库理论基础 </p><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id612290"></a>1.1. Linux简介</h2></div></div></div><p>　
+        Linux内核是UNIX内核的开源实现与超越，它最初由Linus Torvalds于1991年的10月5日独立发表，现在Linus TorvaldsLinus Torvalds由全球众多组织和个人共同开发以及维护。 
+    </p><p>
+        Linux一般指Linux内核，而GNU/Linux指以Linux为内核并使用GNUuserland的成套操作系统。Linux不是UNIX，严格来讲也不是类UNIX，但是如今却是UNIX家族的代表者，也是开源软件的成功案例。 
+    </p><p>
+        已知的较早时间（1992年上半年至1994年下半年）发布的GNU/Linux依次为MCC Interim、TAMU、SLS、Yggdrasil、DLD、Slackware、Debian Linux Release、LST、Bogus、S.u.S.E和Red Hat Linux，最初的Slackware基于SLS，最初的S.u.S.E基于Slackware。
+    </p><p>
+        　Linux是一套免费使用和自由传播的类Unix操作系统，是一个基于POSIX和UNIX的多用户、多任务、支持多线Linux LogoLinux Logo程和多CPU的操作系统。它能运行主要的UNIX工具软件、应用程序和网络协议。它支持32位和64位硬件。Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。它主要用于基于Intel x86系列CPU的计算机上。这个系统是由全世界各地的成千上万的程序员设计和实现的。其目的是建立不受任何商品化软件的版权制约的、全世界都能自由使用的Unix兼容产品。[1]
+　　Linux以它的高效性和灵活性著称，Linux模块化的设计结构，使得它既能在价格昂贵的工作站上运行，也能够在廉价的PC机上实现全部的Unix特性，具有多任务、多用户的能力。Linux是在GNU公共许可权限下免费获得的，是一个符合POSIX标准的操作系统。Linux操作系统软件包不仅包括完整的Linux操作系统，而且还包括了文本编辑器、高级语言编译器等应用软件。它还包括带有多个窗口管理器的X-Windows图形用户界面，如同我们使用Windows NT一样，允许我们使用窗口、图标和菜单对系统进行操作。[2]
+   </p><p><b>基本思想. </b>
+        Linux的基本思想有两点：第一，一切都是文件；第二，每个软件都有确定的用途。其中第一条详细来讲就是系统中的所有内容都归结为一个文件，包括命令、硬件和软件设备、操作系统、进程等等。对于操作系统内核而言，都被视为拥有各自特性或类型的文件。至于说Linux是基于Unix的，很大程度上也是因为这两者的基本思想十分相近。
+    </p><p><b>完全免费. </b>
+        　Linux是一款免费的操作系统，用户可以通过网络或其他途径免费获得，并可以任意修改其源代码。这是其他的操作系统所做不到的。正是由于这一点，来自全世界的无数程序员参与了Linux的修改、编写工作，程序员可以根据自己的兴趣和灵感对其进行改变，这让Linux吸收了无数程序员的精华，不断壮大
+    </p><p><b>多用户、多任务. </b>
+        Linux支持多用户，各个用户对于自己的文件设备有自己特殊的权利，保证了各用户之间互不影响。多任务则是现在电脑最主要的一个特点，Linux可以使多个程序同时并独立地运行。
+    </p><p><b>丰富的网络功能. </b>
+        Unix是在互联网的基础上繁荣起来的，Linux的网络功能当然不会逊色。它的网络功能和其内核紧密相连，在这方面Linux要优于其他操作系统。在Linux中，用户可以轻松实现网页浏览、文件传输、远程登陆等网络工作。并且可以作为服务器提供WWW、FTP、E-Mail等服务。
+    </p><p><b>内核. </b>Linux是最受欢迎的自由电脑操作系统内核。它是一个用C语言和汇编语言写成，符合POSIX标准的类Unix操作系统。Linux最早是由芬兰黑客林纳斯.托瓦兹（Linus B. Torvalds）为尝试在英特尔x86架构上提供自由免费的类Unix操作系统而开发的。该计划开始于1991年，林纳斯·托瓦兹当时在Usenet新闻组comp.os.minix登载帖子，这份著名的帖子标示着Linux计划的正式开始。
+　　在计划的早期有一些Minix黑客提供了协助，而今天全球无数程序员正在为该计划无偿提供帮助。
+　　技术上说Linux是一个内核。“内核”指的是一个提供硬件抽象层、磁盘及文件系统控制、多任务等功能的系统软件。一个内核不是一套完整的操作系统。一套基于Linux内核的完整操作系统叫作Linux操作系统，或是GNU/Linux。[10]
+　　Linux内核有三个不同的命名方案：
+　　早期版本：第一个版本的内核是0.01。其次是0.02,0.03,0.10,0.11,0.12（第一GPL版本），0.95,0.96,0.97,0.98,0.99及1.0。从0.95版有许多的补丁发布于主要版本之间。[11]
+　　旧计划（1.0和2.6版之间），版本的格式为A.B.C，其中A,B,C代表：
+　　A大幅度转变的内核。这是很少发生变化，只有当发生重大变化的代码和核心发生才会发生。在历史上曾改变两次的内核：1994年的1.0及1996年的2.0。
+　　B是指一些重大修改的内核。内核使用了传统的奇数次要版本号码的软件号码系统（用偶数的次要版本号码来表示稳定版本）。
+　　C是指轻微修订的内核。这个数字当有安全补丁，bug修复，新的功能或驱动程序，内核便会有变化。
+　　第三次，自2.6.0(2003年12月）发布后，人们认识到，更短的发布周期将是有益的。自那时起，版本的格式为A.B.C.D，其中A,B,C,D代表：A和B是无关紧要的，C是内核的版本，D是安全补丁。</p><p><b>诞生过程. </b>
+        1981 年IBM公司推出微型计算机IBM PC。
+　　1981-1991 年间MS-DOS操作系统一直是微机上操作系统的主宰。此时计算机硬件价格虽逐年下降，但软件价格仍居高不下。当时Apple 的MACos 操
+  自由软件之父理查·马修·斯托曼
+
+自由软件之父理查·马修·斯托曼
+[14]
+作系统可以说是性能最好的，但是其天价没人能够轻易靠近。 
+    </p><p><b> </b></p></div></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="id612351"></a>Chapter 2. 命令汇总</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="#id612356">2.1. 基本工具</a></span></dt><dd><dl><dt><span class="sect2"><a href="#id612361">2.1.1. ls:显示文件名</a></span></dt><dt><span class="sect2"><a href="#id612371">2.1.2. cat:显示文本文件内容</a></span></dt><dt><span class="sect2"><a href="#id612395">2.1.3. rm:删除文件</a></span></dt><dt><span class="sect2"><a href="#id612406">2.1.4. linux系统时间和硬件时间</a></span></dt><dt><span class="sect2"><a href="#id612449">2.1.5. linux计算器</a></span></dt><dt><span class="sect2"><a href="#id612460">2.1.6.  调用linux手册</a></span></dt><dt><span class="sect2"><a href="#id612471">2.1.7. Xshell上传和下载linux服务器的文件</a></span></dt><dt><span class="sect2"><a href="#id612482">2.1.8. 防火墙</a></span></dt><dt><span class="sect2"><a href="#id612494">2.1.9. jobs 查看当前有多少在后台运行的命令</a></span></dt><dt><span class="sect2"><a href="#id612505">2.1.10. fg 将后台中的命令调至前台继续运行</a></span></dt><dt><span class="sect2"><a href="#id612515">2.1.11. bg 将一个在后台暂停的命令，变成继续执行</a></span></dt><dt><span class="sect2"><a href="#id612527">2.1.12. 开机自动启动</a></span></dt><dt><span class="sect2"><a href="#id612539">2.1.13. ps</a></span></dt><dt><span class="sect2"><a href="#id612551">2.1.14. find 、 grep完美结合搜索</a></span></dt></dl></dd><dt><span class="sect1"><a href="#id612563">2.2. 文件操作</a></span></dt><dd><dl><dt><span class="sect2"><a href="#id612568">2.2.1. cp:复制文件</a></span></dt><dt><span class="sect2"><a href="#id612579">2.2.2. mv:移动文件</a></span></dt><dt><span class="sect2"><a href="#id612590">2.2.3. lpr:打印文件</a></span></dt><dt><span class="sect2"><a href="#id612595">2.2.4. grep:查找字符串</a></span></dt><dt><span class="sect2"><a href="#id612601">2.2.5. head:显示文件头部</a></span></dt><dt><span class="sect2"><a href="#id612611">2.2.6. tail:显示文件尾部</a></span></dt><dt><span class="sect2"><a href="#id612622">2.2.7. sort:按顺序显示文件内容</a></span></dt><dt><span class="sect2"><a href="#id612632">2.2.8. uniq:忽略文件中重复的行</a></span></dt><dt><span class="sect2"><a href="#id612643">2.2.9. diff:比较两个文件</a></span></dt><dt><span class="sect2"><a href="#id612657">2.2.10. file:识别文件内容</a></span></dt><dt><span class="sect2"><a href="#id612667">2.2.11. 硬链接</a></span></dt><dt><span class="sect2"><a href="#id612677">2.2.12. 软链接</a></span></dt></dl></dd><dt><span class="sect1"><a href="#id612692">2.3. 修改和设置文件权限</a></span></dt><dd><dl><dt><span class="sect2"><a href="#id612697">2.3.1. 组</a></span></dt><dt><span class="sect2"><a href="#id612706">2.3.2. chmod</a></span></dt><dt><span class="sect2"><a href="#id612717">2.3.3. chown</a></span></dt><dt><span class="sect2"><a href="#id612728">2.3.4. getfacl</a></span></dt><dt><span class="sect2"><a href="#id612739">2.3.5. setfacl</a></span></dt></dl></dd><dt><span class="sect1"><a href="#id612753">2.4. linux service</a></span></dt><dd><dl><dt><span class="sect2"><a href="#id612758">2.4.1. chkconfig --list 查看所有服务</a></span></dt><dt><span class="sect2"><a href="#id612769">2.4.2. 修改 相关服务</a></span></dt></dl></dd><dt><span class="sect1"><a href="#id612779">2.5. 管理（| ）</a></span></dt><dt><span class="sect1"><a href="#id612790">2.6. 4个有用的实用程序</a></span></dt><dd><dl><dt><span class="sect2"><a href="#id612795">2.6.1. </a></span></dt></dl></dd><dt><span class="sect1"><a href="#id612800">2.7. 压缩和归档文件</a></span></dt><dd><dl><dt><span class="sect2"><a href="#id612805">2.7.1. tar 打包和解包文件</a></span></dt></dl></dd><dt><span class="sect1"><a href="#id612817">2.8. 压缩无归档功能</a></span></dt><dd><dl><dt><span class="sect2"><a href="#id612821">2.8.1. gzip</a></span></dt><dt><span class="sect2"><a href="#id612827">2.8.2. bzip2 压缩文件</a></span></dt><dt><span class="sect2"><a href="#id612838">2.8.3. bunzip2和bzcat 解压缩文件</a></span></dt></dl></dd><dt><span class="sect1"><a href="#id612850">2.9. 用户和用户组</a></span></dt><dd><dl><dt><span class="sect2"><a href="#id612855">2.9.1. 用户和用户组文件</a></span></dt></dl></dd><dt><span class="sect1"><a href="#id612873">2.10. 命令汇总</a></span></dt><dd><dl><dt><span class="sect2"><a href="#id612878">2.10.1. 如何获取ubuntu的root权限</a></span></dt><dt><span class="sect2"><a href="#id612887">2.10.2. sort排序</a></span></dt><dt><span class="sect2"><a href="#id612897">2.10.3. cut文本切割</a></span></dt><dt><span class="sect2"><a href="#id612908">2.10.4. 查看linux发行版信息</a></span></dt></dl></dd></dl></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id612356"></a>2.1. 基本工具</h2></div></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612361"></a>2.1.1. ls:显示文件名</h3></div></div></div><pre class="screen">
+ls -[参数] 文件/文件夹名
+-a 列出目录下的所有文件，包括以 . 开头的隐含文件。
+-b 把文件名中不可输出的字符用反斜杠加字符编号(就象在C语言里一样)的形式列出。
+-c 输出文件的 i 节点的修改时间，并以此排序。
+-d 将目录象文件一样显示，而不是显示其下的文件。
+-e 输出时间的全部信息，而不是输出简略信息。
+-f -U 对输出的文件不排序。
+-g 无用。
+-i 输出文件的 i 节点的索引信息。
+-k 以 k 字节的形式表示文件的大小。
+-l 列出文件的详细信息。
+-m 横向输出文件名，并以“，”作分格符。
+-n 用数字的 UID,GID 代替名称。
+-o 显示文件的除组信息外的详细信息。
+-p -F 在每个文件名后附上一个字符以说明该文件的类型，“*”表示可执行的普通
+文件；“/”表示目录；“@”表示符号链接；“|”表示FIFOs；“=”表示套
+接字(sockets)。
+-q 用?代替不可输出的字符。
+-r 对目录反向排序。
+-s 在每个文件名后输出该文件的大小。
+-t 以时间排序。
+-u 以文件上次被访问的时间排序。
+-x 按列输出，横向排序。
+-A 显示除 “.”和“..”外的所有文件。
+-B 不输出以 “~”结尾的备份文件。
+-C 按列输出，纵向排序。
+-G 输出文件的组的信息。
+-L 列出链接文件名而不是链接到的文件。
+-N 不限制文件长度。
+-Q 把输出的文件名用双引号括起来。
+-R 列出所有子目录下的文件。
+-S 以文件大小排序。
+-X 以文件的扩展名(最后一个 . 后的字符)排序。
+-1 一行只输出一个文件。
+
+--color=no 不显示彩色文件名
+--help 在标准输出上显示帮助信息。
+--version 在标准输出上输出版本信息并退出。
+             </pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612371"></a>2.1.2. cat:显示文本文件内容</h3></div></div></div><p><b>显示全部文件. </b>
+        cat filename
+        </p><p><b>创建文件. </b>
+        cat filename &gt; file
+        </p><p><b>将几个文件合并为一个文件. </b>
+        cat file1 file2 &gt; file
+        </p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612395"></a>2.1.3. rm:删除文件</h3></div></div></div><pre class="screen">
+rm -[参数] 文件/文件夹
+rm -f  删除所有文件
+rm -l  递归删除文件夹或文件内所有内容
+rm -i  提示确认是否删除，输入以y开头的任何字符，都将删除文件或文件夹
+            </pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612406"></a>2.1.4. linux系统时间和硬件时间</h3></div></div></div><p>因为linux的系统时间原理和window并不是一样的，window的系统时间一定是与bios的时间一致，而linux
+            的系统时间是在刚开机的时间读取硬件的时间，之后就独立开来，就这会导致系统时间和硬件时间不一致的情况。
+            </p><p><b>系统时间. </b>date 
+            </p><pre class="screen">
+显示系统时间
+root@laob-VirtualBox:/home/laob# date
+2012年 10月 30日 星期二 22:02:10 CST
+****************************************************
+修改系统时间 格式：date 月日时分年.秒
+root@laob-VirtualBox:/home/laob# date 103021582012.12
+2012年 10月 30日 星期二 21:58:12 CST
+*****************************************************
+查看具体时间
+root@laob-VirtualBox:/home/laob# date "+%H:%H:%S"
+22:22:12
+            </pre><p><b>硬件时间. </b>clock</p><p><b>调整时间 hwclock. </b>
+            -w 系统时间是准确的，把硬件时间设定为系统时间一致
+            -s 相反
+            </p><p><b>显示linux日历. </b></p><pre class="screen">
+            
+            </pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612449"></a>2.1.5. linux计算器</h3></div></div></div><pre class="screen">
+root@laob-VirtualBox:/home/laob# bc
+bc 1.06.95
+Copyright 1991-1994, 1997, 1998, 2000, 2004, 2006 Free Software Foundation, Inc.
+This is free software with ABSOLUTELY NO WARRANTY.
+For details type `warranty'. 
+4*5
+20
+            </pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612460"></a>2.1.6.  调用linux手册</h3></div></div></div><pre class="screen">
+man command 找出命令的位置
+whatis command 显示命令所在章节的具体地方
+
+            </pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612471"></a>2.1.7. Xshell上传和下载linux服务器的文件</h3></div></div></div><pre class="screen">
+            ############centos安装命令
+            [root@localhost laobi]# yum install lrzsz
+            
+            ###########ubuntu安装命令
+            [root@localhost laobi]# apt-get  install lrzsz
+            </pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612482"></a>2.1.8. 防火墙</h3></div></div></div><pre class="screen">
+            查看防火墙  /etc/init.d/iptables status
+            开户防火墙  /etc/init.d/iptables start
+            关闭防火墙  /etc/init.d/iptables stop
+            </pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612494"></a>2.1.9. jobs 查看当前有多少在后台运行的命令</h3></div></div></div><pre class="screen">
+[root@localhost ~]# jobs
+[1]-  Stopped                 vim /laobi/a.txt
+[2]+  Stopped                 vim /laobi/b.txt
+            </pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612505"></a>2.1.10. fg 将后台中的命令调至前台继续运行</h3></div></div></div><pre class="screen">
+#fg [编号]
+[root@localhost ~]# fg 1
+            </pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612515"></a>2.1.11. bg 将一个在后台暂停的命令，变成继续执行</h3></div></div></div><pre class="screen">
+#bg [编号]
+
+[root@localhost ~]# bg 1
+[1]+ vim /laobi/a.txt &amp;
+ 
+        </pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612527"></a>2.1.12. 开机自动启动</h3></div></div></div><pre class="screen">
+            修改vim /etc/rc.d/rc.local
+            
+            </pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612539"></a>2.1.13. ps</h3></div></div></div><pre class="screen">
+ps aux | grep xxxx
+#查询 “xxx” 运行的进程
+		</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612551"></a>2.1.14. find 、 grep完美结合搜索</h3></div></div></div><pre class="screen">
+find / -name 'x.log' | xargs grep xxx
+#查询 / 目录下的 x.log 文件，查找字符 xxx
+
+find / -name nginx
+#查找文件
+
+grep xxx /
+#查找字符
+		</pre></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id612563"></a>2.2. 文件操作</h2></div></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612568"></a>2.2.1. cp:复制文件</h3></div></div></div><pre class="screen">:~/laobi$ cp file file.copy</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612579"></a>2.2.2. mv:移动文件</h3></div></div></div><pre class="screen">:~/laobi$ mv file.copy file</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612590"></a>2.2.3. lpr:打印文件</h3></div></div></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612595"></a>2.2.4. grep:查找字符串</h3></div></div></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612601"></a>2.2.5. head:显示文件头部</h3></div></div></div><pre class="screen">
+laobi@laobi-VirtualBox:~/laobi$ head -5 file
+1
+2
+3
+4
+5
+        </pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612611"></a>2.2.6. tail:显示文件尾部</h3></div></div></div><pre class="screen">
+laobi@laobi-VirtualBox:~/laobi$ tail -5 file
+3
+4
+5
+6
+7
+        </pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612622"></a>2.2.7. sort:按顺序显示文件内容</h3></div></div></div><p>sort实用程序将文件内容按行排序后显示，但并不改变文件内容</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612632"></a>2.2.8. uniq:忽略文件中重复的行</h3></div></div></div><pre class="screen">
+laobi@laobi-VirtualBox:~/laobi/test$ cat a
+one
+two
+three
+four
+five
+sex
+seven
+laobi@laobi-VirtualBox:~/laobi/test$ sort a
+five
+four
+one
+seven
+sex
+three
+two
+            </pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612643"></a>2.2.9. diff:比较两个文件</h3></div></div></div><p>diff实用程序用来对两个文件进行比较，显示两者所有的不同之处，但不改变任何一个文件的内容</p><pre class="screen">
+laobi@laobi-VirtualBox:~/laobi/test$ diff -u a b
+--- a	2012-10-30 04:55:53.224270760 -0400
++++ b	2012-10-30 04:55:26.012269885 -0400
+@@ -1,5 +1,6 @@
+ one
+ two
++testetsa
+ three
+ four
+ five
+        </pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612657"></a>2.2.10. file:识别文件内容</h3></div></div></div><p>在不通过打开文件查看内容的情况下，实用程序file可直接获得LINUX系统中任何文件的内容信息。</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612667"></a>2.2.11. 硬链接</h3></div></div></div><pre class="screen">
+ln /laobi/test /laobi/testy1
+#只有删除最后一个文件，才会把真正把文件删除掉
+</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612677"></a>2.2.12. 软链接</h3></div></div></div><pre class="screen">
+ln -sv /laobi/test /laobi/testr1
+</pre></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id612692"></a>2.3. 修改和设置文件权限</h2></div></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612697"></a>2.3.1. 组</h3></div></div></div><p>
+        组：权限的集合
+        </p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612706"></a>2.3.2. chmod</h3></div></div></div><pre class="screen">
+u为属主，g为属组，o为其他，a为所有
+chmod [u] w file
+          </pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612717"></a>2.3.3. chown</h3></div></div></div><pre class="screen">
+chown [属主]:[属组] file
+        </pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612728"></a>2.3.4. getfacl</h3></div></div></div><pre class="screen">
+    getfacl file
+          </pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612739"></a>2.3.5. setfacl</h3></div></div></div><pre class="screen">
+    #修改文件权限
+    setfacl [-m|-x] u:username:rwx file
+    setfacl [-m|-x] g:groupname:rwx file
+    #设置目录下文件的默认权限
+    setfacl [-m|-x] d:u:username:rwx dir
+    setfacl [-m|-x] d:g:groupname:rwx dir
+    # -m 添加权限 -x 删除权限
+    # u为添加用户权限 g添加属组权限
+          </pre></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id612753"></a>2.4. linux service</h2></div></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612758"></a>2.4.1. chkconfig --list 查看所有服务</h3></div></div></div><pre class="screen">
+[root@localhost mysql]# chkconfig --list
+auditd          0:off   1:off   2:on    3:on    4:on    5:on    6:off
+cgconfig        0:off   1:off   2:off   3:off   4:off   5:off   6:off
+cgred           0:off   1:off   2:off   3:off   4:off   5:off   6:off
+fcoe            0:off   1:off   2:on    3:on    4:on    5:on    6:off
+ip6tables       0:off   1:off   2:on    3:on    4:on    5:on    6:off
+iptables        0:off   1:off   2:on    3:on    4:on    5:on    6:off
+iscsi           0:off   1:off   2:off   3:on    4:on    5:on    6:off
+iscsid          0:off   1:off   2:off   3:on    4:on    5:on    6:off
+lldpad          0:off   1:off   2:on    3:on    4:on    5:on    6:off
+lvm2-monitor    0:off   1:on    2:on    3:on    4:on    5:on    6:off
+multipathd      0:off   1:off   2:off   3:off   4:off   5:off   6:off
+mysqld          0:off   1:off   2:on    3:on    4:on    5:on    6:off
+#查看linux所有服务
+        </pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612769"></a>2.4.2. 修改 相关服务</h3></div></div></div></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id612779"></a>2.5. 管理（| ）</h2></div></div></div><pre class="screen">
+ sort months | head -4
+ apr
+ aug
+ dec
+ feb
+        </pre></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id612790"></a>2.6. 4个有用的实用程序</h2></div></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612795"></a>2.6.1. </h3></div></div></div></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id612800"></a>2.7. 压缩和归档文件</h2></div></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612805"></a>2.7.1. tar 打包和解包文件</h3></div></div></div><pre class="screen">
+root@laobi-VirtualBox:/home/laobi/laobi# ls
+a.txt  b.txt  c.txt
+root@laobi-VirtualBox:/home/laobi/laobi# tar -cvf test.tar  a.txt b.txt c.txt #打包
+a.txt
+b.txt
+c.txt
+root@laobi-VirtualBox:/home/laobi/laobi# ls
+a.txt  b.txt  c.txt  test.tar
+root@laobi-VirtualBox:/home/laobi/laobi# 
+
+root@laobi-VirtualBox:/home/laobi/laobi# tar -xvf test.tar #解压
+a.txt
+b.txt
+c.txt
+        </pre></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id612817"></a>2.8. 压缩无归档功能</h2></div></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612821"></a>2.8.1. gzip</h3></div></div></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612827"></a>2.8.2. bzip2 压缩文件</h3></div></div></div><pre class="screen">bzip2 -v a.txt</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612838"></a>2.8.3. bunzip2和bzcat 解压缩文件</h3></div></div></div><pre class="screen">
+            bunzip2 a.txt.bz2
+            bzcat 实用程序可用来显示用bzip2压缩的文件，即专门显示 .bz为后缀的压缩文件。跟cat一样，bzcat也不改变文件内容。
+            bzcat a.txt.bz2 | head 2
+            </pre></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id612850"></a>2.9. 用户和用户组</h2></div></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612855"></a>2.9.1. 用户和用户组文件</h3></div></div></div><p>用户和用户密码文件  /etc/passwd | /etc/shadow</p><p>用户组和用户组密码文件  /etc/group | /etc/gshadow</p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id612873"></a>2.10. 命令汇总</h2></div></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612878"></a>2.10.1. 如何获取ubuntu的root权限</h3></div></div></div><p>sudo su</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612887"></a>2.10.2. sort排序</h3></div></div></div><p>sort [文件]</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612897"></a>2.10.3. cut文本切割</h3></div></div></div><pre class="screen">
+            cut -d : -f 1,4 /etc/passwd
+            </pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612908"></a>2.10.4. 查看linux发行版信息</h3></div></div></div><pre class="screen">
+            
+root@laobi-VirtualBox:/laobi/laobi# cat /etc/issue  #发行版
+Ubuntu 12.04.1 LTS \n \l
+###########
+root@laobi-VirtualBox:/laobi/laobi# lsb_release -a # (适用于所有的linux，包括Redhat、.SuSE、Debian等发行版，但是在debian下要安装lsb) 
+No LSB modules are available.
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.1 LTS
+Release:	12.04
+Codename:	precise
+################
+
+            </pre></div></div></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="id612923"></a>Chapter 3. ubuntu</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="#id612928">3.1. 在virtualbox中安装ubuntu后，安装增强组件功能</a></span></dt><dt><span class="sect1"><a href="#id612940">3.2. ubuntu命令汇总</a></span></dt><dd><dl><dt><span class="sect2"><a href="#id612945">3.2.1. apt-get </a></span></dt></dl></dd></dl></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id612928"></a>3.1. 在virtualbox中安装ubuntu后，安装增强组件功能</h2></div></div></div><pre class="screen">
+       #手动安装virtualbox增强工具
+       VirtualBox:~$ cd /media
+       #目录下有virtualbox的目录
+       VirtualBox:/media/VBOXADDITIONS_4.2.0_80737$ sudo ./VBoxLinuxAdditions.run
+       #运行此程序自动安装，即可使用增强功能了
+       </pre></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id612940"></a>3.2. ubuntu命令汇总</h2></div></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id612945"></a>3.2.1. apt-get </h3></div></div></div><p><b>apt-get install [程序名]. </b>
+                apt-get install packagename——安装一个新软件包
+            </p><p><b>apt-get remove packagename. </b>
+                卸载一个已安装的软件包（保留配置文件）
+            </p><p><b>apt-get --purge remove packagename. </b>
+                卸载一个已安装的软件包（删除配置文件）
+            </p><p><b>apt-get update packagename. </b>
+                在修改/etc/apt/sources.list或者/etc/apt/preferences之後运行该命令。此外您需要定期运行这一命令以确保您的软件包列表是最新的。
+            </p><p><b>dpkg --force-all --purge packagename . </b>
+                些软件很难卸载，而且还阻止了别的软件的应用，就可以用这个，不过有点冒险。 
+            </p><p><b>apt-cache showpkg pkgs. </b>
+                显示软件包信息。
+            </p><p><b>apt-cache dumpavail. </b>
+                打印可用软件包列表
+            </p><p><b>apt-file search filename. </b>
+                查找包含特定文件的软件包（不一定是已安装的），这些文件的文件名中含有指定的字符串。apt-file是一个独立的软件包。您必须先使用apt-get install来安装它，然後运行apt-file update。如果apt-file search filename输出的内容太多，您可以尝试使用apt-file search filename | grep -w filename（只显示指定字符串作为完整的单词出现在其中的那些文件名）或者类似方法，例如：apt-file search filename | grep /bin/（只显示位于诸如/bin或/usr/bin这些文件夹中的文件，如果您要查找的是某个特定的执行文件的话，这样做是有帮助的）。 
+
+＊ apt-get autoclean——定期运行这个命令来清除那些已经卸载的软件包的.deb文件。通过这种方式，您可以释放大量的磁盘空间。如果您的需求十分迫切，可以使用apt-get clean以释放更多空间。这个命令会将已安装软件包裹的.deb文件一并删除。大多数情况下您不会再用到这些.debs文件，因此如果您为磁盘空间不足而感到焦头烂额，这个办法也许值得一试。 
+            </p><p><b> </b></p><p><b> </b></p><p><b> </b></p><p><b> </b></p><p><b> </b></p></div></div></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="id613021"></a>Chapter 4. Shell编程</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="#id613025">4.1. 变量命名</a></span></dt><dt><span class="sect1"><a href="#id613035">4.2. 修改环境变量PATH</a></span></dt><dt><span class="sect1"><a href="#id613045">4.3. 输出重定向</a></span></dt><dt><span class="sect1"><a href="#id613059">4.4. find 查找并执行相关命令</a></span></dt><dt><span class="sect1"><a href="#id613070">4.5. 关闭selinux</a></span></dt><dt><span class="sect1"><a href="#id613081">4.6. scp 的应用</a></span></dt></dl></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id613025"></a>4.1. 变量命名</h2></div></div></div><p>只能包含字母、数字、下划线，且不能以数字为开头</p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id613035"></a>4.2. 修改环境变量PATH</h2></div></div></div><p>export PATH=$PATH:/laobi</p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id613045"></a>4.3. 输出重定向</h2></div></div></div><p>覆盖和追加
+        </p><pre class="screen">
+        
+        &gt;: 覆盖
+        &gt;\&gt;:追加
+        set -c,禁止覆盖信息到已经存在的文件
+        set +c,允许覆盖
+        &gt;|
+        &amp;&gt;: 合并输出流至同一个数据流
+        
+        </pre></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id613059"></a>4.4. find 查找并执行相关命令</h2></div></div></div><pre class="screen">
+
+#类似于这种格式
+find ./ -mtime -1 -type f -exec ls -l {} \;
+#删除查找到的所有文件
+find / -name nginx -exec rm -rf  {} \;
+#打印查找的所有文件
+find / -name nginx -exec ls -l  {} \;
+
+        </pre></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id613070"></a>4.5. 关闭selinux</h2></div></div></div><pre class="screen">
+
+#关闭selinux
+/usr/sbin/setenforce 0
+#查看selinux状态
+/usr/sbin/sestatus
+
+    </pre></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id613081"></a>4.6. scp 的应用</h2></div></div></div><pre class="screen">
+#scp 应用的格式 （1为需要复制的文件的服务器，2为目标服务器）
+scp 用户名1@ip1(或域名):文件路径1  用户名2@ip2(或域名):文件路径2
+#从本地复制文件到远程
+scp root@192.168.2.136:/www/xxx.tar.gz root@192.168.2.138:/www/
+#将远程文件copy到本地原理一样，将右边放到左边
+</pre></div></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="id613093"></a>Chapter 5. apache 配置</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="#id613097">5.1. AddDefaultCharset</a></span></dt></dl></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id613097"></a>5.1. AddDefaultCharset</h2></div></div></div><p>
+		 </p><pre class="screen">
+#apache 安装默认是UTF-8 ，如果输出html页面是非UTF-8，则需要修改此配置为相应的编码
+AddDefaultCharset UTF-8
+		 </pre><p>
+		</p></div></div></div></body></html>

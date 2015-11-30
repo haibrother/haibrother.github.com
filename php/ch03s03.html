@@ -1,7 +1,25 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3.3.�php &#35299;&#20915;iframe &#36328;&#22495;&#23384;&#21462;COOKIE</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="PHP&#25216;&#26415;&#25163;&#20876;"><link rel="up" href="ch03.html" title="Chapter�3.�php &#23454;&#36341;&#26696;&#20363;"><link rel="prev" href="ch03s02.html" title="3.2.�php &#21028;&#26029;&#26381;&#21153;&#22120;&#22320;&#22336;&#26159;&#21542;&#20026;https"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.3.�php &#35299;&#20915;iframe &#36328;&#22495;&#23384;&#21462;COOKIE</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch03s02.html">Prev</a>�</td><th width="60%" align="center">Chapter�3.�php &#23454;&#36341;&#26696;&#20363;</th><td width="20%" align="right">�</td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id622694"></a>3.3.�php &#35299;&#20915;iframe &#36328;&#22495;&#23384;&#21462;COOKIE</h2></div></div></div>
-		<pre class="screen">
-#&#36890;&#36807;W3C&#26631;&#20934;&#30340;P3P&#22836;&#22768;&#26126;cookie&#30340;&#23433;&#20840;&#38544;&#31169;&#65292;&#36825;&#26679;&#19968;&#26469;IE&#27983;&#35272;&#22120;&#23601;&#33021;&#25353;&#29031;&#20320;&#22768;&#26126;&#30340;&#38544;&#31169;&#33539;&#22260;&#22788;&#29702;&#20102;
-#&#22312;&#35774;&#32622;&#21644;&#35835;&#21462;COOKIE&#21457;&#36865;&#19968;&#20010;&#22836;&#37096;&#28040;&#24687;&#65292;&#21578;&#30693;&#27983;&#35272;&#22120;
-header('P3P: CP=CAO PSA OUR');
-		</pre>
-	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch03s02.html">Prev</a>�</td><td width="20%" align="center"><a accesskey="u" href="ch03.html">Up</a></td><td width="40%" align="right">�</td></tr><tr><td width="40%" align="left" valign="top">3.2.�php &#21028;&#26029;&#26381;&#21153;&#22120;&#22320;&#22336;&#26159;&#21542;&#20026;https�</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">�</td></tr></table></div></body></html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>3.3. php 文件操作</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="PHP技术手册"><link rel="up" href="ch03.html" title="Chapter 3. function"><link rel="prev" href="ch03s02.html" title="3.2. 查看和设置php.ini配置"><link rel="next" href="ch03s04.html" title="3.4. 时区-timezone"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.3. php 文件操作</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch03s02.html">Prev</a> </td><th width="60%" align="center">Chapter 3. function</th><td width="20%" align="right"> <a accesskey="n" href="ch03s04.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id638959"></a>3.3. php 文件操作</h2></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id638964"></a>3.3.1. file_put_contents、file_get_contents</h3></div></div></div>
+         <pre class="screen">
+#写入文件
+#int file_put_contents  ( string $filename  , mixed  $data  [, int $flags  = 0  [, resource $context  ]] )
+#FILE_APPEND   如果文件 filename  已经存在，追加数据而不是覆盖。
+#LOCK_EX       在写入时获得一个独占锁。
+file_put_contents('data.txt', 'test',FILE_APPEND);
+
+#读取文件
+file_get_contents('data.txt');
+         </pre>
+        </div>
+        
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id638975"></a>3.3.2. fopen 系列文件操作</h3></div></div></div>
+          <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="id638980"></a>3.3.2.1. 累加写入数据</h4></div></div></div>
+            <pre class="screen">
+$fp  =  fopen ( 'data.txt' ,  'a+' );
+fwrite ( $fp ,  '1' );
+fwrite ( $fp ,  '23' );
+fclose ( $fp );
+            </pre>
+          </div>
+        </div>
+    </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch03s02.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch03.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch03s04.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">3.2. 查看和设置php.ini配置 </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 3.4. 时区-timezone</td></tr></table></div></body></html>

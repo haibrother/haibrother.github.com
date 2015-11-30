@@ -1,0 +1,37 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>2.5. js &#36328;&#22495;&#22788;&#29702;</title><link rel="stylesheet" type="text/css" href="/blog/javascript/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><meta name="keywords" content="Linux, php, haibrother.github.com, apache, mysql, &#25216;&#26415;&#25163;&#20876;, &#32531;&#23384;&#25216;&#26415;"><link rel="home" href="index.html" title="javascript&#25216;&#26415;&#25163;&#20876;"><link rel="up" href="ch02.html" title="Chapter 2. javascript&#21407;&#29983;&#30693;&#35782;"><link rel="prev" href="ch02s04.html" title="2.4. &#33719;&#21462;url&#25152;&#26377;&#21442;&#25968;&#65292;&#36171;&#20104;&#32473;&#25351;&#23450;&#26631;&#31614;"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.5. js &#36328;&#22495;&#22788;&#29702;</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02s04.html">Prev</a> </td><th width="60%" align="center">Chapter 2. javascript&#21407;&#29983;&#30693;&#35782;</th><td width="20%" align="right"> </td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id624956"></a>2.5. js &#36328;&#22495;&#22788;&#29702;</h2></div></div></div>
+<pre class="screen">
+
+
+    # js &#22788;&#29702;
+ &lt;script&gt;
+   $(document).ready(function() {
+	$.ajax({
+             url:'http://newprogram/test/aaa.php?test=afa&amp;callback=CallBack',
+             dataType:'jsonp',
+             processData: false, 
+             type:'get',
+             success:function(data){
+             
+             }
+            });
+            
+     
+    });
+
+
+    function CallBack(data)
+     {
+        //&#25191;&#34892;&#22788;&#29702;&#25968;&#25454;
+        console.log(data);
+        alert(data.msg);
+     }
+    &lt;/script&gt;
+
+    #&#26381;&#21153;&#31471;&#22788;&#29702;
+    &lt;?php
+         $ret = array('status'=&gt;0,'msg'=&gt;'ok');
+        echo 'CallBack('.json_encode($ret).')'; 
+    ?&gt;
+
+</pre>
+    </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch02s04.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch02.html">Up</a></td><td width="40%" align="right"> </td></tr><tr><td width="40%" align="left" valign="top">2.4. &#33719;&#21462;url&#25152;&#26377;&#21442;&#25968;&#65292;&#36171;&#20104;&#32473;&#25351;&#23450;&#26631;&#31614; </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> </td></tr></table></div></body></html>

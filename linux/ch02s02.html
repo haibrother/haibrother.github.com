@@ -1,15 +1,24 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>2.2.�&#25991;&#20214;&#25805;&#20316;</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><meta name="keywords" content="Linux, php, haibrother.github.com, apache, mysql, &#25216;&#26415;&#25163;&#20876;, &#32531;&#23384;&#25216;&#26415;"><link rel="home" href="index.html" title="linux&#25216;&#26415;&#25163;&#20876;"><link rel="up" href="ch02.html" title="Chapter�2.�&#21629;&#20196;&#27719;&#24635;"><link rel="prev" href="ch02.html" title="Chapter�2.�&#21629;&#20196;&#27719;&#24635;"><link rel="next" href="ch02s03.html" title="2.3.�&#20462;&#25913;&#21644;&#35774;&#32622;&#25991;&#20214;&#26435;&#38480;"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.2.�&#25991;&#20214;&#25805;&#20316;</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02.html">Prev</a>�</td><th width="60%" align="center">Chapter�2.�&#21629;&#20196;&#27719;&#24635;</th><td width="20%" align="right">�<a accesskey="n" href="ch02s03.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id629982"></a>2.2.�&#25991;&#20214;&#25805;&#20316;</h2></div></div></div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id629987"></a>2.2.1.�cp:&#22797;&#21046;&#25991;&#20214;</h3></div></div></div>
-        <pre class="screen">:~/laobi$ cp file file.copy</pre>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>2.2. 文件操作</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><meta name="keywords" content="Linux, php, haibrother.github.com, apache, mysql, 技术手册, 缓存技术"><link rel="home" href="index.html" title="linux技术手册"><link rel="up" href="ch02.html" title="Chapter 2. 命令汇总"><link rel="prev" href="ch02.html" title="Chapter 2. 命令汇总"><link rel="next" href="ch02s03.html" title="2.3. 修改和设置文件权限"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.2. 文件操作</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02.html">Prev</a> </td><th width="60%" align="center">Chapter 2. 命令汇总</th><td width="20%" align="right"> <a accesskey="n" href="ch02s03.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id675103"></a>2.2. 文件操作</h2></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id675108"></a>2.2.1. cp:复制文件</h3></div></div></div>
+        <pre class="screen">
+:~/laobi$ cp file file.copy
+
+#递归复制目标及文件
+cp -iR file file.copy
+
+        </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id629997"></a>2.2.2.�mv:&#31227;&#21160;&#25991;&#20214;</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id675119"></a>2.2.2. mv:移动文件</h3></div></div></div>
         <pre class="screen">:~/laobi$ mv file.copy file</pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id630008"></a>2.2.3.�lpr:&#25171;&#21360;&#25991;&#20214;</h3></div></div></div></div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id630013"></a>2.2.4.�grep:&#26597;&#25214;&#23383;&#31526;&#20018;</h3></div></div></div>
+		<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id675130"></a>2.2.3. mkdir 递归创建目录</h3></div></div></div>
+		<pre class="screen">mkdir -p /tmp/test</pre>
+		</div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id675140"></a>2.2.4. lpr:打印文件</h3></div></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id675145"></a>2.2.5. grep:查找字符串</h3></div></div></div>
 
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id630019"></a>2.2.5.�head:&#26174;&#31034;&#25991;&#20214;&#22836;&#37096;</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id675151"></a>2.2.6. head:显示文件头部</h3></div></div></div>
         <pre class="screen">
 laobi@laobi-VirtualBox:~/laobi$ head -5 file
 1
@@ -19,7 +28,7 @@ laobi@laobi-VirtualBox:~/laobi$ head -5 file
 5
         </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id630030"></a>2.2.6.�tail:&#26174;&#31034;&#25991;&#20214;&#23614;&#37096;</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id675162"></a>2.2.7. tail:显示文件尾部</h3></div></div></div>
         <pre class="screen">
 laobi@laobi-VirtualBox:~/laobi$ tail -5 file
 3
@@ -29,10 +38,10 @@ laobi@laobi-VirtualBox:~/laobi$ tail -5 file
 7
         </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id630041"></a>2.2.7.�sort:&#25353;&#39034;&#24207;&#26174;&#31034;&#25991;&#20214;&#20869;&#23481;</h3></div></div></div>
-            <p>sort&#23454;&#29992;&#31243;&#24207;&#23558;&#25991;&#20214;&#20869;&#23481;&#25353;&#34892;&#25490;&#24207;&#21518;&#26174;&#31034;&#65292;&#20294;&#24182;&#19981;&#25913;&#21464;&#25991;&#20214;&#20869;&#23481;</p>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id675173"></a>2.2.8. sort:按顺序显示文件内容</h3></div></div></div>
+            <p>sort实用程序将文件内容按行排序后显示，但并不改变文件内容</p>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id630050"></a>2.2.8.�uniq:&#24573;&#30053;&#25991;&#20214;&#20013;&#37325;&#22797;&#30340;&#34892;</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id675182"></a>2.2.9. uniq:忽略文件中重复的行</h3></div></div></div>
             <pre class="screen">
 laobi@laobi-VirtualBox:~/laobi/test$ cat a
 one
@@ -52,8 +61,8 @@ three
 two
             </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id630061"></a>2.2.9.�diff:&#27604;&#36739;&#20004;&#20010;&#25991;&#20214;</h3></div></div></div>
-        <p>diff&#23454;&#29992;&#31243;&#24207;&#29992;&#26469;&#23545;&#20004;&#20010;&#25991;&#20214;&#36827;&#34892;&#27604;&#36739;&#65292;&#26174;&#31034;&#20004;&#32773;&#25152;&#26377;&#30340;&#19981;&#21516;&#20043;&#22788;&#65292;&#20294;&#19981;&#25913;&#21464;&#20219;&#20309;&#19968;&#20010;&#25991;&#20214;&#30340;&#20869;&#23481;</p>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id675193"></a>2.2.10. diff:比较两个文件</h3></div></div></div>
+        <p>diff实用程序用来对两个文件进行比较，显示两者所有的不同之处，但不改变任何一个文件的内容</p>
         <pre class="screen">
 laobi@laobi-VirtualBox:~/laobi/test$ diff -u a b
 --- a	2012-10-30 04:55:53.224270760 -0400
@@ -67,18 +76,18 @@ laobi@laobi-VirtualBox:~/laobi/test$ diff -u a b
  five
         </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id630075"></a>2.2.10.�file:&#35782;&#21035;&#25991;&#20214;&#20869;&#23481;</h3></div></div></div>
-            <p>&#22312;&#19981;&#36890;&#36807;&#25171;&#24320;&#25991;&#20214;&#26597;&#30475;&#20869;&#23481;&#30340;&#24773;&#20917;&#19979;&#65292;&#23454;&#29992;&#31243;&#24207;file&#21487;&#30452;&#25509;&#33719;&#24471;LINUX&#31995;&#32479;&#20013;&#20219;&#20309;&#25991;&#20214;&#30340;&#20869;&#23481;&#20449;&#24687;&#12290;</p>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id675208"></a>2.2.11. file:识别文件内容</h3></div></div></div>
+            <p>在不通过打开文件查看内容的情况下，实用程序file可直接获得LINUX系统中任何文件的内容信息。</p>
         </div>
-		<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id630085"></a>2.2.11.�&#30828;&#38142;&#25509;</h3></div></div></div>
+		<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id675217"></a>2.2.12. 硬链接</h3></div></div></div>
 <pre class="screen">
 ln /laobi/test /laobi/testy1
-#&#21482;&#26377;&#21024;&#38500;&#26368;&#21518;&#19968;&#20010;&#25991;&#20214;&#65292;&#25165;&#20250;&#25226;&#30495;&#27491;&#25226;&#25991;&#20214;&#21024;&#38500;&#25481;
+#只有删除最后一个文件，才会把真正把文件删除掉
 </pre>
 		</div>
-		<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id642896"></a>2.2.12.�&#36719;&#38142;&#25509;</h3></div></div></div>
+		<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id675228"></a>2.2.13. 软链接</h3></div></div></div>
 <pre class="screen">
 ln -sv /laobi/test /laobi/testr1
 </pre>
 		</div>
- </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch02.html">Prev</a>�</td><td width="20%" align="center"><a accesskey="u" href="ch02.html">Up</a></td><td width="40%" align="right">�<a accesskey="n" href="ch02s03.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter�2.�&#21629;&#20196;&#27719;&#24635;�</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">�2.3.�&#20462;&#25913;&#21644;&#35774;&#32622;&#25991;&#20214;&#26435;&#38480;</td></tr></table></div></body></html>
+ </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch02.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch02.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch02s03.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 2. 命令汇总 </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 2.3. 修改和设置文件权限</td></tr></table></div></body></html>

@@ -1,0 +1,56 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>7.4. union ,union all</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="MYSQL技术手册"><link rel="up" href="ch07.html" title="Chapter 7. mysql常用函数"><link rel="prev" href="ch07s03.html" title="7.3. regexp 正则匹配"><link rel="next" href="ch07s05.html" title="7.5. distinct"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.4. union ,union all</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch07s03.html">Prev</a> </td><th width="60%" align="center">Chapter 7. mysql常用函数</th><td width="20%" align="right"> <a accesskey="n" href="ch07s05.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id647180"></a>7.4. union ,union all</h2></div></div></div>
+	
+	<p>UNION 与 UNION ALL 的区别</p>
+	<pre class="screen">
+当使用 UNION 时，MySQL 会把结果集中重复的记录删掉，而使用 UNION ALL ，MySQL 会把所有的记录返回，且效率高于 UNION。
+	</pre>
+	
+	<p>union 用于把来自多个 SELECT 语句的结果组合到一个结果集合中</p>
+		<pre class="screen">
+SELECT column,... FROM table1 
+UNION [ALL]
+SELECT column,... FROM table2
+...
+		</pre>
+		
+	<p>union 用于跨库查询组合到一个结果集中</p>
+	<pre class="screen">
+#test 库中 表amount
+CREATE TABLE `account` (
+	`id` INT(11) NOT NULL,
+	`money` FLOAT NULL DEFAULT NULL,
+	`status` VARCHAR(2) NULL DEFAULT '1'
+)
+COLLATE='utf8_general_ci'
+ENGINE=MyISAM;
+
+
+#test1 库中 表amount
+CREATE TABLE `account` (
+	`id` INT(11) NOT NULL,
+	`money` FLOAT NULL DEFAULT NULL,
+	`status` VARCHAR(2) NULL DEFAULT '1'
+)
+COLLATE='utf8_general_ci'
+ENGINE=MyISAM;
+
+#insert into 数据
+insert into `test`.account values (1,10,1);
+insert into `test`.account values (1,20,1);
+insert into `test`.account values (1,10,1);
+insert into `test`.account values (2,20,1);
+insert into `test`.account values (3,20,1);
+insert into `test`.account values (1,20,1);
+insert into test1.account values (1,10,1);
+insert into test1.account values (2,10,1);
+
+#现我需要查询出 test库中的account、和test1库中的 account 取出id=1 不重复 的 money的总数
+select sum(money) as money from (
+	select id,money,`status` from `test`.account where id=1 union 
+	select id,money,`status` from test1.account  where id=1
+) s
+
+
+
+	</pre>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch07s03.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch07.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch07s05.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">7.3. regexp 正则匹配 </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 7.5. distinct</td></tr></table></div></body></html>

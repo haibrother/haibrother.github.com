@@ -1,0 +1,78 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Chapter 6. php 设计模式</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="PHP技术手册"><link rel="up" href="index.html" title="PHP技术手册"><link rel="prev" href="ch05s02.html" title="5.2. fwrite"><link rel="next" href="ch07.html" title="Chapter 7. PHP高级编程"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 6. php 设计模式</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch05s02.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="ch07.html">Next</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="id639106"></a>Chapter 6. php 设计模式</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="ch06.html#id639110">6.1. 单例模式</a></span></dt></dl></div>
+	<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id639110"></a>6.1. 单例模式</h2></div></div></div>
+		<p>
+			概念：保证一个类仅有一个实例，并且提供一个访问它的全局访问点
+			
+			</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>一个类只有一个实例</p></li><li class="listitem"><p>它必须自行创建这个实例</p></li><li class="listitem"><p>必须自行向整个系统提供这个实例</p></li></ul></div><p>
+		</p>
+		
+<pre class="screen">
+
+&lt;?php
+/**
+ * 懒汉式单例类
+ */
+class Singleton {
+ 
+    /**
+     * 静态成品变量 保存全局实例
+     */
+    private static  $_instance = NULL;
+ 
+    /**
+     * 私有化默认构造方法，保证外界无法直接实例化
+     */
+    private function __construct() {
+    }
+ 
+    /**
+     * 静态工厂方法，返还此类的唯一实例
+     */
+    public static function getInstance() {
+        if (is_null(self::$_instance)) {
+            self::$_instance = new Singleton();
+        }
+ 
+        return self::$_instance;
+    }
+ 
+    /**
+     * 防止用户克隆实例
+     */
+    public function __clone(){
+        die('Clone is not allowed.' . E_USER_ERROR);
+    }
+ 
+    /**
+     * 测试用方法
+     */
+    public function test() {
+        echo 'Singleton Test!';
+    }
+ 
+}
+ 
+/**
+ * 客户端
+ */
+class Client {
+ 
+     /**
+     * Main program.
+     */
+    public static function main() {
+        $instance = Singleton::getInstance();
+        $instance-&gt;test();
+    }
+}
+ 
+Client::main();
+?&gt;
+
+
+</pre>
+	</div>
+
+
+
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch05s02.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="ch07.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">5.2. fwrite </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 7. PHP高级编程</td></tr></table></div></body></html>

@@ -1,39 +1,39 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>4.6.�&#22806;&#38190; - foreige key</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="MYSQL&#25216;&#26415;&#25163;&#20876;"><link rel="up" href="ch04.html" title="Chapter�4.�&#21019;&#24314;&#12289;&#20462;&#25913;&#21644;&#21024;&#38500;&#34920;"><link rel="prev" href="ch04s05.html" title="4.5.�&#21024;&#38500;&#34920;"><link rel="next" href="ch05.html" title="Chapter�5.�&#25968;&#25454;&#24211;&#32034;&#24341;"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4.6.�&#22806;&#38190; - foreige key</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch04s05.html">Prev</a>�</td><th width="60%" align="center">Chapter�4.�&#21019;&#24314;&#12289;&#20462;&#25913;&#21644;&#21024;&#38500;&#34920;</th><td width="20%" align="right">�<a accesskey="n" href="ch05.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id622036"></a>4.6.�&#22806;&#38190; - foreige key</h2></div></div></div>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>4.6. 外键 - foreige key</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="MYSQL技术手册"><link rel="up" href="ch04.html" title="Chapter 4. 创建、修改和删除表"><link rel="prev" href="ch04s05.html" title="4.5. 删除表"><link rel="next" href="ch05.html" title="Chapter 5. 数据库索引"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4.6. 外键 - foreige key</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch04s05.html">Prev</a> </td><th width="60%" align="center">Chapter 4. 创建、修改和删除表</th><td width="20%" align="right"> <a accesskey="n" href="ch05.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id646783"></a>4.6. 外键 - foreige key</h2></div></div></div>
         <p>
-&#22806;&#38190;&#30340;&#20351;&#29992;&#26465;&#20214;&#65306;
-1.&#20004;&#20010;&#34920;&#24517;&#39035;&#26159;InnoDB&#34920;&#65292;MyISAM&#34920;&#26242;&#26102;&#19981;&#25903;&#25345;&#22806;&#38190;&#65288;&#25454;&#35828;&#20197;&#21518;&#30340;&#29256;&#26412;&#26377;&#21487;&#33021;&#25903;&#25345;&#65292;&#20294;&#33267;&#23569;&#30446;&#21069;&#19981;&#25903;&#25345;&#65289;&#65307;
-2.&#22806;&#38190;&#21015;&#24517;&#39035;&#24314;&#31435;&#20102;&#32034;&#24341;&#65292;MySQL 4.1.2&#20197;&#21518;&#30340;&#29256;&#26412;&#22312;&#24314;&#31435;&#22806;&#38190;&#26102;&#20250;&#33258;&#21160;&#21019;&#24314;&#32034;&#24341;&#65292;&#20294;&#22914;&#26524;&#22312;&#36739;&#26089;&#30340;&#29256;&#26412;&#21017;&#38656;&#35201;&#26174;&#31034;&#24314;&#31435;&#65307;
-3.&#22806;&#38190;&#20851;&#31995;&#30340;&#20004;&#20010;&#34920;&#30340;&#21015;&#24517;&#39035;&#26159;&#25968;&#25454;&#31867;&#22411;&#30456;&#20284;&#65292;&#20063;&#23601;&#26159;&#21487;&#20197;&#30456;&#20114;&#36716;&#25442;&#31867;&#22411;&#30340;&#21015;&#65292;&#27604;&#22914;int&#21644;tinyint&#21487;&#20197;&#65292;&#32780;int&#21644;char&#21017;&#19981;&#21487;&#20197;&#65307;
+外键的使用条件：
+1.两个表必须是InnoDB表，MyISAM表暂时不支持外键（据说以后的版本有可能支持，但至少目前不支持）；
+2.外键列必须建立了索引，MySQL 4.1.2以后的版本在建立外键时会自动创建索引，但如果在较早的版本则需要显示建立；
+3.外键关系的两个表的列必须是数据类型相似，也就是可以相互转换类型的列，比如int和tinyint可以，而int和char则不可以；
 
-&#22806;&#38190;&#30340;&#22909;&#22788;&#65306;&#21487;&#20197;&#20351;&#24471;&#20004;&#24352;&#34920;&#20851;&#32852;&#65292;&#20445;&#35777;&#25968;&#25454;&#30340;&#19968;&#33268;&#24615;&#21644;&#23454;&#29616;&#19968;&#20123;&#32423;&#32852;&#25805;&#20316;&#65307;
+外键的好处：可以使得两张表关联，保证数据的一致性和实现一些级联操作；
         </p>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id622045"></a>4.6.1.�&#22806;&#38190;&#30340;&#35821;&#27861;</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id646792"></a>4.6.1. 外键的语法</h3></div></div></div>
           <pre class="screen">
 [CONSTRAINT symbol] FOREIGN KEY [id] (index_col_name, ...)
     REFERENCES tbl_name (index_col_name, ...)
     [ON DELETE {RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT}]
     [ON UPDATE {RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT}]
-&#35813;&#35821;&#27861;&#21487;&#20197;&#22312; CREATE TABLE &#21644; ALTER TABLE &#26102;&#20351;&#29992;&#65292;&#22914;&#26524;&#19981;&#25351;&#23450;CONSTRAINT symbol&#65292;MYSQL&#20250;&#33258;&#21160;&#29983;&#25104;&#19968;&#20010;&#21517;&#23383;&#12290;
-ON DELETE&#12289;ON UPDATE&#34920;&#31034;&#20107;&#20214;&#35302;&#21457;&#38480;&#21046;&#65292;&#21487;&#35774;&#21442;&#25968;&#65306;
-RESTRICT&#65288;&#38480;&#21046;&#22806;&#34920;&#20013;&#30340;&#22806;&#38190;&#25913;&#21160;&#65289;
-CASCADE&#65288;&#36319;&#38543;&#22806;&#38190;&#25913;&#21160;&#65289;
-SET NULL&#65288;&#35774;&#31354;&#20540;&#65289;
-SET DEFAULT&#65288;&#35774;&#40664;&#35748;&#20540;&#65289;
-NO ACTION&#65288;&#26080;&#21160;&#20316;&#65292;&#40664;&#35748;&#30340;&#65289;
+该语法可以在 CREATE TABLE 和 ALTER TABLE 时使用，如果不指定CONSTRAINT symbol，MYSQL会自动生成一个名字。
+ON DELETE、ON UPDATE表示事件触发限制，可设参数：
+RESTRICT（限制外表中的外键改动）
+CASCADE（跟随外键改动）
+SET NULL（设空值）
+SET DEFAULT（设默认值）
+NO ACTION（无动作，默认的）
           </pre>
       </div>
 
-      <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id622056"></a>4.6.2.�&#22806;&#38190;&#30340;&#24212;&#29992;</h3></div></div></div>
-       <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="id622060"></a>4.6.2.1.�&#24314;&#31435;&#22806;&#38190;</h4></div></div></div>
+      <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id646802"></a>4.6.2. 外键的应用</h3></div></div></div>
+       <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="id646807"></a>4.6.2.1. 建立外键</h4></div></div></div>
           <pre class="screen">
 
-//&#30041;&#35328;&#34920;
+//留言表
 CREATE TABLE `liuyan` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `content` varchar(110) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8
-//&#35780;&#35770;&#34920;
+//评论表
 CREATE TABLE `pinglun` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `liuyan_id` int(11) DEFAULT NULL,
@@ -44,13 +44,13 @@ CREATE TABLE `pinglun` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8
           </pre>
           <p>
-&#24403;&#25105;&#20204;&#22312;&#22686;&#21024;&#25913;&#26102;&#20250;&#20986;&#29616;&#20960;&#20010;&#38382;&#39064;&#65292;&#20363;&#22914;&#65306;
+当我们在增删改时会出现几个问题，例如：
           </p>
           <pre class="screen">
 mysql&gt; insert into pinglun values ('',4,'ok');
 ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`laobitest`.`pinglun`, CONSTRAINT `pinglun_foreign`
  FOREIGN KEY (`liuyan_id`) REFERENCES `liuyan` (`id`))
-//&#25552;&#31034;&#29238;&#34920;&#20013;&#19981;&#23384;&#22312;id=4
+//提示父表中不存在id=4
 
 mysql&gt; delete from liuyan where id=1;
 ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`laobitest`.`pinglun`, CONSTRAINT `pinglun_foreign`
@@ -61,11 +61,11 @@ ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint f
 FOREIGN KEY (`liuyan_id`) REFERENCES `liuyan` (`id`))
 
 
-#&#22914;&#26524;&#22312;&#20462;&#25913;&#25110;&#21024;&#38500;&#29238;&#34920;&#26102;&#21516;&#26102;&#25805;&#20316;&#23376;&#34920;&#65292;&#21017;&#38656;&#35201;&#19979;&#38754;&#27493;&#39588;&#25805;&#20316;
+#如果在修改或删除父表时同时操作子表，则需要下面步骤操作
  alter table pinglun drop foreign key pinglun_foreign;
 
  alter table pinglun add foreign key(liuyan_id) references liuyan(id) on delete cascade on update cascade;
           </pre>
      </div>
     </div>
-    </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch04s05.html">Prev</a>�</td><td width="20%" align="center"><a accesskey="u" href="ch04.html">Up</a></td><td width="40%" align="right">�<a accesskey="n" href="ch05.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">4.5.�&#21024;&#38500;&#34920;�</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">�Chapter�5.�&#25968;&#25454;&#24211;&#32034;&#24341;</td></tr></table></div></body></html>
+    </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch04s05.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch04.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch05.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">4.5. 删除表 </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 5. 数据库索引</td></tr></table></div></body></html>

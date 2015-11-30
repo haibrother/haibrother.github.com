@@ -1,0 +1,179 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>7.3. php 进程和多线程配合使用</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="PHP技术手册"><link rel="up" href="ch07.html" title="Chapter 7. PHP高级编程"><link rel="prev" href="ch07s02.html" title="7.2. PHP 多线程 pthreads"><link rel="next" href="ch08.html" title="Chapter 8. php 实践案例"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.3. php 进程和多线程配合使用</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch07s02.html">Prev</a> </td><th width="60%" align="center">Chapter 7. PHP高级编程</th><td width="20%" align="right"> <a accesskey="n" href="ch08.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id639179"></a>7.3. php 进程和多线程配合使用</h2></div></div></div>
+    
+    <p>php 进程和多线程配合使用</p>
+<pre class="screen">
+
+&lt;?php
+/*
+ *work 主要是做资源获取
+ **/
+class Resources extends Worker 
+{
+    //获取api远程连接资源 
+    protected  static $client;
+    //获取数据库连接资源
+    protected static $db;
+    
+	public function __construct() {
+
+	}
+	public function run(){
+      require(ROOTDIR.'/config/webservice.config.php');
+         $soap['location'] = 'http://api.hx9999.com/backend/Sms_queue';
+         self::$client = new SoapClient(null, $soap);
+
+        require(DBCONFIG);
+        self::$db = new mysqli($dbhost,$dbuser,$dbpw,$dbname);
+        
+	}
+    
+	protected function getClient(){ 
+            return self::$client;
+    }
+    
+    protected function getDb()
+    {
+        return self::$db;
+    }
+}
+
+class Sms extends Stackable
+{
+    public function __construct($row) {
+		$this-&gt;data = $row;
+        
+	}
+    
+    public function run()
+    {
+        $client = $this-&gt;worker-&gt;getClient();
+        $db = $this-&gt;worker-&gt;getDb();
+        if ($db-&gt;connect_errno) {
+            $str = sprintf("%s,%s\n", date('Y-m-d H:i:s'), '数据库连接出错' );
+           file_put_contents('/www/hx9999.com/log.hx9999.com/sms.' . date("Y-m-d") . '.log', $str, FILE_APPEND);
+        }
+        echo $this-&gt;data."\n";
+        sleep(10);
+    }
+}
+
+
+class Client {
+
+    public static function main() {
+        $str = sprintf("%s,%s\n", date('Y-m-d H:i:s'), '自动发送短信多线程开始' );
+        file_put_contents('/www/hx9999.com/log.hx9999.com/sms.' . date("Y-m-d") . '.log', $str, FILE_APPEND);
+        require(DBCONFIG);
+        $pool = new Pool(MAX_CONCURRENCY_JOB, \CALLWorker::class, []);
+        try {
+            $mysqli = new mysqli($dbhost,$dbuser,$dbpw,$dbname);
+            
+            if ($mysqli-&gt;connect_errno) {
+                $str = sprintf("%s,%s\n", date('Y-m-d H:i:s'), '数据库连接出错' );
+               file_put_contents('/www/hx9999.com/log.hx9999.com/sms.' . date("Y-m-d") . '.log', $str, FILE_APPEND);
+            }else{
+                $sql = "select id from sms_queue where `status`='New' order by id asc limit 100";
+                if ($query = $mysqli-&gt;query($sql)){
+                    while($row=$query-&gt;fetch_assoc())
+                    {
+                        $pool-&gt;submit(new Sendsms($row));
+                    }
+                    $pool-&gt;shutdown();
+                    $query-&gt;free();
+                }
+
+                $mysqli-&gt;close();
+
+                $str = sprintf("%s,%s\n", date('Y-m-d H:i:s'), '自动发送短信多线程结束,准备进入睡眠5秒中' );
+                file_put_contents('/www/hx9999.com/log.hx9999.com/sms.' . date("Y-m-d") . '.log', $str, FILE_APPEND);
+                
+            }
+        } catch (Exception $e) {
+            $str = sprintf("%s,%s\n", date('Y-m-d H:i:s'), ',【系统错误,数据库操作出现故障,自动发送短信多线程结束,准备进入睡眠5秒中】' . $e-&gt;getMessage() );
+            file_put_contents('/www/hx9999.com/log.hx9999.com/sms.' . date("Y-m-d") . '.log', $str, FILE_APPEND);
+			
+		}
+        //睡眠
+        sleep(5);
+    }
+}
+
+
+class Example {
+	/* config */
+	const LISTEN = "0.0.0.0";
+	const MAXCONN = 100;
+	const pidfile = 'sms';
+	const uid	= 80;
+	const gid	= 80;
+	
+	protected $pool = NULL;
+	protected $zmq = NULL;
+	public function __construct() {
+		$this-&gt;pidfile = '/var/run/'.self::pidfile.'.pid';
+	}
+	private function daemon(){
+		if (file_exists($this-&gt;pidfile)) {
+			echo "The file $this-&gt;pidfile exists.\n";
+			exit();
+		}
+		
+		$pid = pcntl_fork();
+		if ($pid == -1) {
+			 die('could not fork');
+		} else if ($pid) {
+			 // we are the parent
+			 //pcntl_wait($status); //Protect against Zombie children
+			exit($pid);
+		} else {
+			// we are the child
+			file_put_contents($this-&gt;pidfile, getmypid());
+			posix_setuid(self::uid);
+			posix_setgid(self::gid);
+			return(getmypid());
+		}
+	}
+	private function start(){
+		$pid = $this-&gt;daemon();
+        while( true ){
+            Client::main();
+        }
+		
+	}
+	private function stop(){
+
+		if (file_exists($this-&gt;pidfile)) {
+			$pid = file_get_contents($this-&gt;pidfile);
+			posix_kill($pid, 9); 
+			unlink($this-&gt;pidfile);
+		}
+	}
+	private function help($proc){
+		printf("%s start | stop | help \n", $proc);
+	}
+	public function main($argv){
+		if(count($argv) &lt; 2){
+			printf("please input help parameter\n");
+			exit();
+		}
+		if($argv[1] === 'stop'){
+			$this-&gt;stop();
+		}else if($argv[1] === 'start'){
+			$this-&gt;start();
+		}else{
+			$this-&gt;help($argv[0]);
+		}
+	}
+}
+
+//项目根目录
+define('ROOTDIR',realpath(dirname(dirname(__FILE__))));
+//数据库配置文件
+define('DBCONFIG',ROOTDIR.'/config/db.config.php');
+define('MAX_CONCURRENCY_JOB', 20);
+
+$cgse = new Example();
+$cgse-&gt;main($argv);
+
+</pre>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch07s02.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch07.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch08.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">7.2. PHP 多线程 pthreads </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 8. php 实践案例</td></tr></table></div></body></html>

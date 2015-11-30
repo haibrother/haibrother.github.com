@@ -1,0 +1,12 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>4.7. 从win环境写的bash程序移值到linux/unix服务器执行</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><meta name="keywords" content="Linux, php, haibrother.github.com, apache, mysql, 技术手册, 缓存技术"><link rel="home" href="index.html" title="linux技术手册"><link rel="up" href="ch04.html" title="Chapter 4. Shell编程"><link rel="prev" href="ch04s06.html" title="4.6. scp 的应用"><link rel="next" href="ch04s08.html" title="4.8. echo -e 输出颜色的字符"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4.7. 从win环境写的bash程序移值到linux/unix服务器执行</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch04s06.html">Prev</a> </td><th width="60%" align="center">Chapter 4. Shell编程</th><td width="20%" align="right"> <a accesskey="n" href="ch04s08.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id675676"></a>4.7. 从win环境写的bash程序移值到linux/unix服务器执行</h2></div></div></div>
+		<p>从win环境写的bash程序移值到linux/unix服务器执行会出现提示错误提示：syntax error: unexpected end of file</p>
+		<pre class="screen">
+#像这种问题的原因是：dos 格式 文件 传输到 linux/unix 系统时 , 会在每行的结尾多一个
+vi   dos.txt         
+:set fileformat=unix
+:wq
+
+#这样再运行，就不会出现 syntax error: unexpected end of file
+		</pre>
+		
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch04s06.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch04.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch04s08.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">4.6. scp 的应用 </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 4.8. echo -e 输出颜色的字符</td></tr></table></div></body></html>

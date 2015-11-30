@@ -1,7 +1,16 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>4.2.�php &#21028;&#26029;&#26381;&#21153;&#22120;&#22320;&#22336;&#26159;&#21542;&#20026;https</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="PHP&#25216;&#26415;&#25163;&#20876;"><link rel="up" href="ch04.html" title="Chapter�4.�php &#23454;&#36341;&#26696;&#20363;"><link rel="prev" href="ch04.html" title="Chapter�4.�php &#23454;&#36341;&#26696;&#20363;"><link rel="next" href="ch04s03.html" title="4.3.�php &#35299;&#20915;iframe &#36328;&#22495;&#23384;&#21462;COOKIE"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4.2.�php &#21028;&#26029;&#26381;&#21153;&#22120;&#22320;&#22336;&#26159;&#21542;&#20026;https</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch04.html">Prev</a>�</td><th width="60%" align="center">Chapter�4.�php &#23454;&#36341;&#26696;&#20363;</th><td width="20%" align="right">�<a accesskey="n" href="ch04s03.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id637449"></a>4.2.�php &#21028;&#26029;&#26381;&#21153;&#22120;&#22320;&#22336;&#26159;&#21542;&#20026;https</h2></div></div></div>
-	<pre class="screen">
-	
-	isset($_SERVER['HTTPS']) &amp;&amp; strtolower($_SERVER['HTTPS']) !== 'off' ? 'https' : 'http';
-	
-	</pre>
-	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch04.html">Prev</a>�</td><td width="20%" align="center"><a accesskey="u" href="ch04.html">Up</a></td><td width="40%" align="right">�<a accesskey="n" href="ch04s03.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter�4.�php &#23454;&#36341;&#26696;&#20363;�</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">�4.3.�php &#35299;&#20915;iframe &#36328;&#22495;&#23384;&#21462;COOKIE</td></tr></table></div></body></html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>4.2. amqp 扩展安装</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="PHP技术手册"><link rel="up" href="ch04.html" title="Chapter 4. PHP拓展"><link rel="prev" href="ch04.html" title="Chapter 4. PHP拓展"><link rel="next" href="ch05.html" title="Chapter 5. CLI php命令行模式"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4.2. amqp 扩展安装</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch04.html">Prev</a> </td><th width="60%" align="center">Chapter 4. PHP拓展</th><td width="20%" align="right"> <a accesskey="n" href="ch05.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id639066"></a>4.2. amqp 扩展安装</h2></div></div></div>
+   
+   <pre class="screen">
+
+   wget http://pecl.php.net/get/amqp-1.0.4.tgz
+   tar zxf amqp-1.0.4.tgz 
+   /usr/bin/phpize5
+   ./configure --with-php-config=/usr/bin/php-config5 --with-amqp;
+   make &amp;&amp; make install
+   
+   vim /etc/php5/apache2/php.ini
+   extension = "amqp.so"
+   
+   </pre>
+   
+   </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch04.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch04.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch05.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 4. PHP拓展 </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 5. CLI php命令行模式</td></tr></table></div></body></html>
