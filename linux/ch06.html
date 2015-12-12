@@ -1,5 +1,5 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Chapter 6. nginx</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><meta name="keywords" content="Linux, php, haibrother.github.com, apache, mysql, 技术手册, 缓存技术"><link rel="home" href="index.html" title="linux技术手册"><link rel="up" href="index.html" title="linux技术手册"><link rel="prev" href="ch05.html" title="Chapter 5. apache 配置"><link rel="next" href="ch06s02.html" title="6.2. nginx 设置web登录帐号密码"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 6. nginx</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch05.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="ch06s02.html">Next</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="id675724"></a>Chapter 6. nginx</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="ch06.html#id675728">6.1. nginx.conf 详解</a></span></dt><dt><span class="sect1"><a href="ch06s02.html">6.2. nginx 设置web登录帐号密码</a></span></dt></dl></div>
-    <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id675728"></a>6.1. nginx.conf 详解</h2></div></div></div>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Chapter 6. nginx</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><meta name="keywords" content="Linux, php, haibrother.github.com, apache, mysql, 技术手册, 缓存技术"><link rel="home" href="index.html" title="linux技术手册"><link rel="up" href="index.html" title="linux技术手册"><link rel="prev" href="ch05.html" title="Chapter 5. apache 配置"><link rel="next" href="ch06s02.html" title="6.2. nginx 设置web登录帐号密码"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 6. nginx</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch05.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="ch06s02.html">Next</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="id595824"></a>Chapter 6. nginx</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="ch06.html#id595828">6.1. nginx.conf 详解</a></span></dt><dt><span class="sect1"><a href="ch06s02.html">6.2. nginx 设置web登录帐号密码</a></span></dt></dl></div>
+    <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id595828"></a>6.1. nginx.conf 详解</h2></div></div></div>
         <p>
 		 </p><pre class="screen">
 
@@ -44,9 +44,13 @@ tcp_nodelay on; #防止网络阻塞
 keepalive_timeout 120; #长连接超时时间，单位是秒
 
 #FastCGI相关参数是为了改善网站的性能：减少资源占用，提高访问速度。下面参数看字面意思都能理解。
-fastcgi_connect_timeout 300;
-fastcgi_send_timeout 300;
-fastcgi_read_timeout 300;
+
+#nginx 与 php 连接与交互时间限制 start
+fastcgi_connect_timeout 30;
+fastcgi_send_timeout 30;
+fastcgi_read_timeout 30;
+#nginx 与 php 连接与交互时间限制 end
+
 fastcgi_buffer_size 64k;
 fastcgi_buffers 4 64k;
 fastcgi_busy_buffers_size 128k;
@@ -113,9 +117,13 @@ proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 proxy_set_header Host $host;
 client_max_body_size 10m; #允许客户端请求的最大单文件字节数
 client_body_buffer_size 128k; #缓冲区代理缓冲用户端请求的最大字节数，
-proxy_connect_timeout 90; #nginx跟后端服务器连接超时时间(代理连接超时)
-proxy_send_timeout 90; #后端服务器数据回传时间(代理发送超时)
-proxy_read_timeout 90; #连接成功后，后端服务器响应时间(代理接收超时)
+
+#反向代理目前服务器连接的连接和交互时间 start
+proxy_connect_timeout 30; #nginx跟后端服务器连接超时时间(代理连接超时)
+proxy_send_timeout 30; #后端服务器数据回传时间(代理发送超时)
+proxy_read_timeout 30; #连接成功后，后端服务器响应时间(代理接收超时)
+#反向代理目前服务器连接的连接和交互时间 end
+
 proxy_buffer_size 4k; #设置代理服务器（nginx）保存用户头信息的缓冲区大小
 proxy_buffers 4 32k; #proxy_buffers缓冲区，网页平均在32k以下的设置
 proxy_busy_buffers_size 64k; #高负荷下缓冲大小（proxy_buffers*2）

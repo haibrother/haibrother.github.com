@@ -1,25 +1,25 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>2.3. 修改和设置文件权限</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><meta name="keywords" content="Linux, php, haibrother.github.com, apache, mysql, 技术手册, 缓存技术"><link rel="home" href="index.html" title="linux技术手册"><link rel="up" href="ch02.html" title="Chapter 2. 命令汇总"><link rel="prev" href="ch02s02.html" title="2.2. 文件操作"><link rel="next" href="ch02s04.html" title="2.4. linux service"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.3. 修改和设置文件权限</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02s02.html">Prev</a> </td><th width="60%" align="center">Chapter 2. 命令汇总</th><td width="20%" align="right"> <a accesskey="n" href="ch02s04.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id675242"></a>2.3. 修改和设置文件权限</h2></div></div></div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id675247"></a>2.3.1. chgrp改变属主</h3></div></div></div>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>2.3. 修改和设置文件权限</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><meta name="keywords" content="Linux, php, haibrother.github.com, apache, mysql, 技术手册, 缓存技术"><link rel="home" href="index.html" title="linux技术手册"><link rel="up" href="ch02.html" title="Chapter 2. 命令汇总"><link rel="prev" href="ch02s02.html" title="2.2. 文件操作"><link rel="next" href="ch02s04.html" title="2.4. linux service"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.3. 修改和设置文件权限</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02s02.html">Prev</a> </td><th width="60%" align="center">Chapter 2. 命令汇总</th><td width="20%" align="right"> <a accesskey="n" href="ch02s04.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id595342"></a>2.3. 修改和设置文件权限</h2></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id595347"></a>2.3.1. chgrp改变属主</h3></div></div></div>
 		<pre class="screen">chgrp www file</pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id675258"></a>2.3.2. chmod</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id595358"></a>2.3.2. chmod</h3></div></div></div>
           <pre class="screen">
 u为属主，g为属组，o为其他，a为所有
 chmod [u] w file
           </pre>  
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id675269"></a>2.3.3. chown</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id595369"></a>2.3.3. chown</h3></div></div></div>
         <pre class="screen">
 chown [属主]:[属组] file
         </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id675280"></a>2.3.4. getfacl</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id595380"></a>2.3.4. getfacl</h3></div></div></div>
           <pre class="screen">
     getfacl file
           </pre>
         </div>
 
-       <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id675290"></a>2.3.5. setfacl</h3></div></div></div>
+       <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id595390"></a>2.3.5. setfacl</h3></div></div></div>
           <pre class="screen">
     #修改文件权限
     setfacl [-m|-x] u:username:rwx file
