@@ -1,0 +1,73 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>8.2. redis 基本命令</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><meta name="keywords" content="Linux, php, haibrother.github.com, apache, mysql, 技术手册, 缓存技术"><link rel="home" href="index.html" title="linux技术手册"><link rel="up" href="ch08.html" title="Chapter 8. redis"><link rel="prev" href="ch08.html" title="Chapter 8. redis"><link rel="next" href="ch09.html" title="Chapter 9. php-fpm"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">8.2. redis 基本命令</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch08.html">Prev</a> </td><th width="60%" align="center">Chapter 8. redis</th><td width="20%" align="right"> <a accesskey="n" href="ch09.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id666765"></a>8.2. redis 基本命令</h2></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id666770"></a>8.2.1. set key</h3></div></div></div>
+   <pre class="screen">
+
+redis 127.0.0.1:6379&gt; set param 'laobi'
+OK
+
+     </pre>
+        </div>
+        
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id666780"></a>8.2.2. get key</h3></div></div></div>
+            <pre class="screen">
+
+redis 127.0.0.1:6379&gt; get param
+"laobi"
+
+            </pre>
+        
+        </div>
+        
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id666791"></a>8.2.3. del key</h3></div></div></div>
+            <pre class="screen">
+
+redis 127.0.0.1:6379&gt; del param
+(integer) 1
+
+            </pre>
+        </div>
+        
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id666803"></a>8.2.4. 查看所有redis的所有keys</h3></div></div></div>
+            <pre class="screen">
+
+[dev@master ~]$ redis-cli keys '*'
+ 1) "myid.hx9999.com:b153049a82627330805eb5961d23e0cd:member_login_input"
+ 2) "myid.hx9999.com:0b168f504b26dcfbce18ae15fbbd6174:member_login"
+ 3) "myid.hx9999.com:35e34482ebfdd6d2b285d98c6a5578d1"
+ 4) "admin_340"
+ 5) "news1.hx9999.com:gold5min1450108800"
+ 6) "admin_352"
+ 7) "news1.hx9999.com:USDX1450108800"
+ 8) "news1.hx9999.com:GOLD1450108800"
+ 9) "news1.hx9999.com:CL1450022400"
+10) "admin_359"
+
+            </pre>
+        </div>
+        
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id666814"></a>8.2.5. 请空redis所有键值</h3></div></div></div>
+            <pre class="screen">
+
+#批量删除Key
+redis-cli keys "*" | xargs redis-cli del
+//如果redis-cli没有设置成系统变量，需要指定redis-cli的完整路径
+//如：/opt/redis/redis-cli keys "*" | xargs /opt/redis/redis-cli del
+
+
+#如果要指定 Redis 数据库访问密码，使用下面的命令
+redis-cli -a password keys "*" | xargs redis-cli -a password del
+
+#如果要访问 Redis 中特定的数据库，使用下面的命令
+//下面的命令指定数据序号为0，即默认数据库
+redis-cli -n 0 keys "*" | xargs redis-cli -n 0 del
+
+#删除所有Key，可以使用Redis的flushdb和flushall命令
+//删除当前数据库中的所有Key
+flushdb
+//删除所有数据库中的key
+flushall
+
+            </pre>
+        </div>
+        
+   </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch08.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch08.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch09.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 8. redis </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 9. php-fpm</td></tr></table></div></body></html>
