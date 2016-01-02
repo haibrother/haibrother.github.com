@@ -1,6 +1,6 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>5.2. 创建索引</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="MYSQL技术手册"><link rel="up" href="ch05.html" title="Chapter 5. 数据库索引"><link rel="prev" href="ch05.html" title="Chapter 5. 数据库索引"><link rel="next" href="ch05s03.html" title="5.3. 删除索引"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5.2. 创建索引</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch05.html">Prev</a> </td><th width="60%" align="center">Chapter 5. 数据库索引</th><td width="20%" align="right"> <a accesskey="n" href="ch05s03.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id646943"></a>5.2. 创建索引</h2></div></div></div>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>5.2. 创建索引</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="MYSQL技术手册"><link rel="up" href="ch05.html" title="Chapter 5. 数据库索引"><link rel="prev" href="ch05.html" title="Chapter 5. 数据库索引"><link rel="next" href="ch05s03.html" title="5.3. 删除索引"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5.2. 创建索引</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch05.html">Prev</a> </td><th width="60%" align="center">Chapter 5. 数据库索引</th><td width="20%" align="right"> <a accesskey="n" href="ch05s03.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id596736"></a>5.2. 创建索引</h2></div></div></div>
         <p>创建索引是指在某个表的一列或多列上建立一个索引，以便提高对表的访问速度。</p>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id646951"></a>5.2.1. 查看表的数据结构及索引</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id596744"></a>5.2.1. 查看表的数据结构及索引</h3></div></div></div>
             <pre class="screen">
 mysql&gt;SHOW CREATE TABLE member \G
 *************************** 1. row ***********************
@@ -17,7 +17,7 @@ Create Table: CREATE TABLE `member` (
 1 row in set (0.00 sec)
             </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id646962"></a>5.2.2. 创建表的时候创建索引</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id596755"></a>5.2.2. 创建表的时候创建索引</h3></div></div></div>
             <p><b>创建普通索引. </b>
                 创建普通索引时不需要加任何union fulltext或者spatial
                 例如：
@@ -58,7 +58,7 @@ Query OK, 0 rows affected (0.04 sec)
                 全文索引只能创建在CHAR、VARCHAR、TEXT类型的字段上。而且现在只有MYISAM存储引擎支持全文索引。
             </p>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id646997"></a>5.2.3. 在已经存在的表上创建索引</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id596790"></a>5.2.3. 在已经存在的表上创建索引</h3></div></div></div>
         <p><b>创建唯一性索引. </b>
             </p><pre class="screen">
 mysql&gt; CREATE UNIQUE INDEX index3_id ON table3(id);
@@ -85,7 +85,7 @@ CREATE SPATIAL INDEX index_pass ON table3(pass);
         </pre><p>
         </p>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id647059"></a>5.2.4. 用ALTER TABLE 语句来创建索引</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id596852"></a>5.2.4. 用ALTER TABLE 语句来创建索引</h3></div></div></div>
         <p><b>创建索引. </b>
         ALTER TABLE 表名 ADD 【UNIQUE | FULLTEXT | SPATIAL】 INDEX 索引名（属性名(长度) | ASC|DESC）;
         例如：

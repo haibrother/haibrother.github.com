@@ -1,25 +1,25 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Chapter 3. mysql数据库权限</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="MYSQL技术手册"><link rel="up" href="index.html" title="MYSQL技术手册"><link rel="prev" href="ch02.html" title="Chapter 2. windows 平台安装与配置MYSQL"><link rel="next" href="ch04.html" title="Chapter 4. 创建、修改和删除表"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 3. mysql数据库权限</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="ch04.html">Next</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="id646268"></a>Chapter 3. mysql数据库权限</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="ch03.html#id646273">3.1. grant 语法</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#id646278">3.1.1. grant 语法概述</a></span></dt><dt><span class="sect2"><a href="ch03.html#id646333">3.1.2. 查看当前用户权限</a></span></dt><dt><span class="sect2"><a href="ch03.html#id646345">3.1.3. 查看其他mysql用户权限</a></span></dt><dt><span class="sect2"><a href="ch03.html#id646357">3.1.4. 辙销用户权限</a></span></dt><dt><span class="sect2"><a href="ch03.html#id646369">3.1.5. 修改用户权限远程登录</a></span></dt><dt><span class="sect2"><a href="ch03.html#id646380">3.1.6. 给一个用户添加一个所有权限</a></span></dt></dl></dd></dl></div>
-    <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id646273"></a>3.1. grant 语法</h2></div></div></div>
-		<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id646278"></a>3.1.1. grant 语法概述</h3></div></div></div>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Chapter 3. mysql数据库权限</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="MYSQL技术手册"><link rel="up" href="index.html" title="MYSQL技术手册"><link rel="prev" href="ch02.html" title="Chapter 2. windows 平台安装与配置MYSQL"><link rel="next" href="ch04.html" title="Chapter 4. 创建、修改和删除表"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 3. mysql数据库权限</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="ch04.html">Next</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="id588280"></a>Chapter 3. mysql数据库权限</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="ch03.html#id588284">3.1. grant 语法</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#id588289">3.1.1. grant 语法概述</a></span></dt><dt><span class="sect2"><a href="ch03.html#id588344">3.1.2. 查看当前用户权限</a></span></dt><dt><span class="sect2"><a href="ch03.html#id588356">3.1.3. 查看其他mysql用户权限</a></span></dt><dt><span class="sect2"><a href="ch03.html#id588368">3.1.4. 辙销用户权限</a></span></dt><dt><span class="sect2"><a href="ch03.html#id588380">3.1.5. 修改用户权限远程登录</a></span></dt><dt><span class="sect2"><a href="ch03.html#id588391">3.1.6. 给一个用户添加一个所有权限</a></span></dt></dl></dd></dl></div>
+    <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id588284"></a>3.1. grant 语法</h2></div></div></div>
+		<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id588289"></a>3.1.1. grant 语法概述</h3></div></div></div>
 		  <p>grant [-option 操作权限]  on [-database 数据库].[-table 表]  to  [-user 操作用户]@"[操作用户IP]"   [-set password] </p>
 		  <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">select   #操作用户仅有选择操作权限</li><li class="listitem">insert   #操作用户仅有插入数据权限</li><li class="listitem">update #操作用户仅有更新数据权限</li><li class="listitem">delete  #操作用户仅有删除数据权限</li><li class="listitem">create  #操作用户仅有 执行create权限</li><li class="listitem">alter    #操作用户仅有 执行alter权限</li><li class="listitem">drop    #操作用户仅有 执行drop权限</li><li class="listitem">references #操作用户仅有 执行外键权限</li><li class="listitem">index #操作用户仅有 执行索引权限</li><li class="listitem">execute #操作用户仅有 执行存储过程、函数权限</li></ul></div>
 		  <pre class="screen">
 grant select, insert, update, delete on testdb.* to common_user@'%' 
 			</pre>
 		</div>
-		<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id646333"></a>3.1.2. 查看当前用户权限</h3></div></div></div>
+		<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id588344"></a>3.1.2. 查看当前用户权限</h3></div></div></div>
 			
 			<pre class="screen">
 show grants
 			</pre>
 		</div>
-		<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id646345"></a>3.1.3. 查看其他mysql用户权限</h3></div></div></div>
+		<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id588356"></a>3.1.3. 查看其他mysql用户权限</h3></div></div></div>
 			
 			<pre class="screen">
 show grants  for  username@dohost  
 			</pre>
 		</div>
-		<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id646357"></a>3.1.4. 辙销用户权限</h3></div></div></div>
+		<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id588368"></a>3.1.4. 辙销用户权限</h3></div></div></div>
 			
 			<pre class="screen">
 revoke all on *.* from dba@localhost;  
@@ -27,13 +27,13 @@ revoke all on *.* from dba@localhost;
 #grant all on *.* to dba@localhost; 
 			</pre>
 		</div>
-		<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id646369"></a>3.1.5. 修改用户权限远程登录</h3></div></div></div>
+		<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id588380"></a>3.1.5. 修改用户权限远程登录</h3></div></div></div>
 		<pre class="screen">
 mysql&gt; GRANT ALL PRIVILEGES ON *.* TO root@"%" IDENTIFIED BY "root";
 mysql&gt; flush privileges;
 		</pre>
 		</div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id646380"></a>3.1.6. 给一个用户添加一个所有权限</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id588391"></a>3.1.6. 给一个用户添加一个所有权限</h3></div></div></div>
 <pre class="screen">
 grant all privileges on *.* to laobi@'%' identified by 'laobi'
 </pre>

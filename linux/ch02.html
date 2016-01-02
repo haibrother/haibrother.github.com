@@ -1,6 +1,6 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Chapter 2. 命令汇总</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><meta name="keywords" content="Linux, php, haibrother.github.com, apache, mysql, 技术手册, 缓存技术"><link rel="home" href="index.html" title="linux技术手册"><link rel="up" href="index.html" title="linux技术手册"><link rel="prev" href="ch01.html" title="Chapter 1. LINUX概述"><link rel="next" href="ch02s02.html" title="2.2. 文件操作"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 2. 命令汇总</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch01.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="ch02s02.html">Next</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="id634824"></a>Chapter 2. 命令汇总</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="ch02.html#id634829">2.1. 基本工具</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02.html#id634834">2.1.1. ls:显示文件名</a></span></dt><dt><span class="sect2"><a href="ch02.html#id634845">2.1.2. cat:显示文本文件内容</a></span></dt><dt><span class="sect2"><a href="ch02.html#id634869">2.1.3. rm:删除文件</a></span></dt><dt><span class="sect2"><a href="ch02.html#id634880">2.1.4. linux系统时间和硬件时间</a></span></dt><dt><span class="sect2"><a href="ch02.html#id634923">2.1.5. linux计算器</a></span></dt><dt><span class="sect2"><a href="ch02.html#id634934">2.1.6.  调用linux手册</a></span></dt><dt><span class="sect2"><a href="ch02.html#id634944">2.1.7. Xshell上传和下载linux服务器的文件</a></span></dt><dt><span class="sect2"><a href="ch02.html#id634955">2.1.8. 防火墙</a></span></dt><dt><span class="sect2"><a href="ch02.html#id634967">2.1.9. jobs 查看当前有多少在后台运行的命令</a></span></dt><dt><span class="sect2"><a href="ch02.html#id634978">2.1.10. fg 将后台中的命令调至前台继续运行</a></span></dt><dt><span class="sect2"><a href="ch02.html#id634989">2.1.11. bg 将一个在后台暂停的命令，变成继续执行</a></span></dt><dt><span class="sect2"><a href="ch02.html#id635001">2.1.12. 开机自动启动</a></span></dt><dt><span class="sect2"><a href="ch02.html#id635013">2.1.13. ps</a></span></dt><dt><span class="sect2"><a href="ch02.html#id635025">2.1.14. netstat</a></span></dt><dt><span class="sect2"><a href="ch02.html#id635036">2.1.15. kill </a></span></dt><dt><span class="sect2"><a href="ch02.html#id635063">2.1.16. find 、 grep完美结合搜索</a></span></dt><dt><span class="sect2"><a href="ch02.html#id635074">2.1.17. 查看内存</a></span></dt><dt><span class="sect2"><a href="ch02.html#id635085">2.1.18. alias 别名</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02s02.html">2.2. 文件操作</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02s02.html#id635102">2.2.1. cp:复制文件</a></span></dt><dt><span class="sect2"><a href="ch02s02.html#id635112">2.2.2. mv:移动文件</a></span></dt><dt><span class="sect2"><a href="ch02s02.html#id635123">2.2.3. mkdir 递归创建目录</a></span></dt><dt><span class="sect2"><a href="ch02s02.html#id635134">2.2.4. lpr:打印文件</a></span></dt><dt><span class="sect2"><a href="ch02s02.html#id635139">2.2.5. grep:查找字符串</a></span></dt><dt><span class="sect2"><a href="ch02s02.html#id635145">2.2.6. head:显示文件头部</a></span></dt><dt><span class="sect2"><a href="ch02s02.html#id635156">2.2.7. tail:显示文件尾部</a></span></dt><dt><span class="sect2"><a href="ch02s02.html#id635166">2.2.8. sort:按顺序显示文件内容</a></span></dt><dt><span class="sect2"><a href="ch02s02.html#id635176">2.2.9. uniq:忽略文件中重复的行</a></span></dt><dt><span class="sect2"><a href="ch02s02.html#id635187">2.2.10. diff:比较两个文件</a></span></dt><dt><span class="sect2"><a href="ch02s02.html#id635201">2.2.11. file:识别文件内容</a></span></dt><dt><span class="sect2"><a href="ch02s02.html#id635211">2.2.12. 硬链接</a></span></dt><dt><span class="sect2"><a href="ch02s02.html#id635222">2.2.13. 软链接</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02s03.html">2.3. 修改和设置文件权限</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02s03.html#id635241">2.3.1. chgrp改变属主</a></span></dt><dt><span class="sect2"><a href="ch02s03.html#id635252">2.3.2. chmod</a></span></dt><dt><span class="sect2"><a href="ch02s03.html#id635262">2.3.3. chown</a></span></dt><dt><span class="sect2"><a href="ch02s03.html#id635273">2.3.4. getfacl</a></span></dt><dt><span class="sect2"><a href="ch02s03.html#id635284">2.3.5. setfacl</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02s04.html">2.4. linux service</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02s04.html#id635303">2.4.1. chkconfig --list 查看所有服务</a></span></dt><dt><span class="sect2"><a href="ch02s04.html#id635314">2.4.2. 修改 相关服务</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02s05.html">2.5. 管道（| ）</a></span></dt><dt><span class="sect1"><a href="ch02s06.html">2.6. 4个有用的实用程序</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02s06.html#id635340">2.6.1. </a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02s07.html">2.7. 压缩和归档文件</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02s07.html#id635350">2.7.1. tar 打包和解包文件</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02s08.html">2.8. 压缩无归档功能</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02s08.html#id635367">2.8.1. gzip</a></span></dt><dt><span class="sect2"><a href="ch02s08.html#id635373">2.8.2. bzip2 压缩文件</a></span></dt><dt><span class="sect2"><a href="ch02s08.html#id635384">2.8.3. bunzip2和bzcat 解压缩文件</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02s09.html">2.9. 用户和用户组</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02s09.html#id635400">2.9.1. 用户和用户组文件</a></span></dt><dt><span class="sect2"><a href="ch02s09.html#id635415">2.9.2. 使用管道来修改密码 passwd</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02s10.html">2.10. 表达式</a></span></dt><dt><span class="sect1"><a href="ch02s11.html">2.11. 命令汇总</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02s11.html#id635445">2.11.1. 如何获取ubuntu的root权限</a></span></dt><dt><span class="sect2"><a href="ch02s11.html#id635454">2.11.2. sort排序</a></span></dt><dt><span class="sect2"><a href="ch02s11.html#id635464">2.11.3. cut文本切割</a></span></dt><dt><span class="sect2"><a href="ch02s11.html#id635475">2.11.4. 查看linux发行版信息</a></span></dt><dt><span class="sect2"><a href="ch02s11.html#id635486">2.11.5. crontab</a></span></dt></dl></dd></dl></div>
-    <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id634829"></a>2.1. 基本工具</h2></div></div></div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id634834"></a>2.1.1. ls:显示文件名</h3></div></div></div>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Chapter 2. 命令汇总</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><meta name="keywords" content="Linux, php, haibrother.github.com, apache, mysql, 技术手册, 缓存技术"><link rel="home" href="index.html" title="linux技术手册"><link rel="up" href="index.html" title="linux技术手册"><link rel="prev" href="ch01.html" title="Chapter 1. LINUX概述"><link rel="next" href="ch02s02.html" title="2.2. 文件操作"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 2. 命令汇总</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch01.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="ch02s02.html">Next</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="id616765"></a>Chapter 2. 命令汇总</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="ch02.html#id616770">2.1. 基本工具</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02.html#id616775">2.1.1. ls:显示文件名</a></span></dt><dt><span class="sect2"><a href="ch02.html#id616786">2.1.2. cat:显示文本文件内容</a></span></dt><dt><span class="sect2"><a href="ch02.html#id616810">2.1.3. rm:删除文件</a></span></dt><dt><span class="sect2"><a href="ch02.html#id616821">2.1.4. linux系统时间和硬件时间</a></span></dt><dt><span class="sect2"><a href="ch02.html#id616864">2.1.5. linux计算器</a></span></dt><dt><span class="sect2"><a href="ch02.html#id616875">2.1.6.  调用linux手册</a></span></dt><dt><span class="sect2"><a href="ch02.html#id616885">2.1.7. Xshell上传和下载linux服务器的文件</a></span></dt><dt><span class="sect2"><a href="ch02.html#id616896">2.1.8. 防火墙</a></span></dt><dt><span class="sect2"><a href="ch02.html#id616908">2.1.9. jobs 查看当前有多少在后台运行的命令</a></span></dt><dt><span class="sect2"><a href="ch02.html#id616919">2.1.10. fg 将后台中的命令调至前台继续运行</a></span></dt><dt><span class="sect2"><a href="ch02.html#id616930">2.1.11. bg 将一个在后台暂停的命令，变成继续执行</a></span></dt><dt><span class="sect2"><a href="ch02.html#id616942">2.1.12. 开机自动启动</a></span></dt><dt><span class="sect2"><a href="ch02.html#id616954">2.1.13. ps</a></span></dt><dt><span class="sect2"><a href="ch02.html#id616966">2.1.14. netstat</a></span></dt><dt><span class="sect2"><a href="ch02.html#id616977">2.1.15. kill </a></span></dt><dt><span class="sect2"><a href="ch02.html#id617004">2.1.16. find 、 grep完美结合搜索</a></span></dt><dt><span class="sect2"><a href="ch02.html#id617015">2.1.17. 查看内存</a></span></dt><dt><span class="sect2"><a href="ch02.html#id617026">2.1.18. alias 别名</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02s02.html">2.2. 文件操作</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02s02.html#id617043">2.2.1. cp:复制文件</a></span></dt><dt><span class="sect2"><a href="ch02s02.html#id617053">2.2.2. mv:移动文件</a></span></dt><dt><span class="sect2"><a href="ch02s02.html#id617064">2.2.3. mkdir 递归创建目录</a></span></dt><dt><span class="sect2"><a href="ch02s02.html#id617075">2.2.4. lpr:打印文件</a></span></dt><dt><span class="sect2"><a href="ch02s02.html#id617080">2.2.5. grep:查找字符串</a></span></dt><dt><span class="sect2"><a href="ch02s02.html#id617086">2.2.6. head:显示文件头部</a></span></dt><dt><span class="sect2"><a href="ch02s02.html#id617097">2.2.7. tail:显示文件尾部</a></span></dt><dt><span class="sect2"><a href="ch02s02.html#id617107">2.2.8. sort:按顺序显示文件内容</a></span></dt><dt><span class="sect2"><a href="ch02s02.html#id617117">2.2.9. uniq:忽略文件中重复的行</a></span></dt><dt><span class="sect2"><a href="ch02s02.html#id617128">2.2.10. diff:比较两个文件</a></span></dt><dt><span class="sect2"><a href="ch02s02.html#id617142">2.2.11. file:识别文件内容</a></span></dt><dt><span class="sect2"><a href="ch02s02.html#id617152">2.2.12. 硬链接</a></span></dt><dt><span class="sect2"><a href="ch02s02.html#id617163">2.2.13. 软链接</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02s03.html">2.3. 修改和设置文件权限</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02s03.html#id617182">2.3.1. chgrp改变属主</a></span></dt><dt><span class="sect2"><a href="ch02s03.html#id617193">2.3.2. chmod</a></span></dt><dt><span class="sect2"><a href="ch02s03.html#id617203">2.3.3. chown</a></span></dt><dt><span class="sect2"><a href="ch02s03.html#id617214">2.3.4. getfacl</a></span></dt><dt><span class="sect2"><a href="ch02s03.html#id617225">2.3.5. setfacl</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02s04.html">2.4. linux service</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02s04.html#id617244">2.4.1. chkconfig --list 查看所有服务</a></span></dt><dt><span class="sect2"><a href="ch02s04.html#id617255">2.4.2. 修改 相关服务</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02s05.html">2.5. 管道（| ）</a></span></dt><dt><span class="sect1"><a href="ch02s06.html">2.6. 4个有用的实用程序</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02s06.html#id617281">2.6.1. </a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02s07.html">2.7. 压缩和归档文件</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02s07.html#id617291">2.7.1. tar 打包和解包文件</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02s08.html">2.8. 压缩无归档功能</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02s08.html#id617308">2.8.1. gzip</a></span></dt><dt><span class="sect2"><a href="ch02s08.html#id617314">2.8.2. bzip2 压缩文件</a></span></dt><dt><span class="sect2"><a href="ch02s08.html#id617325">2.8.3. bunzip2和bzcat 解压缩文件</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02s09.html">2.9. 用户和用户组</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02s09.html#id617341">2.9.1. 用户和用户组文件</a></span></dt><dt><span class="sect2"><a href="ch02s09.html#id617356">2.9.2. 使用管道来修改密码 passwd</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02s10.html">2.10. 表达式</a></span></dt><dt><span class="sect1"><a href="ch02s11.html">2.11. 命令汇总</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02s11.html#id617386">2.11.1. 如何获取ubuntu的root权限</a></span></dt><dt><span class="sect2"><a href="ch02s11.html#id617395">2.11.2. sort排序</a></span></dt><dt><span class="sect2"><a href="ch02s11.html#id617405">2.11.3. cut文本切割</a></span></dt><dt><span class="sect2"><a href="ch02s11.html#id617416">2.11.4. 查看linux发行版信息</a></span></dt><dt><span class="sect2"><a href="ch02s11.html#id617427">2.11.5. crontab</a></span></dt></dl></dd></dl></div>
+    <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id616770"></a>2.1. 基本工具</h2></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id616775"></a>2.1.1. ls:显示文件名</h3></div></div></div>
              <pre class="screen">
 ls -[参数] 文件/文件夹名
 -a 列出目录下的所有文件，包括以 . 开头的隐含文件。
@@ -42,7 +42,7 @@ ls -[参数] 文件/文件夹名
 --version 在标准输出上输出版本信息并退出。
              </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id634845"></a>2.1.2. cat:显示文本文件内容</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id616786"></a>2.1.2. cat:显示文本文件内容</h3></div></div></div>
         <p><b>显示全部文件. </b>
         cat filename
         </p>
@@ -53,7 +53,7 @@ ls -[参数] 文件/文件夹名
         cat file1 file2 &gt; file
         </p>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id634869"></a>2.1.3. rm:删除文件</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id616810"></a>2.1.3. rm:删除文件</h3></div></div></div>
             <pre class="screen">
 rm -[参数] 文件/文件夹
 rm -f  删除所有文件
@@ -61,7 +61,7 @@ rm -l  递归删除文件夹或文件内所有内容
 rm -i  提示确认是否删除，输入以y开头的任何字符，都将删除文件或文件夹
             </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id634880"></a>2.1.4. linux系统时间和硬件时间</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id616821"></a>2.1.4. linux系统时间和硬件时间</h3></div></div></div>
             <p>因为linux的系统时间原理和window并不是一样的，window的系统时间一定是与bios的时间一致，而linux
             的系统时间是在刚开机的时间读取硬件的时间，之后就独立开来，就这会导致系统时间和硬件时间不一致的情况。
             </p>
@@ -91,7 +91,7 @@ root@laob-VirtualBox:/home/laob# date "+%H:%H:%S"
             </pre><p>
             </p>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id634923"></a>2.1.5. linux计算器</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id616864"></a>2.1.5. linux计算器</h3></div></div></div>
             <pre class="screen">
 root@laob-VirtualBox:/home/laob# bc
 bc 1.06.95
@@ -102,14 +102,14 @@ For details type `warranty'.
 20
             </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id634934"></a>2.1.6.  调用linux手册</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id616875"></a>2.1.6.  调用linux手册</h3></div></div></div>
             <pre class="screen">
 man command 找出命令的位置
 whatis command 显示命令所在章节的具体地方
 
             </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id634944"></a>2.1.7. Xshell上传和下载linux服务器的文件</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id616885"></a>2.1.7. Xshell上传和下载linux服务器的文件</h3></div></div></div>
             <pre class="screen">
             ############centos安装命令
             [root@localhost laobi]# yum install lrzsz
@@ -118,7 +118,7 @@ whatis command 显示命令所在章节的具体地方
             [root@localhost laobi]# apt-get  install lrzsz
             </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id634955"></a>2.1.8. 防火墙</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id616896"></a>2.1.8. 防火墙</h3></div></div></div>
             
             <pre class="screen">
             查看防火墙  /etc/init.d/iptables status
@@ -135,20 +135,20 @@ whatis command 显示命令所在章节的具体地方
             禁止：DROP
             </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id634967"></a>2.1.9. jobs 查看当前有多少在后台运行的命令</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id616908"></a>2.1.9. jobs 查看当前有多少在后台运行的命令</h3></div></div></div>
             <pre class="screen">
 [root@localhost ~]# jobs
 [1]-  Stopped                 vim /laobi/a.txt
 [2]+  Stopped                 vim /laobi/b.txt
             </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id634978"></a>2.1.10. fg 将后台中的命令调至前台继续运行</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id616919"></a>2.1.10. fg 将后台中的命令调至前台继续运行</h3></div></div></div>
             <pre class="screen">
 #fg [编号]
 [root@localhost ~]# fg 1
             </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id634989"></a>2.1.11. bg 将一个在后台暂停的命令，变成继续执行</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id616930"></a>2.1.11. bg 将一个在后台暂停的命令，变成继续执行</h3></div></div></div>
         <pre class="screen">
 #bg [编号]
 
@@ -157,21 +157,21 @@ whatis command 显示命令所在章节的具体地方
  
         </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id635001"></a>2.1.12. 开机自动启动</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id616942"></a>2.1.12. 开机自动启动</h3></div></div></div>
             
             <pre class="screen">
             修改vim /etc/rc.d/rc.local
             
             </pre>
         </div>
-		<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id635013"></a>2.1.13. ps</h3></div></div></div>
+		<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id616954"></a>2.1.13. ps</h3></div></div></div>
 		<pre class="screen">
 ps aux | grep xxxx
 #查询 “xxx” 运行的进程
 		</pre>
 		</div>
         
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id635025"></a>2.1.14. netstat</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id616966"></a>2.1.14. netstat</h3></div></div></div>
         <pre class="screen">
 
 #查找 php-fpm 进程
@@ -190,22 +190,22 @@ unix  3      [ ]         STREAM     CONNECTED     32641  6178/php-fpm
         </pre>
         </div>
         
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id635036"></a>2.1.15. kill </h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id616977"></a>2.1.15. kill </h3></div></div></div>
         
-            <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="id635040"></a>2.1.15.1. 关闭指定进程id</h4></div></div></div>
+            <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="id616981"></a>2.1.15.1. 关闭指定进程id</h4></div></div></div>
                 <pre class="screen">
 kill -9 9000
                 </pre>
             </div>
             
-            <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="id635051"></a>2.1.15.2. 通过查找进程名称kill所有</h4></div></div></div>
+            <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="id616992"></a>2.1.15.2. 通过查找进程名称kill所有</h4></div></div></div>
               <pre class="screen">
 ps aux | grep "xxx.php" | cut -c 9-15 | xargs kill -9
               </pre>
             </div>
         </div>
         
-		<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id635063"></a>2.1.16. find 、 grep完美结合搜索</h3></div></div></div>
+		<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id617004"></a>2.1.16. find 、 grep完美结合搜索</h3></div></div></div>
 		<pre class="screen">
 find / -name 'x.log' | xargs grep xxx
 #查询 / 目录下的 x.log 文件，查找字符 xxx
@@ -218,11 +218,11 @@ grep -lr '字符' /
 
 		</pre>
 		</div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id635074"></a>2.1.17. 查看内存</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id617015"></a>2.1.17. 查看内存</h3></div></div></div>
         <pre class="screen">cat /proc/meminfo</pre>
         </div>
         
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id635085"></a>2.1.18. alias 别名</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id617026"></a>2.1.18. alias 别名</h3></div></div></div>
 <pre class="screen">
 #只能临时修改别名
 alias php='php -c /srv/php/etc/php.cli.ini'

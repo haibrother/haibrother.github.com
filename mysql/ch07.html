@@ -1,28 +1,12 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Chapter 7. mysql常用函数</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="MYSQL技术手册"><link rel="up" href="index.html" title="MYSQL技术手册"><link rel="prev" href="ch06s04.html" title="6.4. 删除触发器"><link rel="next" href="ch07s02.html" title="7.2. INET_ATON()和INET_NTOA() ip转换"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 7. mysql常用函数</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch06s04.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="ch07s02.html">Next</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="id647134"></a>Chapter 7. mysql常用函数</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="ch07.html#id647138">7.1. replace </a></span></dt><dt><span class="sect1"><a href="ch07s02.html">7.2. INET_ATON()和INET_NTOA() ip转换</a></span></dt><dt><span class="sect1"><a href="ch07s03.html">7.3. regexp 正则匹配</a></span></dt><dt><span class="sect1"><a href="ch07s04.html">7.4. union ,union all</a></span></dt><dt><span class="sect1"><a href="ch07s05.html">7.5. distinct</a></span></dt><dt><span class="sect1"><a href="ch07s06.html">7.6. group_concat</a></span></dt><dt><span class="sect1"><a href="ch07s07.html">7.7. AES_ENCRYPT 加密</a></span></dt><dt><span class="sect1"><a href="ch07s08.html">7.8. AES_DECRYPT 解密</a></span></dt><dt><span class="sect1"><a href="ch07s09.html">7.9. concat 连接参数产生的字符串。如有任何一个参数为NULL ，则返回值为 NULL</a></span></dt></dl></div>
-    <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id647138"></a>7.1. replace </h2></div></div></div>
-        <p>mysql中replace函数直接替换mysql数据库中某字段中的特定字符串，不再需要自己写函数去替换，用起来非常的方便。 mysql 替换函数replace()</p>
-		<pre class="screen">
-UPDATE `table_name` SET `field_name` = replace (`field_name`,'from_str','to_str') WHERE `field_name` LIKE '%from_str%' 
-#table_name —— 表的名字 
-#field_name —— 字段名 
-#from_str —— 需要替换的字符串 
-#to_str —— 替换成的字符串 
-		</pre>
-	</div>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Chapter 7. 事件</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="MYSQL技术手册"><link rel="up" href="index.html" title="MYSQL技术手册"><link rel="prev" href="ch06s04.html" title="6.4. 删除触发器"><link rel="next" href="ch07s02.html" title="7.2. 开启事件功能"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 7. 事件</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch06s04.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="ch07s02.html">Next</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="id596926"></a>Chapter 7. 事件</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="ch07.html#id596931">7.1. 查看事件是否开启</a></span></dt><dt><span class="sect1"><a href="ch07s02.html">7.2. 开启事件功能</a></span></dt><dt><span class="sect1"><a href="ch07s03.html">7.3. 创建事件</a></span></dt></dl></div>
+    <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id596931"></a>7.1. 查看事件是否开启</h2></div></div></div>
+        <pre class="screen">
 
-       
-	
-	
-	
-	
-	
-	
-	
-    
+SHOW VARIABLES LIKE 'event_scheduler';
 
+        </pre>
+    </div>
     
     
     
-    
-    
-</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch06s04.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="ch07s02.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">6.4. 删除触发器 </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 7.2. INET_ATON()和INET_NTOA() ip转换</td></tr></table></div></body></html>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch06s04.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="ch07s02.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">6.4. 删除触发器 </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 7.2. 开启事件功能</td></tr></table></div></body></html>

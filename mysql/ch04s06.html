@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>4.6. 外键 - foreige key</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="MYSQL技术手册"><link rel="up" href="ch04.html" title="Chapter 4. 创建、修改和删除表"><link rel="prev" href="ch04s05.html" title="4.5. 删除表"><link rel="next" href="ch05.html" title="Chapter 5. 数据库索引"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4.6. 外键 - foreige key</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch04s05.html">Prev</a> </td><th width="60%" align="center">Chapter 4. 创建、修改和删除表</th><td width="20%" align="right"> <a accesskey="n" href="ch05.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id646783"></a>4.6. 外键 - foreige key</h2></div></div></div>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>4.6. 外键 - foreige key</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="MYSQL技术手册"><link rel="up" href="ch04.html" title="Chapter 4. 创建、修改和删除表"><link rel="prev" href="ch04s05.html" title="4.5. 删除表"><link rel="next" href="ch05.html" title="Chapter 5. 数据库索引"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4.6. 外键 - foreige key</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch04s05.html">Prev</a> </td><th width="60%" align="center">Chapter 4. 创建、修改和删除表</th><td width="20%" align="right"> <a accesskey="n" href="ch05.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id596576"></a>4.6. 外键 - foreige key</h2></div></div></div>
         <p>
 外键的使用条件：
 1.两个表必须是InnoDB表，MyISAM表暂时不支持外键（据说以后的版本有可能支持，但至少目前不支持）；
@@ -7,7 +7,7 @@
 
 外键的好处：可以使得两张表关联，保证数据的一致性和实现一些级联操作；
         </p>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id646792"></a>4.6.1. 外键的语法</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id596584"></a>4.6.1. 外键的语法</h3></div></div></div>
           <pre class="screen">
 [CONSTRAINT symbol] FOREIGN KEY [id] (index_col_name, ...)
     REFERENCES tbl_name (index_col_name, ...)
@@ -23,8 +23,8 @@ NO ACTION（无动作，默认的）
           </pre>
       </div>
 
-      <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id646802"></a>4.6.2. 外键的应用</h3></div></div></div>
-       <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="id646807"></a>4.6.2.1. 建立外键</h4></div></div></div>
+      <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id596595"></a>4.6.2. 外键的应用</h3></div></div></div>
+       <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="id596600"></a>4.6.2.1. 建立外键</h4></div></div></div>
           <pre class="screen">
 
 //留言表

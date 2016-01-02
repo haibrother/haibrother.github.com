@@ -1,6 +1,6 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>4.2. 创建表</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="MYSQL技术手册"><link rel="up" href="ch04.html" title="Chapter 4. 创建、修改和删除表"><link rel="prev" href="ch04.html" title="Chapter 4. 创建、修改和删除表"><link rel="next" href="ch04s03.html" title="4.3. 查看表结构"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4.2. 创建表</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch04.html">Prev</a> </td><th width="60%" align="center">Chapter 4. 创建、修改和删除表</th><td width="20%" align="right"> <a accesskey="n" href="ch04s03.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id646409"></a>4.2. 创建表</h2></div></div></div>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>4.2. 创建表</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="MYSQL技术手册"><link rel="up" href="ch04.html" title="Chapter 4. 创建、修改和删除表"><link rel="prev" href="ch04.html" title="Chapter 4. 创建、修改和删除表"><link rel="next" href="ch04s03.html" title="4.3. 查看表结构"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4.2. 创建表</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch04.html">Prev</a> </td><th width="60%" align="center">Chapter 4. 创建、修改和删除表</th><td width="20%" align="right"> <a accesskey="n" href="ch04s03.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id588420"></a>4.2. 创建表</h2></div></div></div>
         <p>创建表是指在已在的数据库中建立新表。这是建立数据库最重要的一步，是进行其他表操作的基础。</p>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id646417"></a>4.2.1. 创建表的语法形式</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id588428"></a>4.2.1. 创建表的语法形式</h3></div></div></div>
             <p><b>MYSQL中，创建表是通过 SQL语句 CREATE TABLE实现的. </b>
             </p><pre class="screen">
 CREATE TABLE 表名(属性名 数据类型 [完整性约束条件],
@@ -9,15 +9,15 @@ CREATE TABLE 表名(属性名 数据类型 [完整性约束条件],
 属性名 数据类型
 );
             </pre><p>
-             </p><div class="table"><a name="id646433"></a><p class="title"><b>Table 4.1. MYSQL中基本的完整性约束条件</b></p><div class="table-contents">
+             </p><div class="table"><a name="id588444"></a><p class="title"><b>Table 4.1. MYSQL中基本的完整性约束条件</b></p><div class="table-contents">
                
                <table summary="MYSQL中基本的完整性约束条件" border="1"><colgroup><col><col></colgroup><thead><tr><th>约束条件</th><th>说明</th></tr></thead><tbody><tr><td>PRIMARY KEY</td><td>标识该属性为该表的主键，可以唯一的标识对应的元素</td></tr><tr><td>FOREIGN KEY</td><td>标识该属性为该表的外键，是与之联系的某主键</td></tr><tr><td>NOT NULL</td><td>标识该属性不能为空</td></tr><tr><td>AUTO_INCREMENT</td><td>标识该属性的值自动增加，审MYSQL的SQL语句的特色</td></tr><tr><td>DEFAULT</td><td>为该属性设置默认值</td></tr><tr><td>UNSIGNED</td><td>用此类型可以增加数据长度</td></tr></tbody></table>
             </div></div><p><br class="table-break">
             </p>
              
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id646531"></a>4.2.2. primary key</h3></div></div></div>
-           <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="id646536"></a>4.2.2.1. 新增主键</h4></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id596324"></a>4.2.2. primary key</h3></div></div></div>
+           <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="id596329"></a>4.2.2.1. 新增主键</h4></div></div></div>
             <p>主键是表的一个特殊字段。该字段能唯一标识该表中的每条信息。主键的记录的关系是，如同身份证与人的关系。</p>
             <p><b>单字段主键. </b>
                 </p><pre class="screen">
@@ -39,14 +39,14 @@ Query OK, 0 rows affected (0.05 sec)
             </p>
             </div>
             
-            <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="id646567"></a>4.2.2.2. 删除主键</h4></div></div></div>
+            <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="id596360"></a>4.2.2.2. 删除主键</h4></div></div></div>
             <pre class="screen">
 alter table bounty_old_members drop primary key;
             </pre>
             </div>
         </div>
         
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id646580"></a>4.2.3. 设置表的外键</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id596373"></a>4.2.3. 设置表的外键</h3></div></div></div>
         <pre class="screen">
 CONSTRAINT 外键别名 FOREIGN KEY(属性1,属性2...)
         REFERENCES 表名(属性1,属性2...)
@@ -54,7 +54,7 @@ CONSTRAINT 外键别名 FOREIGN KEY(属性1,属性2...)
 CREATE TABLE test4(id int primary key,s)
         </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id646591"></a>4.2.4. 设置表的非空约束</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id596384"></a>4.2.4. 设置表的非空约束</h3></div></div></div>
             <p>非空性是指字段的值不能为空值。非空约束将保证所有记录中该字段都有值。如果用户插入空值，则数据库会提示出错</p>
             <pre class="screen">
 属性名 数据类型 NOT NULL
@@ -63,17 +63,17 @@ mysql&gt; CREATE TABLE table8(id INT,
 -&gt; name VARCHAR(30) NOT NULL);
             </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id646606"></a>4.2.5. 设置表的属性自动增加</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id596398"></a>4.2.5. 设置表的属性自动增加</h3></div></div></div>
             <pre class="screen">
 # 直接增加：属性名 数据类型 AUTO_INCREMENT
 # 修改字段为自动增加类型  
 ALTER TABLE tab_name AUTO_INCREMENT=0;
             </pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id646616"></a>4.2.6. 设置表的属性的默认值</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id596409"></a>4.2.6. 设置表的属性的默认值</h3></div></div></div>
             <pre class="screen">属性名 数据类型 DEFAULT 默认值</pre>
         </div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id646627"></a>4.2.7. 完整的创建数据库语句-实践</h3></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id596420"></a>4.2.7. 完整的创建数据库语句-实践</h3></div></div></div>
             <pre class="screen">
 create table test4(id int primary key AUTO_INCREMENT,username char(30) not null,
 password varchar(32) not null) ENGINE=MyIsam CHARSET=UTF8;

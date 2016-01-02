@@ -1,5 +1,39 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>7.3. regexp 正则匹配</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="MYSQL技术手册"><link rel="up" href="ch07.html" title="Chapter 7. mysql常用函数"><link rel="prev" href="ch07s02.html" title="7.2. INET_ATON()和INET_NTOA() ip转换"><link rel="next" href="ch07s04.html" title="7.4. union ,union all"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.3. regexp 正则匹配</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch07s02.html">Prev</a> </td><th width="60%" align="center">Chapter 7. mysql常用函数</th><td width="20%" align="right"> <a accesskey="n" href="ch07s04.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id647170"></a>7.3. regexp 正则匹配</h2></div></div></div>
-		<pre class="screen">
-select `* from accounts where name regexp "^[^2]"
-		</pre>
-	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch07s02.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch07.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch07s04.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">7.2. INET_ATON()和INET_NTOA() ip转换 </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 7.4. union ,union all</td></tr></table></div></body></html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>7.3. 创建事件</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="MYSQL技术手册"><link rel="up" href="ch07.html" title="Chapter 7. 事件"><link rel="prev" href="ch07s02.html" title="7.2. 开启事件功能"><link rel="next" href="ch08.html" title="Chapter 8. mysql常用函数"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.3. 创建事件</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch07s02.html">Prev</a> </td><th width="60%" align="center">Chapter 7. 事件</th><td width="20%" align="right"> <a accesskey="n" href="ch08.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id596953"></a>7.3. 创建事件</h2></div></div></div> 
+        <pre class="screen">
+
+#每5分钟执行一次
+
+CREATE DEFINER=`root`@`%` EVENT `financial_supermarket`
+	ON SCHEDULE
+		EVERY 5 MINUTE STARTS '2016-04-05 11:04:40'
+	ON COMPLETION NOT PRESERVE
+	ENABLE
+	COMMENT ''
+	DO BEGIN
+   update  financial_supermarket set `status`='N' where  activity_end_time &lt; now();
+END
+
+
+#每天定时运行
+#指定时间往后一天 00：00：00 执行操作
+CREATE DEFINER=`root`@`localhost` EVENT `member_login_num` ON SCHEDULE  EVERY 1 DAY
+    STARTS (TIMESTAMP(CURRENT_DATE)+ interval 1 day)
+ ON COMPLETION 
+PRESERVE enable COMMENT '系统复零操作' DO BEGIN
+ 	update member_login_num set `number`=0 where number&gt;0;
+END
+
+
+#指定 2016-06-08 12:00:00 这个时间运行
+CREATE DEFINER=`root`@`localhost` EVENT `member_login_num`
+	ON SCHEDULE
+		EVERY 1 DAY STARTS '2016-06-08 12:00:00'
+	ON COMPLETION PRESERVE
+	ENABLE
+	COMMENT '系统复零操作'
+	DO BEGIN
+ 	update member_login_num set `number`=0 where number&gt;0;
+END
+
+        </pre>
+    </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch07s02.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch07.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch08.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">7.2. 开启事件功能 </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 8. mysql常用函数</td></tr></table></div></body></html>
