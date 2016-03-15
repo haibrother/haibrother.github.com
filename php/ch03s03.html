@@ -1,5 +1,5 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>3.3. php 文件操作</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="PHP技术手册"><link rel="up" href="ch03.html" title="Chapter 3. function"><link rel="prev" href="ch03s02.html" title="3.2. 查看和设置php.ini配置"><link rel="next" href="ch03s04.html" title="3.4. 时区-timezone"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.3. php 文件操作</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch03s02.html">Prev</a> </td><th width="60%" align="center">Chapter 3. function</th><td width="20%" align="right"> <a accesskey="n" href="ch03s04.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id638959"></a>3.3. php 文件操作</h2></div></div></div>
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id638964"></a>3.3.1. file_put_contents、file_get_contents</h3></div></div></div>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>3.3. php 文件操作</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="PHP技术手册"><link rel="up" href="ch03.html" title="Chapter 3. function"><link rel="prev" href="ch03s02.html" title="3.2. 查看和设置php.ini配置"><link rel="next" href="ch03s04.html" title="3.4. 时区-timezone"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.3. php 文件操作</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch03s02.html">Prev</a> </td><th width="60%" align="center">Chapter 3. function</th><td width="20%" align="right"> <a accesskey="n" href="ch03s04.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id639604"></a>3.3. php 文件操作</h2></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id639609"></a>3.3.1. file_put_contents、file_get_contents</h3></div></div></div>
          <pre class="screen">
 #写入文件
 #int file_put_contents  ( string $filename  , mixed  $data  [, int $flags  = 0  [, resource $context  ]] )
@@ -12,8 +12,8 @@ file_get_contents('data.txt');
          </pre>
         </div>
         
-        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id638975"></a>3.3.2. fopen 系列文件操作</h3></div></div></div>
-          <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="id638980"></a>3.3.2.1. 累加写入数据</h4></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id639620"></a>3.3.2. fopen 系列文件操作</h3></div></div></div>
+          <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="id639624"></a>3.3.2.1. 累加写入数据</h4></div></div></div>
             <pre class="screen">
 $fp  =  fopen ( 'data.txt' ,  'a+' );
 fwrite ( $fp ,  '1' );

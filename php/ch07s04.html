@@ -1,31 +1,73 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>7.4.�php &#29983;&#25104;&#21807;&#19968;&#35746;&#21333;&#30340;&#38382;&#39064;</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="PHP&#25216;&#26415;&#25163;&#20876;"><link rel="up" href="ch07.html" title="Chapter�7.�php &#23454;&#36341;&#26696;&#20363;"><link rel="prev" href="ch07s03.html" title="7.3.�php &#35299;&#20915;iframe &#36328;&#22495;&#23384;&#21462;COOKIE"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.4.�php &#29983;&#25104;&#21807;&#19968;&#35746;&#21333;&#30340;&#38382;&#39064;</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch07s03.html">Prev</a>�</td><th width="60%" align="center">Chapter�7.�php &#23454;&#36341;&#26696;&#20363;</th><td width="20%" align="right">�</td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id626678"></a>7.4.�php &#29983;&#25104;&#21807;&#19968;&#35746;&#21333;&#30340;&#38382;&#39064;</h2></div></div></div>
-		<pre class="screen">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>7.4. 自定义异常类</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="PHP技术手册"><link rel="up" href="ch07.html" title="Chapter 7. PHP高级编程"><link rel="prev" href="ch07s03.html" title="7.3. php 进程和多线程配合使用"><link rel="next" href="ch08.html" title="Chapter 8. php 实践案例"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.4. 自定义异常类</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch07s03.html">Prev</a> </td><th width="60%" align="center">Chapter 7. PHP高级编程</th><td width="20%" align="right"> <a accesskey="n" href="ch08.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id649491"></a>7.4. 自定义异常类</h2></div></div></div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id649496"></a>7.4.1. Exception的几个基本函数</h3></div></div></div>
+        <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>getCode() --返回给构造函数的方法，可以作为设定框架的错误编码来使用</p></li><li class="listitem"><p>getMessage() -- 返回给构造函数的消息，可以作为设定框架的错误信息来使用</p></li><li class="listitem"><p>getFile() -- 返回产生异常的代码文件</p></li><li class="listitem"><p>getLine() -- 返回产生异常代码的行号</p></li><li class="listitem"><p>getTrace() -- 返回一个包含了产生异常的代码回退路径的数组</p></li><li class="listitem"><p>getTraceAsString() -- 返回一个与getTrace()方向相同的信息，该信息会格式化为字符串</p></li><li class="listitem"><p>__toString() -- 允放简单的显示一个Exception的对象</p></li></ul></div>
+    </div>
+    
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id649540"></a>7.4.2. PHP原生的Exception</h3></div></div></div>
+        <pre class="screen">
+       
+Exception {
+/* 属性 */
+protected string $message ;
+protected int $code ;
+protected string $file ;
+protected int $line ;
+/* 方法 */
+public __construct ([ string $message = "" [, int $code = 0 [, Exception $previous = NULL ]]] )
+final public string getMessage ( void )
+final public Exception getPrevious ( void )
+final public int getCode ( void )
+final public string getFile ( void )
+final public int getLine ( void )
+final public array getTrace ( void )
+final public string getTraceAsString ( void )
+public string __toString ( void )
+final private void __clone ( void )
+}
 
-/**
-   *&#29983;&#25104;&#21807;&#19968;&#30340;&#35746;&#21333;&#21495; &#38656;&#21028;&#26029;&#24211;&#20013;&#26159;&#21542;&#23384;&#22312;&#37325;&#22797;
-   **/
-   function get_order($type=''){
-		global $db;
-		mt_srand((double) microtime() * 1000000);
-		$rand = date('YmdHis') . str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
-		$order = $type.$rand;
-		$sql = "SELECT id FROM accounts WHERE `order`='{$order}'";
-		$result = $db-&gt;fetch_first($sql);
-		if(!empty($result)){
-			return get_order($type);
-		}else{
-			return $order;
-		}				
-   }
-   
-   /**
-    *&#29983;&#25104;&#21807;&#19968;&#30340;&#35746;&#21333;&#21495;
-	**/
-	function get_order_sn(){
-		mt_srand((double) microtime() * 1000000);
-		return date('Ymdhis') . str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
-	}
+        </pre>
+    </div>
+    
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id649551"></a>7.4.3. 如何定义和使用异常类</h3></div></div></div>
+    
+    <p>创建一个 XabException 异常类</p>
+        <pre class="screen">
+       
+&lt;?php
+
+class XabException extends Exception
+{
+    
+}
+
+     </pre>
+     
+     <p>如何使用异常类</p>
+    <pre class="screen">
+  
+class XabSql extends XabException
+{
+    
+    function test()
+    {
+        throw new XabException('test error ,please check it!',20022);
+    }
+    
+}
 
 
-		</pre>
-	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch07s03.html">Prev</a>�</td><td width="20%" align="center"><a accesskey="u" href="ch07.html">Up</a></td><td width="40%" align="right">�</td></tr><tr><td width="40%" align="left" valign="top">7.3.�php &#35299;&#20915;iframe &#36328;&#22495;&#23384;&#21462;COOKIE�</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">�</td></tr></table></div></body></html>
+$XabSql = new XabSql();
+
+try{
+    $XabSql-&gt;test();
+}catch(XabException $e)
+{
+    var_dump($e-&gt;getMessage(),$e-&gt;getCode(),$e-&gt;getFile());
+}
+
+     </pre>
+  
+<p>从上面我们可以看出其实自定义一个自己的异常类是很简单，首先我们需要先创建一个空的异常类来继承原生类，然后 throw new XabException 第一个属性为getMessage,第二个属性为getCode</p>  
+    
+    </div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch07s03.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch07.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch08.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">7.3. php 进程和多线程配合使用 </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 8. php 实践案例</td></tr></table></div></body></html>

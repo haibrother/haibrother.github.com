@@ -1,0 +1,21 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>3.11. asort 对数组进行排序(升序，不会改变键)</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="PHP技术手册"><link rel="up" href="ch03.html" title="Chapter 3. function"><link rel="prev" href="ch03s10.html" title="3.10. rsort 对数组逆向排序(降序，会改变键)"><link rel="next" href="ch03s12.html" title="3.12. asort 对数组进行逆向排序(降序，不会改变键)"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.11. asort 对数组进行排序(升序，不会改变键)</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch03s10.html">Prev</a> </td><th width="60%" align="center">Chapter 3. function</th><td width="20%" align="right"> <a accesskey="n" href="ch03s12.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id649265"></a>3.11. asort 对数组进行排序(升序，不会改变键)</h2></div></div></div>
+    <pre class="screen">
+
+$fruits  = array( "d"  =&gt;  "lemon" ,  "a"  =&gt;  "orange" ,  "b"  =&gt;  "banana" ,  "c"  =&gt;  "apple" );
+ asort ( $fruits );
+
+
+ echo "&lt;pre&gt;";
+print_r($fruits);
+
+--- 输出
+Array
+(
+    [c] =&gt; apple
+    [b] =&gt; banana
+    [d] =&gt; lemon
+    [a] =&gt; orange
+)
+
+</pre>
+    </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch03s10.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch03.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch03s12.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">3.10. rsort 对数组逆向排序(降序，会改变键) </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 3.12. asort 对数组进行逆向排序(降序，不会改变键)</td></tr></table></div></body></html>
