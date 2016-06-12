@@ -1,0 +1,12 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>10.7. mysql 临时表的技巧使用</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="MYSQL技术手册"><link rel="up" href="ch10.html" title="Chapter 10. mysql 使用经验之谈"><link rel="prev" href="ch10s06.html" title="10.6. ifnull 和if"><link rel="next" href="ch10s08.html" title="10.8. mysql 最大连接数的限制"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">10.7. mysql 临时表的技巧使用</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch10s06.html">Prev</a> </td><th width="60%" align="center">Chapter 10. mysql 使用经验之谈</th><td width="20%" align="right"> <a accesskey="n" href="ch10s08.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id597210"></a>10.7. mysql 临时表的技巧使用</h2></div></div></div>
+<pre class="screen">
+
+select t.LOGIN,t.volume from (
+                select LOGIN,sum(VOLUME) as volume  from mt4.MT4_TRADES where SYMBOL='SILVER' AND CMD IN (0,1) group by LOGIN
+            ) as t,hx9999.trades_platform as p where p.login=t.LOGIN and p.ctime&lt;='2015-02-15 09:00:00'
+            
+# t ，是我们建立的一个临时表
+# 表t 是一个宠大的数据表，查出符合条件的部分数据与 p 表相关联，从而查符合两者的逻辑
+
+</pre>
+    </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch10s06.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch10.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch10s08.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">10.6. ifnull 和if  </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 10.8. mysql 最大连接数的限制</td></tr></table></div></body></html>

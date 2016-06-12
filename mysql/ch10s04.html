@@ -1,0 +1,28 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>10.4. 使用case when then end 重命名 字段中的值选项</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="MYSQL技术手册"><link rel="up" href="ch10.html" title="Chapter 10. mysql 使用经验之谈"><link rel="prev" href="ch10s03.html" title="10.3. update 批量更新数据需要建立临时表"><link rel="next" href="ch10s05.html" title="10.5. 使用case when then else end 批量更新数据"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">10.4. 使用case when then end 重命名 字段中的值选项</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch10s03.html">Prev</a> </td><th width="60%" align="center">Chapter 10. mysql 使用经验之谈</th><td width="20%" align="right"> <a accesskey="n" href="ch10s05.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id597175"></a>10.4. 使用case when then end 重命名 字段中的值选项</h2></div></div></div>
+<pre class="screen">
+
+
+mysql&gt; select id,username,status  from members where id in (78,82);
++----+-----------+---------+
+| id | username  | status  |
++----+-----------+---------+
+| 78 | 666650139 | Succeed |
+| 82 | 666115541 | Failed  |
++----+-----------+---------+
+2 rows in set (0.00 sec)
+
+#我们可以通过case when 来重命名该值
+
+mysql&gt; select id,username,`status`,case `status` when 'Succeed' then '成功' when 'Failed' then '失败' end as 中文状态  from members where id in (78,82);
++----+-----------+---------+--------------+
+| id | username  | status  | 中文状态     |
++----+-----------+---------+--------------+
+| 78 | 666650139 | Succeed | 成功         |
+| 82 | 666115541 | Failed  | 失败         |
++----+-----------+---------+--------------+
+2 rows in set (0.00 sec)
+ 
+
+</pre>
+        
+    </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch10s03.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch10.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch10s05.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">10.3. update 批量更新数据需要建立临时表 </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 10.5. 使用case when then else end 批量更新数据</td></tr></table></div></body></html>

@@ -1,0 +1,128 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>10.8. mysql 最大连接数的限制</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="MYSQL技术手册"><link rel="up" href="ch10.html" title="Chapter 10. mysql 使用经验之谈"><link rel="prev" href="ch10s07.html" title="10.7. mysql 临时表的技巧使用"><link rel="next" href="ch10s09.html" title="10.9. 触发删除动作 提示权限不足"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">10.8. mysql 最大连接数的限制</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch10s07.html">Prev</a> </td><th width="60%" align="center">Chapter 10. mysql 使用经验之谈</th><td width="20%" align="right"> <a accesskey="n" href="ch10s09.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id597220"></a>10.8. mysql 最大连接数的限制</h2></div></div></div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id597225"></a>10.8.1. 显示连接数</h3></div></div></div>
+<pre class="screen">
+
+命令： show processlist; 
+如果是root帐号，你能看到所有用户的当前连接。如果是其它普通帐号，只能看到自己占用的连接。 
+
+show processlist;只列出前100条，如果想全列出请使用 show full processlist; 
+
+</pre>
+        </div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id597236"></a>10.8.2. 单个用户的连接限制（max_user_connections）</h3></div></div></div>
+<pre class="screen">
+
+mysql&gt; select @@max_user_connections;
++------------------------+
+| @@max_user_connections |
++------------------------+
+|                      0 |
++------------------------+
+1 row in set (0.00 sec)
+默认情况系是为0的
+
+为0是什么意思呢？它是说不限制用户资源的。
+在这里我改变一下它的值，并在查询，注意这改变在服务器重启后无效，想一直保存的话就放在选项文件里面！
+mysql&gt; set  @@global.max_user_connections=1;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql&gt; select @@max_user_connections;
++------------------------+
+| @@max_user_connections |
++------------------------+
+|                      1 |
++------------------------+
+1 row in set (0.00 sec)
+
+现在我重新开启一个连接
+C:\Windows\System32&gt;mysql -uroot -pweb
+ERROR 1203 (42000): User root already has more than 'max_user_connections' activ
+e connections
+意思是这个用户已经达到最大的连接数，不能再连接拥有资源！
+该参数只能对整体限制资源，不能对某个用户进行限制，如果需要对某个用户限制的话，你可以在权限表里面看到
+        max_questions: 0
+          max_updates: 0
+      max_connections: 0
+ max_user_connections: 0
+这几个参数可以对某个用户进行限制。
+
+</pre>
+        
+        </div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id597247"></a>10.8.3. 整体最大连接的限制（max_connections）</h3></div></div></div>
+<pre class="screen">
+
+
+MySQL [(none)]&gt; select @@max_connections;
++-------------------+
+| @@max_connections |
++-------------------+
+|              4096 |
++-------------------+
+1 row in set (0.00 sec)
+
+set  @@global.max_connections=5000;
+
+修改后，无需重启mysql，会自动生效
+
+</pre>
+        </div>
+        
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id597258"></a>10.8.4. 连接过多，解锁 (flush hosts)</h3></div></div></div>
+<pre class="screen">
+
+#连接过多，解锁
+flush hosts;
+
+</pre>
+        </div>
+        
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id597268"></a>10.8.5. 查看当前连接状态</h3></div></div></div>
+<pre class="screen">
+
+MySQL [(none)]&gt; show status like "%connect%";
++-----------------------------------------------+-------+
+| Variable_name                                 | Value |
++-----------------------------------------------+-------+
+| Aborted_connects                              | 7     |
+| Connection_errors_accept                      | 0     |
+| Connection_errors_internal                    | 0     |
+| Connection_errors_max_connections             | 0     |
+| Connection_errors_peer_address                | 0     |
+| Connection_errors_select                      | 0     |
+| Connection_errors_tcpwrap                     | 0     |
+| Connections                                   | 89920 |
+| Max_used_connections                          | 38    |
+| Performance_schema_session_connect_attrs_lost | 0     |
+| Ssl_client_connects                           | 0     |
+| Ssl_connect_renegotiates                      | 0     |
+| Ssl_finished_connects                         | 0     |
+| Threads_connected                             | 36    |
++-----------------------------------------------+-------+
+14 rows in set (0.00 sec)
+
+</pre>
+        </div>
+        
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="id597279"></a>10.8.6. 查看当前连接的属性设置</h3></div></div></div>
+<pre class="screen">
+
+MySQL [(none)]&gt; show variables like "%connect%";
++-----------------------------------------------+----------------+
+| Variable_name                                 | Value          |
++-----------------------------------------------+----------------+
+| character_set_connection                      | gbk            |
+| collation_connection                          | gbk_chinese_ci |
+| connect_timeout                               | 10             |
+| disconnect_on_expired_password                | ON             |
+| init_connect                                  |                |
+| max_connect_errors                            | 100            |
+| max_connections                               | 4096           |
+| max_user_connections                          | 0              |
+| performance_schema_session_connect_attrs_size | 512            |
++-----------------------------------------------+----------------+
+9 rows in set (0.00 sec)
+
+</pre>
+        </div>
+    </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch10s07.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch10.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch10s09.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">10.7. mysql 临时表的技巧使用 </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 10.9. 触发删除动作 提示权限不足</td></tr></table></div></body></html>

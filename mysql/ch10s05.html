@@ -1,0 +1,23 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>10.5. 使用case when then else end 批量更新数据</title><link rel="stylesheet" type="text/css" href="/blog/common/common.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"><link rel="home" href="index.html" title="MYSQL技术手册"><link rel="up" href="ch10.html" title="Chapter 10. mysql 使用经验之谈"><link rel="prev" href="ch10s04.html" title="10.4. 使用case when then end 重命名 字段中的值选项"><link rel="next" href="ch10s06.html" title="10.6. ifnull 和if"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">10.5. 使用case when then else end 批量更新数据</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch10s04.html">Prev</a> </td><th width="60%" align="center">Chapter 10. mysql 使用经验之谈</th><td width="20%" align="right"> <a accesskey="n" href="ch10s06.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id597187"></a>10.5. 使用case when then else end 批量更新数据</h2></div></div></div>
+<pre class="screen">
+
+mysql&gt; select * from trades_platform where id in (1392,1385,1383);
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    17756
+Current database: hx9999
+
++------+------------+----------+-----------+----------+---------+----------------+---------------------+-------+
+| id   | members_id | platform | login     | password | status  | deposit_status | ctime               | mtime |
++------+------------+----------+-----------+----------+---------+----------------+---------------------+-------+
+| 1383 |      79599 | MT4      | 257000826 | a047047  | Enabled | N              | 2014-10-22 15:37:49 | NULL  |
+| 1385 |      79600 | MT4      | 257000827 | a037036  | Enabled | N              | 2014-10-22 16:03:46 | NULL  |
+| 1392 |      79603 | MTF      | 80003664  | Dlo0uyBE | Enabled | N              | 2014-10-24 13:53:54 | NULL  |
++------+------------+----------+-----------+----------+---------+----------------+---------------------+-------+
+3 rows in set (0.55 sec)
+
+update trades_platform set status=case when id=695 then 'Succeed' when id=697 then 'Succeed' when id=699 then 'Succeed' else 'Succeed' end;
+
+</pre>
+    
+    </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch10s04.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch10.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch10s06.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">10.4. 使用case when then end 重命名 字段中的值选项 </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 10.6. ifnull 和if </td></tr></table></div></body></html>
